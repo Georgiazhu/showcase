@@ -1,12 +1,28 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import ShowcaseNav from './components/ShowcaseNav.jsx'
 import ShowcaseHeader from './components/ShowcaseHeader.jsx'
 import ProductCard from './components/ProductCard.jsx'
 import GalleryModal from './components/GalleryModal.jsx'
-import data from './data/showcase.json'
+import { fetchShowcase } from './data/loadShowcase.js'
 
 export default function App() {
   const [gallery, setGallery] = useState({ images: [], index: null })
+  const [data, setData] = useState(null)
+  const [loadError, setLoadError] = useState(null)
+
+  useEffect(() => {
+    let alive = true
+    fetchShowcase()
+      .then((d) => {
+        if (alive) setData(d)
+      })
+      .catch((e) => {
+        if (alive) setLoadError(e?.message || '加载失败')
+      })
+    return () => {
+      alive = false
+    }
+  }, [])
 
   const openGallery = useCallback((images, index = 0) => {
     setGallery({ images: images || [], index })
@@ -20,8 +36,28 @@ export default function App() {
     setGallery((g) => ({ ...g, index }))
   }, [])
 
+  if (loadError) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-[#faf9f6] px-6 text-center">
+        <div>
+          <p className="text-sm uppercase tracking-[0.2em] text-stone-400">Showcase</p>
+          <h1 className="mt-3 text-2xl font-semibold text-stone-900">内容加载失败</h1>
+          <p className="mt-2 text-sm text-stone-500">{loadError}</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (!data) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-[#faf9f6]">
+        <p className="text-sm uppercase tracking-[0.2em] text-stone-400">Loading…</p>
+      </div>
+    )
+  }
+
   const { meta, categories } = data
-  const totalProducts = categories.reduce((n, c) => n + c.products.length, 0)
+  const totalProducts = categories.reduce((n, c) => n + (c.products?.length || 0), 0)
 
   return (
     <div className="min-h-screen bg-[#faf9f6]">
@@ -79,6 +115,9 @@ export default function App() {
               className="transition hover:text-stone-900"
             >
               Contact
+            </a>
+            <a href="/admin/showcase.html" className="transition hover:text-stone-900">
+              编辑
             </a>
           </div>
         </div>

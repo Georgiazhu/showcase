@@ -41,6 +41,12 @@ export default function ShowcaseNav({ categories = [] }) {
 
         <div className="flex items-center gap-4">
           <a
+            href="/admin/showcase.html"
+            className="hidden rounded-full border border-stone-300 px-4 py-2 text-sm font-medium text-stone-700 transition hover:border-stone-900 hover:text-stone-900 sm:block"
+          >
+            编辑
+          </a>
+          <a
             href="mailto:projects@cyndiglobal.com"
             className="hidden rounded-full bg-[#e07a3a] px-4 py-2 text-sm font-medium text-white transition hover:bg-[#b7410e] sm:block"
           >
