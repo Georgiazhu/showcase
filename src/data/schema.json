@@ -1,0 +1,42 @@
+{
+  "name": "Cyndi Global Showcase Data",
+  "description": "showcase.json 是本项目唯一的内容数据源。新增/编辑选品只需修改 src/data/showcase.json，并把图片放入 public/images/products/ 对应目录。",
+  "fields": {
+    "meta": {
+      "title": "页面顶部大标题",
+      "subtitle": "副标题",
+      "projectName": "项目名（介绍区标题）",
+      "date": "报价日期",
+      "recipients": "接收人列表 [{name, email}]",
+      "jobs": "关联订单/项目 [{label, value}]",
+      "disclaimer": "免责声明文案"
+    },
+    "categories": {
+      "id": "分类唯一标识（英文，用于锚点）",
+      "name": "分类名称（英文，不翻译）",
+      "products": "商品数组"
+    },
+    "product": {
+      "id": "商品唯一标识",
+      "sku": "款号 / 产品编号",
+      "name": "商品名称",
+      "description": "商品描述段落",
+      "features": "卖点列表（数组）",
+      "materials": "材质说明",
+      "image": "主图路径（public 下）",
+      "gallery": "图库路径数组，点击主图打开大图",
+      "colors": "颜色数组 [{name, hex, image}]，hex 为色板色值，image 为点击色板切换后的图",
+      "sizes": "尺寸数组",
+      "pricing": "阶梯价数组 [{quantity, price}]",
+      "priceIncludes": "价格包含的定制工艺",
+      "priceNotes": "价格备注（数组）",
+      "additionalCharges": "附加费 [{label, amount}]",
+      "currency": "货币符号，默认 $"
+    }
+  },
+  "notes": [
+    "图片路径以 / 开头，对应 public/ 目录，例如 public/images/products/totes/xxx.jpg → /images/products/totes/xxx.jpg",
+    "颜色色板超过 8 个时前端自动折叠，可用 show more 展开",
+    "价格区间按 quantity 升序填写，前端会显示为阶梯价表"
+  ]
+}
