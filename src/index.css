@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@theme {
+  /* Cyndi Global palette —— 与 cyndiglobal.com 保持一致 */
+  --color-deep-blue: #0f1f3a;
+  --color-navy: #162d50;
+  --color-ocean: #1e5a8a;
+  --color-water: #4a9fd4;
+  --color-sky: #8cc5e0;
+  --color-ice: #d0e8f5;
+  --color-foam: #eef6fb;
+  --color-seal-white: #f5f0eb;
+  --color-gold: #f5d76e;
+
+  --color-primary: #0f1f3a;
+  --color-accent: #e07a3a;
+  --color-accent-light: #f5a66e;
+  --color-light-gray: #eef6fb;
+  --color-border: #dbe7f0;
+
+  --font-sans: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --animate-fade-up: fade-up 0.5s ease-out both;
+  --animate-slide-in: slide-in 0.3s ease-out;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #faf9f6;
+  color: #1c1917;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Kotis 风格：分类标题下划线 */
+.quote-header-wrapper h2 {
+  border-bottom: 2px solid #000;
+  font-size: 23px;
+  font-weight: 700;
+  color: #000;
+  padding: 3px 0 2px;
+  margin-bottom: 1em;
+}
+
+/* 商品卡片 hover 时显形 */
+.start-project-link {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.quote-thumbnail-container:hover .start-project-link,
+.quote-thumbnail-container:focus-within .start-project-link {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (hover: none) {
+  .start-project-link {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* 长颜色列表折叠 */
+.color-swatch-show-more {
+  color: #b7410e;
+  cursor: pointer;
+  font-size: 12px;
+  user-select: none;
+}
+
+.color-swatch-show-more:hover {
+  text-decoration: underline;
+}
+
+/* 数量/价格表格 */
+.quantity-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.quantity-table td {
+  padding: 5px 0;
+  border-bottom: 1px solid #e7e5e4;
+}
+
+.quantity-table td:first-child {
+  color: #78716c;
+  width: 45%;
+}
+
+.quantity-table td:last-child {
+  text-align: right;
+  font-weight: 600;
+  color: #1c1917;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f2efe9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d6d3d1;
+  border-radius: 5px;
+  border: 2px solid #f2efe9;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a29e;
+}
