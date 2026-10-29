@@ -1,6 +1,6 @@
 # Showcase 部署说明
 
-本项目（`Georgiazhu/showcase`）是 Cyndi Global 选品展示站的**独立源码仓库**，
+本项目（`HRT/showcase`）是 Cyndi Global 选品展示站的**独立源码仓库**，
 线上地址为 <https://www.cyndiglobal.com/showcase/>。
 
 ---
@@ -8,7 +8,7 @@
 ## 架构关系
 
 ```
-Georgiazhu/showcase                    Georgiazhu/cyndi-global-website
+HRT/showcase                    HRT/cyndi-global-website
 （选品内容 + 前端源码，本仓库）   ───▶  （主站仓库，Cloudflare Pages 源仓库）
                                             │
                                             ├─ product-showcase/  商城/落地页
@@ -33,9 +33,9 @@ Georgiazhu/showcase                    Georgiazhu/cyndi-global-website
 
 ## 主站侧构建脚本
 
-主站仓库 `Georgiazhu/cyndi-global-website` 的 `scripts/build_showcase.mjs` 负责：
+主站仓库 `HRT/cyndi-global-website` 的 `scripts/build_showcase.mjs` 负责：
 
-1. `git clone --depth 1 --branch main https://github.com/Georgiazhu/showcase.git` 到临时目录
+1. `git clone --depth 1 --branch main https://github.com/HRT/showcase.git` 到临时目录
 2. `npm ci && npm run build`
 3. 将产物拷贝到 `product-showcase/dist/showcase/`
 4. 若拉取失败（网络等），**不阻断主站构建**，沿用上一版产物

@@ -25,7 +25,7 @@ jobs:
               return
             }
             await github.rest.repos.createDispatchEvent({
-              owner: 'Georgiazhu',
+              owner: 'HRT',
               repo: 'cyndi-global-website',
               event_type: 'showcase-updated',
               client: { ...github.getOctokit(token) },

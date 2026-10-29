@@ -138,5 +138,5 @@ public/images/products/canvas-totes/legacy-tote.jpg
 
 构建产物在 `dist/`，作为**静态资源**发布到 `www.cyndiglobal.com/showcase/`。
 
-主站仓库 `Georgiazhu/cyndi-global-website` 通过构建脚本拉取本仓库产物并合入主站 `dist/showcase/`。
+主站仓库 `HRT/cyndi-global-website` 通过构建脚本拉取本仓库产物并合入主站 `dist/showcase/`。
 详见主站仓库的 `SHOWCASE_DEPLOY.md`。
