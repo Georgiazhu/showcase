@@ -1,0 +1,35 @@
+name: Sync showcase to main site
+
+# 本仓库 main 分支更新后，触发主站仓库重建，使
+# https://www.cyndiglobal.com/showcase/ 同步更新。
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  trigger-main-build:
+    name: Trigger cyndi-global-website rebuild
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch repository_dispatch to main site
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const token = process.env.MAIN_SITE_TOKEN
+            if (!token) {
+              core.info('MAIN_SITE_TOKEN not configured — skipping dispatch.')
+              return
+            }
+            await github.rest.repos.createDispatchEvent({
+              owner: 'Georgiazhu',
+              repo: 'cyndi-global-website',
+              event_type: 'showcase-updated',
+              client: { ...github.getOctokit(token) },
+            })
+            core.info('Dispatched showcase-updated to cyndi-global-website.')
+        env:
+          MAIN_SITE_TOKEN: ${{ secrets.MAIN_SITE_TOKEN }}
