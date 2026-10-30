@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  // 部署在 https://www.cyndiglobal.com/showcase/ 路径下
+  // Deployed under https://www.cyndiglobal.com/showcase/
   base: '/showcase/',
   build: {
     outDir: 'dist',

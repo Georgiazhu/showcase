@@ -3,8 +3,8 @@ import { useState } from 'react'
 const VISIBLE_LIMIT = 8
 
 /**
- * 颜色色板 —— 对齐 Kotis 的 .quote-color-swatches 行为：
- * 点击色板切换主图；颜色超过 8 个时折叠，提供 "... show more / show less"。
+ * Colour swatches — mirrors Kotis .quote-color-swatches:
+ * Click a swatch to swap the main image; more than 8 colours collapse behind "... show more / show less".
  */
 export default function ColorSwatches({ colors = [], onSelect, activeColor }) {
   const [expanded, setExpanded] = useState(false)

@@ -1,6 +1,6 @@
 /**
- * Showcase 页头 —— 对齐 Kotis 的 .showcase-header-content + .showcase-introduction-content：
- * 大标题 SHOWCASE + 项目名 + 日期 + 收件人 + 关联订单 + 免责声明
+ * Showcase header — mirrors Kotis .showcase-header-content + .showcase-introduction-content:
+ * SHOWCASE title + project name + date + recipients + linked jobs + disclaimer
  */
 export default function ShowcaseHeader({ meta }) {
   return (

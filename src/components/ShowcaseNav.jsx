@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-/** Cyndi 品牌导航 —— 与 cyndiglobal.com 主站保持一致的视觉语言 */
+/** Cyndi brand navigation — visual language shared with the cyndiglobal.com site */
 export default function ShowcaseNav({ categories = [], user = null, onLogout }) {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
@@ -25,7 +25,7 @@ export default function ShowcaseNav({ categories = [], user = null, onLogout }) 
           <span className="text-lg font-bold tracking-tight text-stone-900">Cyndi</span>
         </a>
 
-        {/* 桌面端：分类锚点导航 —— 对应 Kotis 的分类分组浏览 */}
+        {/* Desktop: category anchor navigation — Kotis category browsing */}
         <ul className="hidden items-center gap-6 lg:flex">
           {categories.map((c) => (
             <li key={c.id}>
@@ -40,7 +40,7 @@ export default function ShowcaseNav({ categories = [], user = null, onLogout }) 
         </ul>
 
         <div className="flex items-center gap-4">
-          {/* 已登录用户 + 退出 */}
+          {/* Signed-in user + sign out */}
           {user && (
             <div className="flex items-center gap-2.5">
               <span className="hidden items-center gap-2 rounded-full border border-stone-300 py-1.5 pl-1.5 pr-3.5 text-[13px] font-medium text-stone-700 sm:flex">
@@ -54,7 +54,7 @@ export default function ShowcaseNav({ categories = [], user = null, onLogout }) 
                 onClick={onLogout}
                 className="rounded-full border border-stone-300 px-4 py-2 text-sm font-medium text-stone-700 transition hover:border-stone-900 hover:text-stone-900"
               >
-                退出
+                Sign out
               </button>
             </div>
           )}
@@ -62,7 +62,7 @@ export default function ShowcaseNav({ categories = [], user = null, onLogout }) 
             href="/admin/showcase.html"
             className="hidden rounded-full border border-stone-300 px-4 py-2 text-sm font-medium text-stone-700 transition hover:border-stone-900 hover:text-stone-900 sm:block"
           >
-            编辑
+            Edit
           </a>
           <a
             href="mailto:projects@cyndiglobal.com"

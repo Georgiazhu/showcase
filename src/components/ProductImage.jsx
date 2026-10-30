@@ -1,8 +1,8 @@
 import { useState } from 'react'
 
 /**
- * 商品图片 —— 图片缺失时显示占位提示，避免出现大片空白。
- * 选中颜色后按该颜色的图切换（对齐 Kotis 的 .clickable-color-swatch 行为）。
+ * Product image — shows a placeholder when missing so the card never renders blank.
+ * Swapping a colour swaps the image (mirrors Kotis .clickable-color-swatch).
  */
 export default function ProductImage({ src, alt, onClick }) {
   const [failed, setFailed] = useState(false)
@@ -25,7 +25,7 @@ export default function ProductImage({ src, alt, onClick }) {
         </svg>
         <span className="px-3 text-center text-[11px] leading-tight">
           Image pending
-          <span className="block text-[10px] text-stone-300">图片待上传</span>
+          <span className="block text-[10px] text-stone-300">Image pending</span>
         </span>
       </div>
     )

@@ -1,7 +1,7 @@
 name: Sync showcase to main site
 
-# 本仓库 main 分支更新后，触发主站仓库重建，使
-# https://www.cyndiglobal.com/showcase/ 同步更新。
+# When this repo's main branch changes, trigger a rebuild of the main site so that
+# https://www.cyndiglobal.com/showcase/ stays in sync.
 on:
   push:
     branches: [main]

@@ -1,10 +1,10 @@
 import localData from './showcase.json'
 
 /**
- * 数据源：读线上 API（后台可视化编辑的内容）。
+ * Data source: the live API (the content edited in the admin console).
  *
- * 注意：接口需要登录态，未登录会返回 401 —— 此时抛出 authRequired，
- * 由页面切换到登录界面，不再回退本地 JSON（否则会绕过登录看到内容）。
+ * Note: the endpoint requires a session and answers 401 when signed out — in that case we
+ * throw authRequired and the page switches to the sign-in form. No local JSON fallback
  */
 export async function fetchShowcase() {
   const res = await fetch('/api/showcase', {

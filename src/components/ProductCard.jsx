@@ -5,9 +5,9 @@ import ProductImage from './ProductImage.jsx'
 const cur = (c) => (c === 'CNY' ? '¥' : c === 'EUR' ? '€' : '$')
 
 /**
- * 商品卡片 —— 严格对齐 Kotis 的 .quote-detail-wrapper 结构：
- * 缩略图（hover 浮出 Start a Project）+ 名称 + 编号 + 描述 + 卖点
- * + Colors + Sizes + 阶梯价格表 + Price Includes + Additional Charges
+ * Product card — mirrors the Kotis .quote-detail-wrapper structure:
+ * Thumbnail (Start a Project reveals on hover) + name + sku + description + features
+ * + Colors + Sizes + tiered pricing table + Price Includes + Additional Charges
  */
 export default function ProductCard({ product, onOpenGallery }) {
   const [activeColor, setActiveColor] = useState(null)
@@ -23,7 +23,7 @@ export default function ProductCard({ product, onOpenGallery }) {
   return (
     <div className="quote-detail-wrapper mb-10">
       <div className="quote-detail-content h-full border border-stone-200 bg-white p-4 transition hover:border-stone-400">
-        {/* 缩略图 + hover 浮出的 Start a Project */}
+        {/* Thumbnail + Start a Project revealed on hover */}
         <div className="quote-thumbnail-container pb-2 text-center">
           <div className="detail-wrapper">
             <button
@@ -54,7 +54,7 @@ export default function ProductCard({ product, onOpenGallery }) {
           </div>
         </div>
 
-        {/* 详情 */}
+        {/* Details */}
         <div className="quote-details detail_view">
           <h5 className="quote-name-text mt-4 text-[15px] font-bold text-stone-900">{product.name}</h5>
           <p className="quote-id-text text-[10px] text-stone-400">{product.sku}</p>

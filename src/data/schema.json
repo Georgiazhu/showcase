@@ -1,42 +1,42 @@
 {
   "name": "Cyndi Global Showcase Data",
-  "description": "showcase.json 是本项目唯一的内容数据源。新增/编辑选品只需修改 src/data/showcase.json，并把图片放入 public/images/products/ 对应目录。",
+  "description": "showcase.json is the single content source for this project. To add or edit products, update src/data/showcase.json and drop the images into the matching folder under public/images/products/.",
   "fields": {
     "meta": {
-      "title": "页面顶部大标题",
-      "subtitle": "副标题",
-      "projectName": "项目名（介绍区标题）",
-      "date": "报价日期",
-      "recipients": "接收人列表 [{name, email}]",
-      "jobs": "关联订单/项目 [{label, value}]",
-      "disclaimer": "免责声明文案"
+      "title": "Page title shown at the top",
+      "subtitle": "Subtitle",
+      "projectName": "Project name (heading of the intro block)",
+      "date": "Quote date",
+      "recipients": "Recipients [{name, email}]",
+      "jobs": "Linked jobs [{label, value}]",
+      "disclaimer": "Disclaimer copy"
     },
     "categories": {
-      "id": "分类唯一标识（英文，用于锚点）",
-      "name": "分类名称（英文，不翻译）",
-      "products": "商品数组"
+      "id": "Unique category id (English, used as the URL anchor)",
+      "name": "Category name (English)",
+      "products": "Array of products"
     },
     "product": {
-      "id": "商品唯一标识",
-      "sku": "款号 / 产品编号",
-      "name": "商品名称",
-      "description": "商品描述段落",
-      "features": "卖点列表（数组）",
-      "materials": "材质说明",
-      "image": "主图路径（public 下）",
-      "gallery": "图库路径数组，点击主图打开大图",
-      "colors": "颜色数组 [{name, hex, image}]，hex 为色板色值，image 为点击色板切换后的图",
-      "sizes": "尺寸数组",
-      "pricing": "阶梯价数组 [{quantity, price}]",
-      "priceIncludes": "价格包含的定制工艺",
-      "priceNotes": "价格备注（数组）",
-      "additionalCharges": "附加费 [{label, amount}]",
-      "currency": "货币符号，默认 $"
+      "id": "Unique product id",
+      "sku": "SKU / item number",
+      "name": "Product name",
+      "description": "Product description",
+      "features": "Feature bullets (array)",
+      "materials": "Materials",
+      "image": "Main image URL",
+      "gallery": "Gallery image URLs (array) — clicking the main image opens the lightbox",
+      "colors": "Colours [{name, hex, image}] — more than 8 collapse behind \"... show more\"",
+      "sizes": "Sizes (array)",
+      "pricing": "Tiered pricing [{quantity, price}]",
+      "priceIncludes": "Decoration included in the price",
+      "priceNotes": "Price notes (array)",
+      "additionalCharges": "Additional charges [{label, amount}]",
+      "currency": "Currency symbol — $, ¥ or €"
     }
   },
   "notes": [
-    "图片路径以 / 开头，对应 public/ 目录，例如 public/images/products/totes/xxx.jpg → /images/products/totes/xxx.jpg",
-    "颜色色板超过 8 个时前端自动折叠，可用 show more 展开",
-    "价格区间按 quantity 升序填写，前端会显示为阶梯价表"
+    "Image paths start with / and map to the public/ folder, e.g. public/images/products/totes/x.jpg → /images/products/totes/x.jpg",
+    "Colour swatches beyond 8 are collapsed automatically and can be expanded with show more",
+    "Write prices in ascending quantity order — the front end renders them as a tier table"
   ]
 }

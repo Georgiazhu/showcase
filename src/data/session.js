@@ -1,12 +1,12 @@
 /**
- * Showcase 会话管理。
+ * Showcase session management.
  *
- * 会话由服务端用 HttpOnly cookie 管理，前端只负责：
- *  1. 启动时问一次是否已登录（GET /api/showcase/auth）
- *  2. 登录（POST /api/showcase/auth）
- *  3. 退出（DELETE /api/showcase/auth）
+ * The session lives in a server-side HttpOnly cookie. The client only:
+ *  1. asks once on startup whether it is signed in (GET /api/showcase/auth)
+ *  2. signs in (POST /api/showcase/auth)
+ *  3. signs out (DELETE /api/showcase/auth)
  *
- * cookie 是 HttpOnly，JS 读不到也改不了，只能通过接口操作。
+ * The cookie is HttpOnly, so JS cannot read or alter it — only these endpoints can.
  */
 
 export async function checkSession() {
@@ -31,7 +31,7 @@ export async function login(username, password) {
     body: JSON.stringify({ username, password }),
   })
   const data = await res.json().catch(() => ({}))
-  if (!res.ok) throw new Error(data.error || '登录失败')
+  if (!res.ok) throw new Error(data.error || 'Sign-in failed')
   return data
 }
 
@@ -42,6 +42,6 @@ export async function logout() {
       credentials: 'same-origin',
     })
   } catch {
-    /* 忽略退出失败，本地状态照样清 */
+    /* Ignore sign-out failures; local state is cleared regardless. */
   }
 }

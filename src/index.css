@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* Cyndi Global palette —— 与 cyndiglobal.com 保持一致 */
+  /* Cyndi Global palette — shared with cyndiglobal.com */
   --color-deep-blue: #0f1f3a;
   --color-navy: #162d50;
   --color-ocean: #1e5a8a;
@@ -57,7 +57,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Kotis 风格：分类标题下划线 */
+/* Kotis style: underline beneath category headings */
 .quote-header-wrapper h2 {
   border-bottom: 2px solid #000;
   font-size: 23px;
@@ -67,7 +67,7 @@ body {
   margin-bottom: 1em;
 }
 
-/* 商品卡片 hover 时显形 */
+/* Revealed when a product card is hovered */
 .start-project-link {
   opacity: 0;
   transform: translateY(6px);
@@ -87,7 +87,7 @@ body {
   }
 }
 
-/* 长颜色列表折叠 */
+/* Collapse long colour lists */
 .color-swatch-show-more {
   color: #b7410e;
   cursor: pointer;
@@ -99,7 +99,7 @@ body {
   text-decoration: underline;
 }
 
-/* 数量/价格表格 */
+/* Quantity / price table */
 .quantity-table {
   width: 100%;
   border-collapse: collapse;
@@ -122,7 +122,7 @@ body {
   color: #1c1917;
 }
 
-/* 自定义滚动条 */
+/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;

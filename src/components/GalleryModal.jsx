@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react'
 
 /**
- * 图片灯箱 —— 对齐 Kotis 的 QuoteModal 行为：
- * 点击主图打开大图，← → 切换，Esc 关闭，点击遮罩关闭。
+ * Image lightbox — mirrors Kotis QuoteModal:
+ * Click the main image to open; ← → to navigate, Esc to close, click outside to dismiss.
  */
 export default function GalleryModal({ images, index, onClose, onNavigate }) {
   const closeRef = useRef(null)

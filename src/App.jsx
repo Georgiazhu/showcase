@@ -26,11 +26,11 @@ export default function App() {
         setData(null)
         return
       }
-      setLoadError(e?.message || '加载失败')
+      setLoadError(e?.message || 'Failed to load content')
     }
   }, [])
 
-  // 启动时检查会话
+  // Check session on startup
   useEffect(() => {
     let alive = true
     checkSession().then(async (s) => {
@@ -76,7 +76,7 @@ export default function App() {
     setGallery((g) => ({ ...g, index }))
   }, [])
 
-  // 检查会话中
+  // Checking session
   if (authState === 'checking') {
     return (
       <div className="flex min-h-screen items-center justify-center bg-[#faf9f6]">
@@ -85,7 +85,7 @@ export default function App() {
     )
   }
 
-  // 未登录 —— 只显示登录页，不渲染任何展示内容
+  // Not signed in — show only the login form, no showcase content
   if (authState === 'anon') {
     return <ShowcaseLogin onSuccess={handleLogin} />
   }
@@ -95,13 +95,13 @@ export default function App() {
       <div className="flex min-h-screen items-center justify-center bg-[#faf9f6] px-6 text-center">
         <div>
           <p className="text-sm uppercase tracking-[0.2em] text-stone-400">Showcase</p>
-          <h1 className="mt-3 text-2xl font-semibold text-stone-900">内容加载失败</h1>
+          <h1 className="mt-3 text-2xl font-semibold text-stone-900">Failed to load</h1>
           <p className="mt-2 text-sm text-stone-500">{loadError}</p>
           <button
             onClick={loadContent}
             className="mt-5 rounded-full bg-stone-900 px-5 py-2 text-[13px] font-medium text-white transition hover:bg-stone-700"
           >
-            重试
+            Retry
           </button>
         </div>
       </div>
@@ -125,7 +125,7 @@ export default function App() {
 
       <ShowcaseHeader meta={meta} />
 
-      {/* 免责声明 —— Kotis 的 .showcase-disclaimer-section */}
+      {/* Disclaimer — Kotis .showcase-disclaimer-section */}
       <div className="showcase-disclaimer-section bg-white">
         <div className="mx-auto max-w-[1400px] px-5 py-5 lg:px-10">
           <p className="disclaimer text-[12px] leading-relaxed text-stone-500">
@@ -135,7 +135,7 @@ export default function App() {
         </div>
       </div>
 
-      {/* 商品区 —— Kotis 的 .showcase-products-wrapper */}
+      {/* Products — Kotis .showcase-products-wrapper */}
       <div className="showcase-products-wrapper mx-auto max-w-[1400px] px-5 pb-24 lg:px-10">
         {categories.map((category) => (
           <section key={category.id} id={category.id} className="scroll-mt-20 pt-12">
@@ -151,7 +151,7 @@ export default function App() {
         ))}
       </div>
 
-      {/* 页脚 */}
+      {/* Footer */}
       <footer className="border-t border-stone-200 bg-white">
         <div className="mx-auto flex max-w-[1400px] flex-col gap-3 px-5 py-10 text-sm text-stone-500 sm:flex-row sm:items-center sm:justify-between lg:px-10">
           <div className="flex items-center gap-3">
@@ -177,7 +177,7 @@ export default function App() {
               Contact
             </a>
             <a href="/admin/showcase.html" className="transition hover:text-stone-900">
-              编辑
+              Edit
             </a>
           </div>
         </div>

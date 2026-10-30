@@ -1,62 +1,70 @@
-# Showcase 部署说明
+# Showcase deployment notes
 
-本项目（`HRT/showcase`）是 Cyndi Global 选品展示站的**独立源码仓库**，
-线上地址为 <https://www.cyndiglobal.com/showcase/>。
-
----
-
-## 架构关系
-
-```
-HRT/showcase                    HRT/cyndi-global-website
-（选品内容 + 前端源码，本仓库）   ───▶  （主站仓库，Cloudflare Pages 源仓库）
-                                            │
-                                            ├─ product-showcase/  商城/落地页
-                                            └─ showcase/          ← 本项目构建产物
-```
-
-主站仓库的构建脚本会**拉取本仓库最新 `main` 分支 → 构建 → 拷贝到 `product-showcase/dist/showcase/`**，
-因此本仓库一推送，线上 `www.cyndiglobal.com/showcase/` 随之更新。
+This repo (`HRT/showcase`) is the **standalone source** for the Cyndi Global product showcase.
+Live URL: <https://www.cyndiglobal.com/showcase/>
 
 ---
 
-## 日常更新流程（用户侧）
+## Architecture
 
-1. 本地改 `src/data/showcase.json` 与 `public/images/products/` 下的图片
+```
+HRT/showcase                          HRT/cyndi-global-website
+(source + content for the showcase) ──▶  (main site — Cloudflare Pages source repo)
+                                             │
+                                             ├─ product-showcase/  landing page + shop
+                                             └─ showcase/          ← build output of this repo
+```
+
+The main site's build script pulls this repo, builds it and copies the result into
+`product-showcase/dist/showcase/`, so pushing here updates the live site on the next main-site build.
+
+---
+
+## Daily update flow
+
+1. Edit `src/data/showcase.json` and add images under `public/images/products/<category-id>/`
 2. `git push origin main`
-3. 等待 Cloudflare Pages 自动构建（约 1–3 分钟）
-4. 访问 <https://www.cyndiglobal.com/showcase/> 确认
+3. Wait for the main site to rebuild (1–3 minutes)
+4. Open <https://www.cyndiglobal.com/showcase/> and sign in to confirm
 
-> 若 Cloudflare 因缓存未更新，可在 Dashboard 手动点 **Deployments → Retry deployment**。
+> If the live site has not picked it up, trigger a rebuild from the Cloudflare dashboard:
+> Pages → `cyndiglobal` → Deployments → **Retry deployment**.
+
+Most day-to-day edits do not need a rebuild at all — the admin console
+(`/admin/showcase.html`) writes straight to D1 and takes effect immediately.
 
 ---
 
-## 主站侧构建脚本
+## Main-site build script
 
-主站仓库 `HRT/cyndi-global-website` 的 `scripts/build_showcase.mjs` 负责：
+`scripts/build_showcase.mjs` in the main site repository:
 
-1. `git clone --depth 1 --branch main https://github.com/HRT/showcase.git` 到临时目录
+1. Clones this repo into a temp directory
 2. `npm ci && npm run build`
-3. 将产物拷贝到 `product-showcase/dist/showcase/`
-4. 若拉取失败（网络等），**不阻断主站构建**，沿用上一版产物
+3. Copies the output into `product-showcase/dist/showcase/`
+4. If the clone fails (network, repo transfer pending), the main build still succeeds and keeps the
+   previous artefact
+
+The clone URL falls back across `HRT/showcase` → `Georgiazhu/showcase`, so a repository transfer
+never blocks the build.
 
 ---
 
-## 本地联调
+## Local development
 
 ```bash
-# 终端 1：主站
+# terminal 1 — main site
 cd cyndi-global-website/product-showcase && npm run dev
 
-# 终端 2：showcase（独立预览）
+# terminal 2 — showcase standalone
 cd showcase && npm run dev     # http://localhost:5174/showcase/
 ```
 
 ---
 
-## 注意事项
+## Notes
 
-- 本仓库 `vite.config.js` 中 `base: '/showcase/'` **不可改动**，否则线上静态资源路径会 404。
-- 商品图片建议用 `.webp` 或 `.jpg`，单张控制在 300KB 以内。
-- 若新增分类目录，记得在 `src/data/showcase.json` 的 `categories` 中同步添加，并在
-  `public/images/products/` 下建同名目录。
+- `base: '/showcase/'` in `vite.config.js` **must not change** — every asset path depends on it.
+- Product images: prefer `.webp` or `.jpg`, keep each under ~300KB.
+- When adding a category, add it to `categories` in `src/data/showcase.json` **and** create the
+  matching folder under `public/images/products/`.
