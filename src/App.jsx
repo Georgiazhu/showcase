@@ -1,27 +1,67 @@
 import { useCallback, useEffect, useState } from 'react'
 import ShowcaseNav from './components/ShowcaseNav.jsx'
 import ShowcaseHeader from './components/ShowcaseHeader.jsx'
+import ShowcaseLogin from './components/ShowcaseLogin.jsx'
 import ProductCard from './components/ProductCard.jsx'
 import GalleryModal from './components/GalleryModal.jsx'
 import { fetchShowcase } from './data/loadShowcase.js'
+import { checkSession, logout } from './data/session.js'
 
 export default function App() {
   const [gallery, setGallery] = useState({ images: [], index: null })
   const [data, setData] = useState(null)
   const [loadError, setLoadError] = useState(null)
+  // 'checking' | 'anon' | 'authed'
+  const [authState, setAuthState] = useState('checking')
+  const [user, setUser] = useState(null)
 
+  const loadContent = useCallback(async () => {
+    try {
+      const d = await fetchShowcase()
+      setData(d)
+      setLoadError(null)
+    } catch (e) {
+      if (e?.authRequired) {
+        setAuthState('anon')
+        setData(null)
+        return
+      }
+      setLoadError(e?.message || '加载失败')
+    }
+  }, [])
+
+  // 启动时检查会话
   useEffect(() => {
     let alive = true
-    fetchShowcase()
-      .then((d) => {
-        if (alive) setData(d)
-      })
-      .catch((e) => {
-        if (alive) setLoadError(e?.message || '加载失败')
-      })
+    checkSession().then(async (s) => {
+      if (!alive) return
+      if (s.authenticated) {
+        setUser(s.user)
+        setAuthState('authed')
+        await loadContent()
+      } else {
+        setAuthState('anon')
+      }
+    })
     return () => {
       alive = false
     }
+  }, [loadContent])
+
+  const handleLogin = useCallback(
+    async (user) => {
+      setUser(user || null)
+      setAuthState('authed')
+      await loadContent()
+    },
+    [loadContent],
+  )
+
+  const handleLogout = useCallback(async () => {
+    await logout()
+    setData(null)
+    setUser(null)
+    setAuthState('anon')
   }, [])
 
   const openGallery = useCallback((images, index = 0) => {
@@ -36,6 +76,20 @@ export default function App() {
     setGallery((g) => ({ ...g, index }))
   }, [])
 
+  // 检查会话中
+  if (authState === 'checking') {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-[#faf9f6]">
+        <p className="text-sm uppercase tracking-[0.2em] text-stone-400">Loading…</p>
+      </div>
+    )
+  }
+
+  // 未登录 —— 只显示登录页，不渲染任何展示内容
+  if (authState === 'anon') {
+    return <ShowcaseLogin onSuccess={handleLogin} />
+  }
+
   if (loadError) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-[#faf9f6] px-6 text-center">
@@ -43,6 +97,12 @@ export default function App() {
           <p className="text-sm uppercase tracking-[0.2em] text-stone-400">Showcase</p>
           <h1 className="mt-3 text-2xl font-semibold text-stone-900">内容加载失败</h1>
           <p className="mt-2 text-sm text-stone-500">{loadError}</p>
+          <button
+            onClick={loadContent}
+            className="mt-5 rounded-full bg-stone-900 px-5 py-2 text-[13px] font-medium text-white transition hover:bg-stone-700"
+          >
+            重试
+          </button>
         </div>
       </div>
     )
@@ -61,7 +121,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#faf9f6]">
-      <ShowcaseNav categories={categories} />
+      <ShowcaseNav categories={categories} user={user} onLogout={handleLogout} />
 
       <ShowcaseHeader meta={meta} />
 

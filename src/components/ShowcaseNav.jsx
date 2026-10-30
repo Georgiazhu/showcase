@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 /** Cyndi 品牌导航 —— 与 cyndiglobal.com 主站保持一致的视觉语言 */
-export default function ShowcaseNav({ categories = [] }) {
+export default function ShowcaseNav({ categories = [], user = null, onLogout }) {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
@@ -40,6 +40,24 @@ export default function ShowcaseNav({ categories = [] }) {
         </ul>
 
         <div className="flex items-center gap-4">
+          {/* 已登录用户 + 退出 */}
+          {user && (
+            <div className="flex items-center gap-2.5">
+              <span className="hidden items-center gap-2 rounded-full border border-stone-300 py-1.5 pl-1.5 pr-3.5 text-[13px] font-medium text-stone-700 sm:flex">
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-stone-900 text-[10px] font-bold text-white">
+                  {(user.displayName || user.username || '?').slice(0, 2).toUpperCase()}
+                </span>
+                {user.displayName || user.username}
+              </span>
+              <button
+                type="button"
+                onClick={onLogout}
+                className="rounded-full border border-stone-300 px-4 py-2 text-sm font-medium text-stone-700 transition hover:border-stone-900 hover:text-stone-900"
+              >
+                退出
+              </button>
+            </div>
+          )}
           <a
             href="/admin/showcase.html"
             className="hidden rounded-full border border-stone-300 px-4 py-2 text-sm font-medium text-stone-700 transition hover:border-stone-900 hover:text-stone-900 sm:block"
