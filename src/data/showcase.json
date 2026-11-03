@@ -29,7 +29,7 @@
       "products": [
         {
           "id": "cy-2027-t-shirt-03",
-          "sku": "2027-1-03",
+          "sku": "2027-03",
           "name": "Short-Sleeve T-Shirt",
           "description": "Heavyweight combed cotton short sleeve with a relaxed, everyday fit.",
           "features": [
@@ -75,17 +75,21 @@
               "image": "https://img.cyndiglobal.com/showcase/t-shirt/8fd85a6d-c31a-4b54-84cc-98e26ef88d82.jpg"
             }
           ],
-          "image": "https://img.cyndiglobal.com/showcase/t-shirt/8fd85a6d-c31a-4b54-84cc-98e26ef88d82.jpg",
           "gallery": [
             "https://img.cyndiglobal.com/showcase/t-shirt/8fd85a6d-c31a-4b54-84cc-98e26ef88d82.jpg",
             "https://img.cyndiglobal.com/showcase/t-shirt/fda0f20d-067b-48f5-a002-740a76e08183.jpg",
             "https://img.cyndiglobal.com/showcase/t-shirt/a90da709-344b-4b74-9e12-b37633bbcb5c.jpg",
-            "https://img.cyndiglobal.com/showcase/t-shirt/538a8b66-e53c-454a-889f-d44437f139f6.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/t-shirt/a036bd8c-0360-43f3-8810-ff6fe1ac362b.png",
+            "https://img.cyndiglobal.com/showcase/t-shirt/abd97e78-f149-437a-9e2c-a420d73fb1a5.png",
+            "https://img.cyndiglobal.com/showcase/t-shirt/38f8b73b-4713-4b4c-b2ad-f648fb6d1ca2.png",
+            "https://img.cyndiglobal.com/showcase/t-shirt/c73f9ef2-aec7-44a4-8d73-4543d25e57be.png",
+            "https://img.cyndiglobal.com/showcase/t-shirt/c1c66415-ade5-4582-a971-f6e875736ab3.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/t-shirt/8fd85a6d-c31a-4b54-84cc-98e26ef88d82.jpg"
         },
         {
           "id": "cy-2027-t-shirt-04",
-          "sku": "2027-2-04",
+          "sku": "2027-04",
           "name": "Long-Sleeve T-Shirt",
           "description": "Heavyweight Siro-spun cotton long sleeve, true to shoulder with ribbed cuffs.",
           "features": [
@@ -142,17 +146,17 @@
               "image": "https://img.cyndiglobal.com/showcase/t-shirt/778b4361-472e-4190-bebc-267e6e86dc1c.jpg"
             }
           ],
-          "image": "https://img.cyndiglobal.com/showcase/t-shirt/778b4361-472e-4190-bebc-267e6e86dc1c.jpg",
           "gallery": [
             "https://img.cyndiglobal.com/showcase/t-shirt/778b4361-472e-4190-bebc-267e6e86dc1c.jpg",
-            "https://img.cyndiglobal.com/showcase/t-shirt/63018076-3690-464e-90e4-dfd35392ff7e.jpg",
             "https://img.cyndiglobal.com/showcase/t-shirt/ebf7959b-a545-4ed1-ab56-c1802754e52d.jpg",
-            "https://img.cyndiglobal.com/showcase/t-shirt/ebe17260-d5ef-4b6e-9ce3-3c0b611a85b8.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/t-shirt/ebe17260-d5ef-4b6e-9ce3-3c0b611a85b8.jpg",
+            "https://img.cyndiglobal.com/showcase/t-shirt/63018076-3690-464e-90e4-dfd35392ff7e.jpg"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/t-shirt/778b4361-472e-4190-bebc-267e6e86dc1c.jpg"
         },
         {
           "id": "cy-2027-t-shirt-05",
-          "sku": "2027-2-05",
+          "sku": "2027-05",
           "name": "Long-Sleeve T-Shirt — Rudolf® Fabric, Quick Dry",
           "description": "Rudolf-treated quick-dry long sleeve with 7A antibacterial performance.",
           "features": [
@@ -182,17 +186,22 @@
           "additionalCharges": [],
           "currency": "$",
           "colors": [],
-          "image": "https://img.cyndiglobal.com/showcase/t-shirt/794d0478-dfb4-4c71-b9b7-7c08c97c34fb.jpg",
           "gallery": [
             "https://img.cyndiglobal.com/showcase/t-shirt/794d0478-dfb4-4c71-b9b7-7c08c97c34fb.jpg",
             "https://img.cyndiglobal.com/showcase/t-shirt/7978d5cc-c77d-4743-b5a6-428ddaec82a0.jpg",
-            "https://img.cyndiglobal.com/showcase/t-shirt/ad2c2657-2baf-43cd-b2d8-8622f7d52ec8.jpg",
-            "https://img.cyndiglobal.com/showcase/t-shirt/aea28d72-75b0-474b-ba3e-b3f8c389c244.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/t-shirt/df8ba8b1-d0f9-4cd4-9bee-a3226c492623.png",
+            "https://img.cyndiglobal.com/showcase/t-shirt/720d7666-3d15-41a2-a78c-a9467246c401.png",
+            "https://img.cyndiglobal.com/showcase/t-shirt/a1288e9d-627c-4c89-89fa-8c443e32651b.png",
+            "https://img.cyndiglobal.com/showcase/t-shirt/0130dd76-628f-4c5f-95e7-fb3022cb51b5.png",
+            "https://img.cyndiglobal.com/showcase/t-shirt/c28a599d-65ac-4cda-9465-34802484531c.png",
+            "https://img.cyndiglobal.com/showcase/t-shirt/0dd7faa7-11d7-4555-ba12-55174db4da7c.png",
+            "https://img.cyndiglobal.com/showcase/t-shirt/80b3d5c6-5ac3-4b62-af6b-41b47e0835f0.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/t-shirt/794d0478-dfb4-4c71-b9b7-7c08c97c34fb.jpg"
         },
         {
           "id": "cy-2027-t-shirt-06",
-          "sku": "2027-2-06",
+          "sku": "2027-06",
           "name": "Long-Sleeve T-Shirt — New Zealand Merino Wool",
           "description": "New Zealand Merino Wool long sleeve — naturally temperature regulating.",
           "features": [
@@ -223,17 +232,22 @@
           "additionalCharges": [],
           "currency": "$",
           "colors": [],
-          "image": "https://img.cyndiglobal.com/showcase/t-shirt/c1421439-f617-4229-bfc1-1bda75dd7ed0.jpg",
           "gallery": [
             "https://img.cyndiglobal.com/showcase/t-shirt/c1421439-f617-4229-bfc1-1bda75dd7ed0.jpg",
             "https://img.cyndiglobal.com/showcase/t-shirt/6cab81e4-e7ab-43c7-af69-edc1ef67d7ea.jpg",
             "https://img.cyndiglobal.com/showcase/t-shirt/d3c80ea4-077a-4c7e-8059-96a73815a35c.jpg",
-            "https://img.cyndiglobal.com/showcase/t-shirt/75706e72-18ba-4273-8f65-a14b0b428514.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/t-shirt/75706e72-18ba-4273-8f65-a14b0b428514.jpg",
+            "https://img.cyndiglobal.com/showcase/t-shirt/702e15f3-6b5c-4d98-bae9-e56e398192d4.png",
+            "https://img.cyndiglobal.com/showcase/t-shirt/393e3df2-ca9d-4f3c-8acf-6c90b02585ce.png",
+            "https://img.cyndiglobal.com/showcase/t-shirt/cbc3a05f-12a2-4e49-b260-c71d890aa90f.png",
+            "https://img.cyndiglobal.com/showcase/t-shirt/35b897f9-18ea-4e89-9da2-05bb6cc1db6f.png",
+            "https://img.cyndiglobal.com/showcase/t-shirt/e94d854a-3378-4c24-9c68-62f6024809e3.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/t-shirt/c1421439-f617-4229-bfc1-1bda75dd7ed0.jpg"
         },
         {
           "id": "cy-2027-t-shirt-07",
-          "sku": "2027-2-07",
+          "sku": "2027-07",
           "name": "Long-Sleeve T-Shirt — Fleece Thermal",
           "description": "Fleece thermal half zip in a fitted athletic cut with moisture wicking.",
           "features": [
@@ -295,13 +309,18 @@
               "image": "https://img.cyndiglobal.com/showcase/t-shirt/b2d64881-d8ba-4fba-8d85-41412650cdba.jpg"
             }
           ],
-          "image": "https://img.cyndiglobal.com/showcase/t-shirt/b2d64881-d8ba-4fba-8d85-41412650cdba.jpg",
           "gallery": [
             "https://img.cyndiglobal.com/showcase/t-shirt/b2d64881-d8ba-4fba-8d85-41412650cdba.jpg",
             "https://img.cyndiglobal.com/showcase/t-shirt/4995fb43-1ff0-4799-94b9-d60408f8b5bc.jpg",
             "https://img.cyndiglobal.com/showcase/t-shirt/8413c745-1708-46a5-a7b4-40ba462f38c9.jpg",
-            "https://img.cyndiglobal.com/showcase/t-shirt/1e970292-a31f-4d94-9647-09e433cfd103.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/t-shirt/1e970292-a31f-4d94-9647-09e433cfd103.jpg",
+            "https://img.cyndiglobal.com/showcase/t-shirt/f3ec2540-a224-4145-9d3f-93c71accd6bf.png",
+            "https://img.cyndiglobal.com/showcase/t-shirt/f1f4975e-56c2-4d43-a77e-15f4c55e89eb.png",
+            "https://img.cyndiglobal.com/showcase/t-shirt/664f92e0-8014-4d33-9f5b-8d1316f38e53.jpg",
+            "https://img.cyndiglobal.com/showcase/t-shirt/54dab389-c2b1-46b3-98d9-5be90ae906d7.png",
+            "https://img.cyndiglobal.com/showcase/t-shirt/4334faf5-9e7d-4612-abdb-c416eb46a891.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/t-shirt/b2d64881-d8ba-4fba-8d85-41412650cdba.jpg"
         }
       ]
     },
@@ -311,7 +330,7 @@
       "products": [
         {
           "id": "cy-2027-duffel-bag-08",
-          "sku": "2027-3-08",
+          "sku": "2027-08",
           "name": "Foldable Duffel Bag-Foldable Style 1",
           "description": "Three-in-one convertible duffel that folds down and carries three ways.",
           "features": [
@@ -342,17 +361,20 @@
           "additionalCharges": [],
           "currency": "$",
           "colors": [],
-          "image": "https://img.cyndiglobal.com/showcase/duffel-bag/5bc9476e-d431-409e-9604-d080ae07a8c4.jpg",
           "gallery": [
             "https://img.cyndiglobal.com/showcase/duffel-bag/5bc9476e-d431-409e-9604-d080ae07a8c4.jpg",
             "https://img.cyndiglobal.com/showcase/duffel-bag/41521c2a-0abd-429d-b423-93e155a9e0b4.jpg",
             "https://img.cyndiglobal.com/showcase/duffel-bag/80b40733-bbd2-42a0-8920-c5984e08b015.jpg",
-            "https://img.cyndiglobal.com/showcase/duffel-bag/4a14304c-3fff-426d-b909-f967eaea0663.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/duffel-bag/4a14304c-3fff-426d-b909-f967eaea0663.jpg",
+            "https://img.cyndiglobal.com/showcase/duffel-bag/b3e4ad1d-4742-4f02-94c8-421c13ab95fe.png",
+            "https://img.cyndiglobal.com/showcase/duffel-bag/9d660105-9183-4ed5-867e-964066f3b596.png",
+            "https://img.cyndiglobal.com/showcase/duffel-bag/708884a2-2851-4252-9444-914584b9215c.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/duffel-bag/5bc9476e-d431-409e-9604-d080ae07a8c4.jpg"
         },
         {
           "id": "cy-2027-duffel-bag-09",
-          "sku": "2027-3-09",
+          "sku": "2027-09",
           "name": "Foldable Duffel Bag-Foldable Style 2",
           "description": "Compact convertible duffel with soft handles and a water-resistant shell.",
           "features": [
@@ -383,17 +405,20 @@
           "additionalCharges": [],
           "currency": "$",
           "colors": [],
-          "image": "https://img.cyndiglobal.com/showcase/duffel-bag/84366392-87f0-4374-9053-121685b50a94.jpg",
           "gallery": [
-            "https://img.cyndiglobal.com/showcase/duffel-bag/84366392-87f0-4374-9053-121685b50a94.jpg",
             "https://img.cyndiglobal.com/showcase/duffel-bag/b95c7328-2e0f-4077-a62a-d6dc71be9ef5.jpg",
             "https://img.cyndiglobal.com/showcase/duffel-bag/5ef6b6f2-6733-443a-b485-e2e6f3eb45ac.jpg",
-            "https://img.cyndiglobal.com/showcase/duffel-bag/13793966-b047-4060-9a0c-073c13617daa.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/duffel-bag/13793966-b047-4060-9a0c-073c13617daa.jpg",
+            "https://img.cyndiglobal.com/showcase/duffel-bag/53f6a982-17ce-4c3a-aace-2c88aeb01d48.png",
+            "https://img.cyndiglobal.com/showcase/duffel-bag/ab74cd03-9de7-4216-b59e-8e118d3de96f.png",
+            "https://img.cyndiglobal.com/showcase/duffel-bag/d3f788e3-ad39-4c95-a508-244cfec94df3.png",
+            "https://img.cyndiglobal.com/showcase/duffel-bag/cd99a401-cb5b-44f7-9912-4596b345f5a1.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/duffel-bag/b95c7328-2e0f-4077-a62a-d6dc71be9ef5.jpg"
         },
         {
           "id": "cy-2027-duffel-bag-10",
-          "sku": "2027-3-10",
+          "sku": "2027-10",
           "name": "Foldable Duffel Bag-Foldable Style 3",
           "description": "Cellphone-sized foldable duffel with a 30 kg load capacity.",
           "features": [
@@ -432,17 +457,16 @@
           ],
           "currency": "$",
           "colors": [],
-          "image": "https://img.cyndiglobal.com/showcase/duffel-bag/7bc70c57-4689-487f-88c6-14ab5ad360ab.jpg",
           "gallery": [
-            "https://img.cyndiglobal.com/showcase/duffel-bag/7bc70c57-4689-487f-88c6-14ab5ad360ab.jpg",
             "https://img.cyndiglobal.com/showcase/duffel-bag/30f487c9-a9af-4299-803b-77a1a76d93e7.jpg",
             "https://img.cyndiglobal.com/showcase/duffel-bag/1f1e91cf-382b-4448-8561-d545f7cb3384.jpg",
             "https://img.cyndiglobal.com/showcase/duffel-bag/419041a0-ae4f-48ac-956d-b8b827493e3b.jpg"
-          ]
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/duffel-bag/30f487c9-a9af-4299-803b-77a1a76d93e7.jpg"
         },
         {
           "id": "cy-2027-duffel-bag-11",
-          "sku": "2027-3-11",
+          "sku": "2027-11",
           "name": "Foldable Duffel Bag-Foldable Style 4",
           "description": "Lightweight foldable duffel in three sizes, weighing only 140 g.",
           "features": [
@@ -481,13 +505,16 @@
           ],
           "currency": "$",
           "colors": [],
-          "image": "https://img.cyndiglobal.com/showcase/duffel-bag/1160a5af-65ae-4988-9ce1-8aa1a1846a0f.jpg",
           "gallery": [
-            "https://img.cyndiglobal.com/showcase/duffel-bag/1160a5af-65ae-4988-9ce1-8aa1a1846a0f.jpg",
             "https://img.cyndiglobal.com/showcase/duffel-bag/d9630637-9f0c-464d-9521-53b0ede1cd79.jpg",
+            "https://img.cyndiglobal.com/showcase/duffel-bag/1160a5af-65ae-4988-9ce1-8aa1a1846a0f.jpg",
             "https://img.cyndiglobal.com/showcase/duffel-bag/2905f5cf-bf76-4dcd-b514-18f28bfb5f72.jpg",
-            "https://img.cyndiglobal.com/showcase/duffel-bag/947e1d6f-605c-44c8-aa3e-44abb4da2141.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/duffel-bag/947e1d6f-605c-44c8-aa3e-44abb4da2141.jpg",
+            "https://img.cyndiglobal.com/showcase/duffel-bag/8cd8172c-01da-428c-bc58-4c815e7ea45e.png",
+            "https://img.cyndiglobal.com/showcase/duffel-bag/b2d30d5e-fcca-4b2f-a041-fbcdbb1b9bb3.png",
+            "https://img.cyndiglobal.com/showcase/duffel-bag/2c9c0d28-3b88-4885-93af-03d896dc33db.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/duffel-bag/d9630637-9f0c-464d-9521-53b0ede1cd79.jpg"
         }
       ]
     },
@@ -497,7 +524,7 @@
       "products": [
         {
           "id": "cy-2027-backpack-12",
-          "sku": "2027-4-12",
+          "sku": "2027-12",
           "name": "Mid-Tier Backpack-Hiking Backpack",
           "description": "Mid-tier hiking backpack with a professional load-bearing system.",
           "features": [
@@ -527,17 +554,21 @@
           "additionalCharges": [],
           "currency": "$",
           "colors": [],
-          "image": "https://img.cyndiglobal.com/showcase/backpack/a25e4413-ead5-4a93-b5fa-02e826756abe.jpg",
           "gallery": [
-            "https://img.cyndiglobal.com/showcase/backpack/a25e4413-ead5-4a93-b5fa-02e826756abe.jpg",
-            "https://img.cyndiglobal.com/showcase/backpack/efce25af-ccfe-46a8-8c0e-8f8913dc42c2.jpg",
-            "https://img.cyndiglobal.com/showcase/backpack/1e902b99-5721-48c5-9ddf-6f9af7f549b1.jpg",
-            "https://img.cyndiglobal.com/showcase/backpack/1dc532d5-1765-4930-83b5-6641358369d9.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/backpack/0de90ae2-2565-4522-ac91-816fb82b8230.png",
+            "https://img.cyndiglobal.com/showcase/backpack/1dc532d5-1765-4930-83b5-6641358369d9.jpg",
+            "https://img.cyndiglobal.com/showcase/backpack/13174af5-fb66-4115-8ee3-4918c7963b30.png",
+            "https://img.cyndiglobal.com/showcase/backpack/c59113a9-f920-48bb-8691-9702482cc5d9.png",
+            "https://img.cyndiglobal.com/showcase/backpack/8416639e-0376-42c7-95b1-9043f4fb0a9d.png",
+            "https://img.cyndiglobal.com/showcase/backpack/501d9a3b-62c9-44a4-914c-0aa60ff29f90.png",
+            "https://img.cyndiglobal.com/showcase/backpack/75d3b3bd-93a1-4ec9-9cac-56ca167f2bc8.png",
+            "https://img.cyndiglobal.com/showcase/backpack/4bad7676-6d9f-49b9-9357-483b9ee81ce7.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/backpack/0de90ae2-2565-4522-ac91-816fb82b8230.png"
         },
         {
           "id": "cy-2027-backpack-13",
-          "sku": "2027-4-13",
+          "sku": "2027-13",
           "name": "Mid-Tier Backpack — Business Backpack",
           "description": "Mid-tier business backpack with a laptop compartment and luggage sleeve.",
           "features": [
@@ -566,17 +597,21 @@
           "additionalCharges": [],
           "currency": "$",
           "colors": [],
-          "image": "https://img.cyndiglobal.com/showcase/backpack/ad3d59cf-af36-445f-83ef-05342d7852e6.jpg",
           "gallery": [
-            "https://img.cyndiglobal.com/showcase/backpack/ad3d59cf-af36-445f-83ef-05342d7852e6.jpg",
+            "https://img.cyndiglobal.com/showcase/backpack/63fdece0-18db-45aa-8f37-54d6821b5046.png",
             "https://img.cyndiglobal.com/showcase/backpack/74146965-b516-46d2-a868-d24e2405058c.jpg",
             "https://img.cyndiglobal.com/showcase/backpack/27b4350b-b457-4acd-8af4-0951214ed8cd.jpg",
-            "https://img.cyndiglobal.com/showcase/backpack/6c9e9b34-65e8-4afd-951e-86de3b6c09b0.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/backpack/6c9e9b34-65e8-4afd-951e-86de3b6c09b0.jpg",
+            "https://img.cyndiglobal.com/showcase/backpack/dc864a3f-0da8-41ac-a778-a9ad6a7cda28.png",
+            "https://img.cyndiglobal.com/showcase/backpack/889cd20b-a670-4019-9e57-f7ee21395538.png",
+            "https://img.cyndiglobal.com/showcase/backpack/29276589-bc4b-432a-af4a-63cbabde3f91.png",
+            "https://img.cyndiglobal.com/showcase/backpack/b757ab31-a10b-4029-8191-0ac80840fc3a.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/backpack/63fdece0-18db-45aa-8f37-54d6821b5046.png"
         },
         {
           "id": "cy-2027-backpack-14",
-          "sku": "2027-5-14",
+          "sku": "2027-14",
           "name": "Premium Backpack-bellroy — Capacity:18L",
           "description": "Premium 18L backpack in the Bellroy line.",
           "features": [
@@ -609,45 +644,51 @@
             {
               "name": "Black",
               "hex": "#111111",
-              "image": "https://img.cyndiglobal.com/showcase/backpack/60cc10b3-b115-4802-8b8b-4b36a945c535.jpg"
+              "image": "https://img.cyndiglobal.com/showcase/backpack/ba104b00-a3ac-40ec-9710-c8166bc8b678.jpg"
             },
             {
               "name": "Grey",
               "hex": "#8C8C8C",
-              "image": "https://img.cyndiglobal.com/showcase/backpack/60cc10b3-b115-4802-8b8b-4b36a945c535.jpg"
+              "image": "https://img.cyndiglobal.com/showcase/backpack/ba104b00-a3ac-40ec-9710-c8166bc8b678.jpg"
             },
             {
               "name": "Blue",
               "hex": "#3D6EA8",
-              "image": "https://img.cyndiglobal.com/showcase/backpack/60cc10b3-b115-4802-8b8b-4b36a945c535.jpg"
+              "image": "https://img.cyndiglobal.com/showcase/backpack/ba104b00-a3ac-40ec-9710-c8166bc8b678.jpg"
             },
             {
               "name": "Orange",
               "hex": "#E8702A",
-              "image": "https://img.cyndiglobal.com/showcase/backpack/60cc10b3-b115-4802-8b8b-4b36a945c535.jpg"
+              "image": "https://img.cyndiglobal.com/showcase/backpack/ba104b00-a3ac-40ec-9710-c8166bc8b678.jpg"
             },
             {
               "name": "Navy",
               "hex": "#1F2A44",
-              "image": "https://img.cyndiglobal.com/showcase/backpack/60cc10b3-b115-4802-8b8b-4b36a945c535.jpg"
+              "image": "https://img.cyndiglobal.com/showcase/backpack/ba104b00-a3ac-40ec-9710-c8166bc8b678.jpg"
             },
             {
               "name": "Green",
               "hex": "#4E7A45",
-              "image": "https://img.cyndiglobal.com/showcase/backpack/60cc10b3-b115-4802-8b8b-4b36a945c535.jpg"
+              "image": "https://img.cyndiglobal.com/showcase/backpack/ba104b00-a3ac-40ec-9710-c8166bc8b678.jpg"
             }
           ],
-          "image": "https://img.cyndiglobal.com/showcase/backpack/60cc10b3-b115-4802-8b8b-4b36a945c535.jpg",
           "gallery": [
-            "https://img.cyndiglobal.com/showcase/backpack/60cc10b3-b115-4802-8b8b-4b36a945c535.jpg",
             "https://img.cyndiglobal.com/showcase/backpack/ba104b00-a3ac-40ec-9710-c8166bc8b678.jpg",
             "https://img.cyndiglobal.com/showcase/backpack/f8f752fc-c650-4177-82c9-09cee8040da8.jpg",
-            "https://img.cyndiglobal.com/showcase/backpack/de49ea73-c00a-4ec1-9b9c-78db92578ffd.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/backpack/85b115d8-35cd-49a9-9904-aabf605b6e91.png",
+            "https://img.cyndiglobal.com/showcase/backpack/85a56ecb-0d0a-4e81-836e-68b5e4d1b3e5.png",
+            "https://img.cyndiglobal.com/showcase/backpack/c11a9261-0a33-4a81-b3d8-8f39496a2e75.png",
+            "https://img.cyndiglobal.com/showcase/backpack/5220bd76-cd45-4aea-b40e-02b8288cbe65.png",
+            "https://img.cyndiglobal.com/showcase/backpack/4c527664-6e17-4de1-a0d1-2bd77b673983.png",
+            "https://img.cyndiglobal.com/showcase/backpack/72d83837-f205-4f0b-8ce1-d4d779b51d29.png",
+            "https://img.cyndiglobal.com/showcase/backpack/6e71e47c-39b1-4149-96af-6cd431eaba6c.png",
+            "https://img.cyndiglobal.com/showcase/backpack/33650f20-f2dc-4586-bea9-78d30652cb7e.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/backpack/ba104b00-a3ac-40ec-9710-c8166bc8b678.jpg"
         },
         {
           "id": "cy-2027-backpack-15",
-          "sku": "2027-5-15",
+          "sku": "2027-15",
           "name": "Premium Backpack-bellroy — Capacity:20L",
           "description": "Premium 20L backpack in the Bellroy line.",
           "features": [
@@ -680,45 +721,51 @@
             {
               "name": "Black",
               "hex": "#111111",
-              "image": "https://img.cyndiglobal.com/showcase/backpack/9934010c-8ae6-4644-9702-badae118375c.jpg"
+              "image": "https://img.cyndiglobal.com/showcase/backpack/e60c96ec-7c3c-4608-80d3-06ade4d3562f.jpg"
             },
             {
               "name": "Grey",
               "hex": "#8C8C8C",
-              "image": "https://img.cyndiglobal.com/showcase/backpack/9934010c-8ae6-4644-9702-badae118375c.jpg"
+              "image": "https://img.cyndiglobal.com/showcase/backpack/e60c96ec-7c3c-4608-80d3-06ade4d3562f.jpg"
             },
             {
               "name": "Blue",
               "hex": "#3D6EA8",
-              "image": "https://img.cyndiglobal.com/showcase/backpack/9934010c-8ae6-4644-9702-badae118375c.jpg"
+              "image": "https://img.cyndiglobal.com/showcase/backpack/e60c96ec-7c3c-4608-80d3-06ade4d3562f.jpg"
             },
             {
               "name": "Orange",
               "hex": "#E8702A",
-              "image": "https://img.cyndiglobal.com/showcase/backpack/9934010c-8ae6-4644-9702-badae118375c.jpg"
+              "image": "https://img.cyndiglobal.com/showcase/backpack/e60c96ec-7c3c-4608-80d3-06ade4d3562f.jpg"
             },
             {
               "name": "Navy",
               "hex": "#1F2A44",
-              "image": "https://img.cyndiglobal.com/showcase/backpack/9934010c-8ae6-4644-9702-badae118375c.jpg"
+              "image": "https://img.cyndiglobal.com/showcase/backpack/e60c96ec-7c3c-4608-80d3-06ade4d3562f.jpg"
             },
             {
               "name": "Green",
               "hex": "#4E7A45",
-              "image": "https://img.cyndiglobal.com/showcase/backpack/9934010c-8ae6-4644-9702-badae118375c.jpg"
+              "image": "https://img.cyndiglobal.com/showcase/backpack/e60c96ec-7c3c-4608-80d3-06ade4d3562f.jpg"
             }
           ],
-          "image": "https://img.cyndiglobal.com/showcase/backpack/9934010c-8ae6-4644-9702-badae118375c.jpg",
           "gallery": [
-            "https://img.cyndiglobal.com/showcase/backpack/9934010c-8ae6-4644-9702-badae118375c.jpg",
             "https://img.cyndiglobal.com/showcase/backpack/e60c96ec-7c3c-4608-80d3-06ade4d3562f.jpg",
             "https://img.cyndiglobal.com/showcase/backpack/0f8f2183-ae72-4830-babd-74c211b0dc29.jpg",
-            "https://img.cyndiglobal.com/showcase/backpack/b05700f5-dcd6-499f-ab20-a7b191708efb.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/backpack/f6aae6cd-f004-458d-8f44-420de9c75d2f.png",
+            "https://img.cyndiglobal.com/showcase/backpack/14713d20-bfa8-4e3f-90f4-69c6e1b2b818.png",
+            "https://img.cyndiglobal.com/showcase/backpack/18825d91-99e4-4e9f-b60c-a99f383ceab2.png",
+            "https://img.cyndiglobal.com/showcase/backpack/ab69de83-be36-43f5-b779-186c9924632a.png",
+            "https://img.cyndiglobal.com/showcase/backpack/1eca4b4d-49ac-4523-b7e0-638c94942aa9.png",
+            "https://img.cyndiglobal.com/showcase/backpack/eb3f7170-2bf4-4547-8bd4-62ffb6fdc421.png",
+            "https://img.cyndiglobal.com/showcase/backpack/dab24750-0c88-4e48-b325-1333578c9fea.png",
+            "https://img.cyndiglobal.com/showcase/backpack/cf92b2da-42ff-4fef-b5f1-5584d6ea3eba.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/backpack/e60c96ec-7c3c-4608-80d3-06ade4d3562f.jpg"
         },
         {
           "id": "cy-2027-backpack-16",
-          "sku": "2027-5-16",
+          "sku": "2027-16",
           "name": "Premium Backpack-patagonia — Capacity:26L",
           "description": "Premium 26L backpack in the Patagonia line.",
           "features": [],
@@ -744,17 +791,27 @@
           "additionalCharges": [],
           "currency": "$",
           "colors": [],
-          "image": "https://img.cyndiglobal.com/showcase/backpack/1b0e3d94-c21c-4953-9730-c5964cb48c06.jpg",
           "gallery": [
             "https://img.cyndiglobal.com/showcase/backpack/1b0e3d94-c21c-4953-9730-c5964cb48c06.jpg",
             "https://img.cyndiglobal.com/showcase/backpack/18a58205-d3dd-4e15-a412-33764b388e92.jpg",
             "https://img.cyndiglobal.com/showcase/backpack/93489949-dc23-4615-9f71-33b0e6f16ea5.jpg",
-            "https://img.cyndiglobal.com/showcase/backpack/2b8c56c5-e2a4-47d9-91c4-eaa16de55eaa.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/backpack/2b8c56c5-e2a4-47d9-91c4-eaa16de55eaa.jpg",
+            "https://img.cyndiglobal.com/showcase/backpack/3aeb9b4e-dd64-4b31-ac6b-5b9c56887171.png",
+            "https://img.cyndiglobal.com/showcase/backpack/525dd3bc-fdc3-46c5-a17c-eee98b77a075.png",
+            "https://img.cyndiglobal.com/showcase/backpack/cf18d1bd-e425-4ca4-9a56-c71ad2239cc7.png",
+            "https://img.cyndiglobal.com/showcase/backpack/a6e3d2bb-6f4c-46ff-a141-fdb67e353ea9.png",
+            "https://img.cyndiglobal.com/showcase/backpack/7517d1bc-f9a1-4442-8be5-d74c3a7d34fa.png",
+            "https://img.cyndiglobal.com/showcase/backpack/08460a84-63d4-4784-a041-9d9569141f92.png",
+            "https://img.cyndiglobal.com/showcase/backpack/6069ff2c-d9c6-465f-9eb3-353265c2e83b.png",
+            "https://img.cyndiglobal.com/showcase/backpack/b5539c44-9000-45af-a2b0-17f150f9f5f7.png",
+            "https://img.cyndiglobal.com/showcase/backpack/969ba0c5-8d81-4826-ba69-0d00854d206d.png",
+            "https://img.cyndiglobal.com/showcase/backpack/b1739b32-66e8-4097-9aaf-ebb024405e75.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/backpack/1b0e3d94-c21c-4953-9730-c5964cb48c06.jpg"
         },
         {
           "id": "cy-2027-backpack-17",
-          "sku": "2027-5-17",
+          "sku": "2027-17",
           "name": "Premium Backpack-patagonia — Capacity:24L",
           "description": "Premium 24L backpack in the Patagonia line.",
           "features": [],
@@ -780,13 +837,23 @@
           "additionalCharges": [],
           "currency": "$",
           "colors": [],
-          "image": "https://img.cyndiglobal.com/showcase/backpack/eb2692af-3bf9-4646-a33e-4fb9499e5d2d.jpg",
           "gallery": [
             "https://img.cyndiglobal.com/showcase/backpack/eb2692af-3bf9-4646-a33e-4fb9499e5d2d.jpg",
             "https://img.cyndiglobal.com/showcase/backpack/fb9d7548-4399-4422-908e-015cc0e34547.jpg",
             "https://img.cyndiglobal.com/showcase/backpack/9830cdcc-2ff7-40da-b8ef-61a85f12894a.jpg",
-            "https://img.cyndiglobal.com/showcase/backpack/59d1f1fd-8231-4c60-9086-11079503ce19.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/backpack/59d1f1fd-8231-4c60-9086-11079503ce19.jpg",
+            "https://img.cyndiglobal.com/showcase/backpack/436aafde-4fc7-4019-9a91-7b1ee2f8cb46.png",
+            "https://img.cyndiglobal.com/showcase/backpack/226d0898-d3ec-4343-aaa3-6a8717912425.png",
+            "https://img.cyndiglobal.com/showcase/backpack/6d468d74-2093-4e1d-b068-7271d04abd8e.png",
+            "https://img.cyndiglobal.com/showcase/backpack/396f7ab0-b212-4e18-b5b8-8e42d6f2acb5.png",
+            "https://img.cyndiglobal.com/showcase/backpack/212cf540-9f5e-4fb7-bb89-9aca3503d15e.png",
+            "https://img.cyndiglobal.com/showcase/backpack/0b2278a9-b9ad-4c0f-a05a-02df8c8ee73a.png",
+            "https://img.cyndiglobal.com/showcase/backpack/f4cebd25-439f-42ac-a666-706eed82ba01.png",
+            "https://img.cyndiglobal.com/showcase/backpack/439777a6-7c0e-49b1-b5b6-e63411f2bb38.png",
+            "https://img.cyndiglobal.com/showcase/backpack/ab77fdd9-38e2-496e-a08d-9497ba779aad.png",
+            "https://img.cyndiglobal.com/showcase/backpack/65a313c4-dd83-4d56-ab7f-671a1f5e316b.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/backpack/eb2692af-3bf9-4646-a33e-4fb9499e5d2d.jpg"
         }
       ]
     },
@@ -796,7 +863,7 @@
       "products": [
         {
           "id": "cy-2027-sling-bag-18",
-          "sku": "2027-6-18",
+          "sku": "2027-18",
           "name": "Side / Sling Bag–U-shaped lightweight pull cord",
           "description": "U-shaped lightweight sling with a secure bottle strap.",
           "features": [
@@ -847,17 +914,23 @@
               "image": "https://img.cyndiglobal.com/showcase/sling-bag/00462966-ff8b-48e6-9625-440ef4026740.jpg"
             }
           ],
-          "image": "https://img.cyndiglobal.com/showcase/sling-bag/00462966-ff8b-48e6-9625-440ef4026740.jpg",
           "gallery": [
             "https://img.cyndiglobal.com/showcase/sling-bag/00462966-ff8b-48e6-9625-440ef4026740.jpg",
             "https://img.cyndiglobal.com/showcase/sling-bag/21a54a23-ef8b-49d7-b1ba-ecbdebb3679e.jpg",
             "https://img.cyndiglobal.com/showcase/sling-bag/9b604eef-7875-4ccc-b696-0a632afac6df.jpg",
-            "https://img.cyndiglobal.com/showcase/sling-bag/a29c4428-1605-44e0-a445-47b010b7cf40.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/sling-bag/a29c4428-1605-44e0-a445-47b010b7cf40.jpg",
+            "https://img.cyndiglobal.com/showcase/sling-bag/a206b490-ea9f-4268-b258-a92cf84207de.png",
+            "https://img.cyndiglobal.com/showcase/sling-bag/d9f2744c-a65f-47cd-a7b7-3625fa6711f9.png",
+            "https://img.cyndiglobal.com/showcase/sling-bag/a00fb43c-1421-4000-bdb9-7d21d1144a48.png",
+            "https://img.cyndiglobal.com/showcase/sling-bag/499b6857-de61-4533-ba3e-23845517f8d1.png",
+            "https://img.cyndiglobal.com/showcase/sling-bag/12695154-bd82-4f15-af5c-f738f5bde1e0.png",
+            "https://img.cyndiglobal.com/showcase/sling-bag/a620d9e4-67a1-48fb-958f-c29ad77580de.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/sling-bag/00462966-ff8b-48e6-9625-440ef4026740.jpg"
         },
         {
           "id": "cy-2027-sling-bag-19",
-          "sku": "2027-6-19",
+          "sku": "2027-19",
           "name": "Side / Sling Bag–Bellroy style 7L",
           "description": "7L sling with magnetic buckles and a fold-flat packable design.",
           "features": [
@@ -889,17 +962,21 @@
           "additionalCharges": [],
           "currency": "$",
           "colors": [],
-          "image": "https://img.cyndiglobal.com/showcase/sling-bag/b08e19d4-eabd-4e90-8f37-c10ef21378c3.jpg",
           "gallery": [
             "https://img.cyndiglobal.com/showcase/sling-bag/b08e19d4-eabd-4e90-8f37-c10ef21378c3.jpg",
-            "https://img.cyndiglobal.com/showcase/sling-bag/a487747c-d32f-4e0d-b116-a5b8197bd427.jpg",
-            "https://img.cyndiglobal.com/showcase/sling-bag/fe27aa3a-fc48-4797-8c40-373d1735b863.jpg",
-            "https://img.cyndiglobal.com/showcase/sling-bag/830625d6-e1e2-48ae-889f-4c75c28b6def.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/sling-bag/830625d6-e1e2-48ae-889f-4c75c28b6def.jpg",
+            "https://img.cyndiglobal.com/showcase/sling-bag/50978d0c-b26b-4266-af4c-0e8128f0f6e1.png",
+            "https://img.cyndiglobal.com/showcase/sling-bag/be453111-db89-4749-8226-62193a9282e4.png",
+            "https://img.cyndiglobal.com/showcase/sling-bag/8342aaff-ee0e-49b8-87e4-051708230526.png",
+            "https://img.cyndiglobal.com/showcase/sling-bag/597f63fd-c033-43da-b657-f817ae85ff5f.png",
+            "https://img.cyndiglobal.com/showcase/sling-bag/feb3dfa9-ec08-4266-a30b-b5616a5d33cb.png",
+            "https://img.cyndiglobal.com/showcase/sling-bag/37b9dd33-c91b-4ede-b8e1-ca86d2c72e76.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/sling-bag/b08e19d4-eabd-4e90-8f37-c10ef21378c3.jpg"
         },
         {
           "id": "cy-2027-sling-bag-20",
-          "sku": "2027-6-20",
+          "sku": "2027-20",
           "name": "Side / Sling Bag–Lightweight mesh waterproof nylon bag",
           "description": "Mesh waterproof nylon sling that carries four ways.",
           "features": [
@@ -931,17 +1008,17 @@
           "additionalCharges": [],
           "currency": "$",
           "colors": [],
-          "image": "https://img.cyndiglobal.com/showcase/sling-bag/38367638-e6e8-4061-96b0-254155bc721f.jpg",
           "gallery": [
-            "https://img.cyndiglobal.com/showcase/sling-bag/38367638-e6e8-4061-96b0-254155bc721f.jpg",
             "https://img.cyndiglobal.com/showcase/sling-bag/6203b28d-f43f-4c89-8274-8cbd4335ce7e.jpg",
             "https://img.cyndiglobal.com/showcase/sling-bag/407cc761-ce41-4590-82bc-ecae01757308.jpg",
-            "https://img.cyndiglobal.com/showcase/sling-bag/b606a31e-5147-4a94-ba5b-31fb09a9038d.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/sling-bag/b606a31e-5147-4a94-ba5b-31fb09a9038d.jpg",
+            "https://img.cyndiglobal.com/showcase/sling-bag/d3a418b4-e2ba-4918-bb42-b72ae5846ecb.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/sling-bag/6203b28d-f43f-4c89-8274-8cbd4335ce7e.jpg"
         },
         {
           "id": "cy-2027-sling-bag-21",
-          "sku": "2027-6-21",
+          "sku": "2027-21",
           "name": "Side / Sling Bag–Three Fjallraven sling bags",
           "description": "Three Fjallraven sling bags in three sizes.",
           "features": [
@@ -979,17 +1056,21 @@
           ],
           "currency": "$",
           "colors": [],
-          "image": "https://img.cyndiglobal.com/showcase/sling-bag/6a0e1f22-3ee2-4bfd-9e49-99cf82f0e764.jpg",
           "gallery": [
             "https://img.cyndiglobal.com/showcase/sling-bag/6a0e1f22-3ee2-4bfd-9e49-99cf82f0e764.jpg",
             "https://img.cyndiglobal.com/showcase/sling-bag/ee5af123-4c10-46e1-9963-be67bedae021.jpg",
-            "https://img.cyndiglobal.com/showcase/sling-bag/7a4297db-e256-4c16-bffc-540750a42268.jpg",
-            "https://img.cyndiglobal.com/showcase/sling-bag/4ec77789-7fda-419b-9168-eebcf52e9243.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/sling-bag/6332cdb9-df3c-4561-b83f-7c1653d11b65.png",
+            "https://img.cyndiglobal.com/showcase/sling-bag/aee1e351-2d6f-4fe4-89ee-a3817d3ac093.png",
+            "https://img.cyndiglobal.com/showcase/sling-bag/839e55fc-a80c-4916-b134-eeb194eacd2d.png",
+            "https://img.cyndiglobal.com/showcase/sling-bag/086a98e6-57b6-477d-92c7-7efd7c41b2f4.png",
+            "https://img.cyndiglobal.com/showcase/sling-bag/e52c3802-5d2b-42ac-aa07-5e86afdbebc4.png",
+            "https://img.cyndiglobal.com/showcase/sling-bag/aa8ad46e-319d-44ea-bb58-e2f95deecb20.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/sling-bag/6a0e1f22-3ee2-4bfd-9e49-99cf82f0e764.jpg"
         },
         {
           "id": "cy-2027-sling-bag-22",
-          "sku": "2027-6-22",
+          "sku": "2027-22",
           "name": "Side / Sling Bag–Outdoor colorful lightweight sling bag",
           "description": "Colourful outdoor sling in water-resistant Oxford.",
           "features": [
@@ -1021,13 +1102,16 @@
           "additionalCharges": [],
           "currency": "$",
           "colors": [],
-          "image": "https://img.cyndiglobal.com/showcase/sling-bag/73ea7c74-05cf-4c8d-b98f-de822646e97d.jpg",
           "gallery": [
             "https://img.cyndiglobal.com/showcase/sling-bag/73ea7c74-05cf-4c8d-b98f-de822646e97d.jpg",
             "https://img.cyndiglobal.com/showcase/sling-bag/abb9c384-025e-489c-b286-6613bf4d8f14.jpg",
             "https://img.cyndiglobal.com/showcase/sling-bag/90da2b8e-509c-41c5-836b-23388883800d.jpg",
-            "https://img.cyndiglobal.com/showcase/sling-bag/c1edc7d3-ae45-4465-aaa8-497f4a91eaff.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/sling-bag/c1edc7d3-ae45-4465-aaa8-497f4a91eaff.jpg",
+            "https://img.cyndiglobal.com/showcase/sling-bag/1139cbd6-d3b7-4be9-af43-714665d0ac98.png",
+            "https://img.cyndiglobal.com/showcase/sling-bag/e039998e-2ac9-4b4e-b0e5-9dbdeb70fa1a.png",
+            "https://img.cyndiglobal.com/showcase/sling-bag/21abf579-dd83-470e-9848-f15714841716.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/sling-bag/73ea7c74-05cf-4c8d-b98f-de822646e97d.jpg"
         }
       ]
     },
@@ -1037,7 +1121,7 @@
       "products": [
         {
           "id": "cy-2027-electronics-pouch-23",
-          "sku": "2027-7-23",
+          "sku": "2027-23",
           "name": "Electronics Pouch-style 1",
           "description": "Electronics pouch in 900D water-resistant fabric, 180 g.",
           "features": [
@@ -1069,17 +1153,18 @@
           "additionalCharges": [],
           "currency": "$",
           "colors": [],
-          "image": "https://img.cyndiglobal.com/showcase/electronics-pouch/e8263830-fe6c-4765-a4bf-b257a8bbea4a.jpg",
           "gallery": [
-            "https://img.cyndiglobal.com/showcase/electronics-pouch/e8263830-fe6c-4765-a4bf-b257a8bbea4a.jpg",
+            "https://img.cyndiglobal.com/showcase/electronics-pouch/00b8e71a-3102-48b2-923d-081c474dceba.jpg",
             "https://img.cyndiglobal.com/showcase/electronics-pouch/0093f7e4-0fab-49ed-a872-4ab6c0cdf5a7.jpg",
             "https://img.cyndiglobal.com/showcase/electronics-pouch/8db97a80-0a6d-4a73-bc5c-fc1e47fc1ea3.jpg",
-            "https://img.cyndiglobal.com/showcase/electronics-pouch/00b8e71a-3102-48b2-923d-081c474dceba.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/electronics-pouch/a64a6325-f5b2-4458-9c64-4e1a3e10e1a2.png",
+            "https://img.cyndiglobal.com/showcase/electronics-pouch/40d9b94b-857d-409f-a3d7-cfb6c3469431.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/electronics-pouch/00b8e71a-3102-48b2-923d-081c474dceba.jpg"
         },
         {
           "id": "cy-2027-electronics-pouch-24",
-          "sku": "2027-7-24",
+          "sku": "2027-24",
           "name": "Electronics Pouch-style 2",
           "description": "Roomy multi-compartment electronics pouch, 360 g.",
           "features": [
@@ -1110,17 +1195,20 @@
           "additionalCharges": [],
           "currency": "$",
           "colors": [],
-          "image": "https://img.cyndiglobal.com/showcase/electronics-pouch/fd0c9881-d1b0-4f27-a64e-6014bbb5d562.jpg",
           "gallery": [
+            "https://img.cyndiglobal.com/showcase/electronics-pouch/e259ebaf-1628-4bef-9f3e-e006e1738fca.jpg",
             "https://img.cyndiglobal.com/showcase/electronics-pouch/fd0c9881-d1b0-4f27-a64e-6014bbb5d562.jpg",
             "https://img.cyndiglobal.com/showcase/electronics-pouch/6b818779-996d-484a-9d05-90a8a6b9e42f.jpg",
-            "https://img.cyndiglobal.com/showcase/electronics-pouch/e259ebaf-1628-4bef-9f3e-e006e1738fca.jpg",
-            "https://img.cyndiglobal.com/showcase/electronics-pouch/a43c4880-9c88-462f-8db8-802be08afae6.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/electronics-pouch/a43c4880-9c88-462f-8db8-802be08afae6.jpg",
+            "https://img.cyndiglobal.com/showcase/electronics-pouch/c41adf04-e1ad-497f-ab28-bc4b890c0c42.png",
+            "https://img.cyndiglobal.com/showcase/electronics-pouch/1c8262d5-cc66-40b2-8189-9e37b7725179.png",
+            "https://img.cyndiglobal.com/showcase/electronics-pouch/444458b3-7e10-4399-b9d8-8b891e67217b.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/electronics-pouch/e259ebaf-1628-4bef-9f3e-e006e1738fca.jpg"
         },
         {
           "id": "cy-2027-electronics-pouch-25",
-          "sku": "2027-7-25",
+          "sku": "2027-25",
           "name": "Electronics Pouch-style 3",
           "description": "Ultralight multi-compartment electronics pouch, 125 g.",
           "features": [
@@ -1151,13 +1239,12 @@
           "additionalCharges": [],
           "currency": "$",
           "colors": [],
-          "image": "https://img.cyndiglobal.com/showcase/electronics-pouch/9d0bc4a9-ee0b-4274-adc2-888dd265a7e0.jpg",
           "gallery": [
-            "https://img.cyndiglobal.com/showcase/electronics-pouch/9d0bc4a9-ee0b-4274-adc2-888dd265a7e0.jpg",
             "https://img.cyndiglobal.com/showcase/electronics-pouch/bd92bc1a-9532-4afe-9106-876475884d98.jpg",
             "https://img.cyndiglobal.com/showcase/electronics-pouch/15e850bf-b82a-49db-a514-2817a8f0d725.jpg",
             "https://img.cyndiglobal.com/showcase/electronics-pouch/6a7099f8-8e1f-4aa4-aa14-7a61c53b09f4.jpg"
-          ]
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/electronics-pouch/bd92bc1a-9532-4afe-9106-876475884d98.jpg"
         }
       ]
     },
@@ -1167,7 +1254,7 @@
       "products": [
         {
           "id": "cy-2027-headwear-26",
-          "sku": "2027-8-26",
+          "sku": "2027-26",
           "name": "Cap-Quick-Dry Dark Mesh Pattern",
           "description": "Quick-dry mesh cap with 3D embroidery, 90 g.",
           "features": [
@@ -1204,17 +1291,17 @@
               "image": "https://img.cyndiglobal.com/showcase/headwear/3cee0a78-f42d-4299-b93b-1e8275a2d6c3.jpg"
             }
           ],
-          "image": "https://img.cyndiglobal.com/showcase/headwear/3cee0a78-f42d-4299-b93b-1e8275a2d6c3.jpg",
           "gallery": [
             "https://img.cyndiglobal.com/showcase/headwear/3cee0a78-f42d-4299-b93b-1e8275a2d6c3.jpg",
             "https://img.cyndiglobal.com/showcase/headwear/ac9e46e2-61fe-428d-9f67-4a9146dc3b60.jpg",
-            "https://img.cyndiglobal.com/showcase/headwear/df185b91-cb58-4be1-8afd-8066c12aa823.jpg",
-            "https://img.cyndiglobal.com/showcase/headwear/0f165add-10c9-4d32-b8f7-47b6711efa4b.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/headwear/0f165add-10c9-4d32-b8f7-47b6711efa4b.jpg",
+            "https://img.cyndiglobal.com/showcase/headwear/c968e5cc-115d-48a8-ac12-62fbaab673cd.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/headwear/3cee0a78-f42d-4299-b93b-1e8275a2d6c3.jpg"
         },
         {
           "id": "cy-2027-headwear-27",
-          "sku": "2027-8-27",
+          "sku": "2027-27",
           "name": "Cap-Quick-Dry Perforated",
           "description": "Quick-dry perforated cap with 3D embroidery, 90 g.",
           "features": [
@@ -1251,17 +1338,17 @@
               "image": "https://img.cyndiglobal.com/showcase/headwear/533c1045-e9d3-4c02-8a0a-b556418c9c80.jpg"
             }
           ],
-          "image": "https://img.cyndiglobal.com/showcase/headwear/533c1045-e9d3-4c02-8a0a-b556418c9c80.jpg",
           "gallery": [
             "https://img.cyndiglobal.com/showcase/headwear/533c1045-e9d3-4c02-8a0a-b556418c9c80.jpg",
             "https://img.cyndiglobal.com/showcase/headwear/ea496c14-1da9-4e90-a7a8-7e9fd7cb94fe.jpg",
-            "https://img.cyndiglobal.com/showcase/headwear/fba0dd40-2ac8-4641-84af-e704a6aefaf1.jpg",
-            "https://img.cyndiglobal.com/showcase/headwear/5cc2d14d-e8df-4abc-85fe-49f21eccfebf.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/headwear/5cc2d14d-e8df-4abc-85fe-49f21eccfebf.jpg",
+            "https://img.cyndiglobal.com/showcase/headwear/67496048-1bfd-4e85-8f50-4a4ff50ba5e3.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/headwear/533c1045-e9d3-4c02-8a0a-b556418c9c80.jpg"
         },
         {
           "id": "cy-2027-headwear-28",
-          "sku": "2027-9-28",
+          "sku": "2027-28",
           "name": "Beanie",
           "description": "Acrylic beanie with a 3D special embroidery technique.",
           "features": [
@@ -1297,13 +1384,13 @@
               "image": "https://img.cyndiglobal.com/showcase/headwear/4e68f4b5-71ec-4bc4-8b8f-1b688f5b9133.jpg"
             }
           ],
-          "image": "https://img.cyndiglobal.com/showcase/headwear/4e68f4b5-71ec-4bc4-8b8f-1b688f5b9133.jpg",
           "gallery": [
             "https://img.cyndiglobal.com/showcase/headwear/4e68f4b5-71ec-4bc4-8b8f-1b688f5b9133.jpg",
             "https://img.cyndiglobal.com/showcase/headwear/db6e6b3c-c7c1-41b8-a9be-beacfbd3f455.jpg",
-            "https://img.cyndiglobal.com/showcase/headwear/a0c5f297-f37d-4fed-acbf-51b4af1bace4.jpg",
-            "https://img.cyndiglobal.com/showcase/headwear/b9e72aee-57c2-4d2c-96b2-f00d9003f5cb.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/headwear/b9e72aee-57c2-4d2c-96b2-f00d9003f5cb.jpg",
+            "https://img.cyndiglobal.com/showcase/headwear/a0c5f297-f37d-4fed-acbf-51b4af1bace4.jpg"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/headwear/4e68f4b5-71ec-4bc4-8b8f-1b688f5b9133.jpg"
         }
       ]
     },
@@ -1313,7 +1400,7 @@
       "products": [
         {
           "id": "cy-2027-drinkware-29",
-          "sku": "2027-10-29",
+          "sku": "2027-29",
           "name": "Owala Bottle (535ml)",
           "description": "Owala-style 535 ml bottle in 316 stainless steel with a leakproof lid.",
           "features": [
@@ -1343,17 +1430,19 @@
           "additionalCharges": [],
           "currency": "$",
           "colors": [],
-          "image": "https://img.cyndiglobal.com/showcase/drinkware/4b68dca6-1a18-4715-9d6a-5211474cc1c6.jpg",
           "gallery": [
+            "https://img.cyndiglobal.com/showcase/drinkware/4ef076e4-6ad7-49e0-a22b-b131d2b815f2.png",
+            "https://img.cyndiglobal.com/showcase/drinkware/a0a71fc7-e00d-469a-b844-d5c95520d2f1.png",
             "https://img.cyndiglobal.com/showcase/drinkware/4b68dca6-1a18-4715-9d6a-5211474cc1c6.jpg",
             "https://img.cyndiglobal.com/showcase/drinkware/fb48bcd1-2891-427c-8a58-ab952a8b036c.jpg",
-            "https://img.cyndiglobal.com/showcase/drinkware/b55437c2-b0e1-46d4-a4cd-ae0cf44d14f3.jpg",
-            "https://img.cyndiglobal.com/showcase/drinkware/81c68aa2-d2bb-412f-bf16-239092ecb481.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/drinkware/f811b6c8-1fc3-4acb-8a6a-f6d686179666.png",
+            "https://img.cyndiglobal.com/showcase/drinkware/9e2103e6-43b7-4a89-9622-30cab6f9d58d.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/drinkware/4ef076e4-6ad7-49e0-a22b-b131d2b815f2.png"
         },
         {
           "id": "cy-2027-drinkware-30",
-          "sku": "2027-11-30",
+          "sku": "2027-30",
           "name": "Insulated Protein Shaker — 600 ml",
           "description": "Insulated 600 ml protein shaker in 304 stainless steel.",
           "features": [
@@ -1382,17 +1471,18 @@
           "additionalCharges": [],
           "currency": "$",
           "colors": [],
-          "image": "https://img.cyndiglobal.com/showcase/drinkware/2ec8988d-213b-4441-ab2e-2611a289d2ff.jpg",
           "gallery": [
-            "https://img.cyndiglobal.com/showcase/drinkware/2ec8988d-213b-4441-ab2e-2611a289d2ff.jpg",
             "https://img.cyndiglobal.com/showcase/drinkware/f2c572d7-385e-4a71-b523-2abafb622603.jpg",
             "https://img.cyndiglobal.com/showcase/drinkware/b7908f95-27e5-4f59-9101-672522878fc9.jpg",
-            "https://img.cyndiglobal.com/showcase/drinkware/b46a6658-4f00-445a-835f-403f83df5f8c.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/drinkware/b46a6658-4f00-445a-835f-403f83df5f8c.jpg",
+            "https://img.cyndiglobal.com/showcase/drinkware/eaec9254-23ac-446a-9fea-bf0ab0db0b00.png",
+            "https://img.cyndiglobal.com/showcase/drinkware/dcddcf97-32d8-4eb4-93a1-b6010f01f578.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/drinkware/f2c572d7-385e-4a71-b523-2abafb622603.jpg"
         },
         {
           "id": "cy-2027-drinkware-31",
-          "sku": "2027-11-31",
+          "sku": "2027-31",
           "name": "Insulated Protein Shaker-Stanley",
           "description": "Stanley-style 591 ml protein shaker in 304 stainless steel.",
           "features": [
@@ -1421,17 +1511,17 @@
           "additionalCharges": [],
           "currency": "$",
           "colors": [],
-          "image": "https://img.cyndiglobal.com/showcase/drinkware/76d57aec-16db-4ee4-984f-7c62af06f1e0.jpg",
           "gallery": [
             "https://img.cyndiglobal.com/showcase/drinkware/76d57aec-16db-4ee4-984f-7c62af06f1e0.jpg",
             "https://img.cyndiglobal.com/showcase/drinkware/7a8e9ad3-7bbc-4087-87a7-14d9e70da142.jpg",
-            "https://img.cyndiglobal.com/showcase/drinkware/2bd25e8b-ba09-4d81-9fea-a667ece519e1.jpg",
+            "https://img.cyndiglobal.com/showcase/drinkware/1d527bc2-b56e-4d21-b5e9-ed878d81acbb.png",
             "https://img.cyndiglobal.com/showcase/drinkware/a30581af-aafc-4a65-acd0-2add504aa296.jpg"
-          ]
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/drinkware/76d57aec-16db-4ee4-984f-7c62af06f1e0.jpg"
         },
         {
           "id": "cy-2027-drinkware-32",
-          "sku": "2027-12-32",
+          "sku": "2027-32",
           "name": "Compact Coffee Bottle",
           "description": "Compact 280 ml coffee bottle in 316 stainless steel, 200 g.",
           "features": [
@@ -1461,13 +1551,17 @@
           "additionalCharges": [],
           "currency": "$",
           "colors": [],
-          "image": "https://img.cyndiglobal.com/showcase/drinkware/2116f117-2f76-4f94-a220-18a0ae4ab382.jpg",
           "gallery": [
             "https://img.cyndiglobal.com/showcase/drinkware/2116f117-2f76-4f94-a220-18a0ae4ab382.jpg",
-            "https://img.cyndiglobal.com/showcase/drinkware/65235fed-971d-4b51-9c69-76408320cd05.jpg",
+            "https://img.cyndiglobal.com/showcase/drinkware/28238f87-6f41-4272-877c-48e450a90614.png",
             "https://img.cyndiglobal.com/showcase/drinkware/33a7ffa5-b0e6-4bde-8719-d9d55cae90ae.jpg",
-            "https://img.cyndiglobal.com/showcase/drinkware/28cf8203-75d4-4534-8b6f-5fdb51d403e6.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/drinkware/28cf8203-75d4-4534-8b6f-5fdb51d403e6.jpg",
+            "https://img.cyndiglobal.com/showcase/drinkware/01aa9c1d-7611-4cb7-aaf9-90b16b1495af.png",
+            "https://img.cyndiglobal.com/showcase/drinkware/7df4568e-502f-4a7e-ab5d-22785af5c93c.png",
+            "https://img.cyndiglobal.com/showcase/drinkware/ed258580-324d-480a-891f-fb495bb56d32.png",
+            "https://img.cyndiglobal.com/showcase/drinkware/3e982da0-89ef-4eeb-907f-a3e335441f2c.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/drinkware/2116f117-2f76-4f94-a220-18a0ae4ab382.jpg"
         }
       ]
     },
@@ -1477,7 +1571,7 @@
       "products": [
         {
           "id": "cy-2027-keyboard-fidget-33",
-          "sku": "2027-13-33",
+          "sku": "2027-33",
           "name": "Keyboard Fidget (4-key WASD)",
           "description": "4-key WASD fidget with a custom clear mould and 3D printed keycaps.",
           "features": [
@@ -1508,13 +1602,17 @@
           "additionalCharges": [],
           "currency": "$",
           "colors": [],
-          "image": "https://img.cyndiglobal.com/showcase/keyboard-fidget/1442d73d-4cba-4764-a708-3801779fd26f.jpg",
           "gallery": [
             "https://img.cyndiglobal.com/showcase/keyboard-fidget/1442d73d-4cba-4764-a708-3801779fd26f.jpg",
             "https://img.cyndiglobal.com/showcase/keyboard-fidget/267d4cd6-cb56-4394-90c9-fe89cb00cea1.jpg",
             "https://img.cyndiglobal.com/showcase/keyboard-fidget/48d41973-3174-4437-abf9-8cccf8418229.jpg",
-            "https://img.cyndiglobal.com/showcase/keyboard-fidget/2b48ce6c-a459-45cc-8040-7876d337a5ab.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/keyboard-fidget/2b48ce6c-a459-45cc-8040-7876d337a5ab.jpg",
+            "https://img.cyndiglobal.com/showcase/keyboard-fidget/7a3c266e-4a41-4f4a-ae6c-b667aaad6451.png",
+            "https://img.cyndiglobal.com/showcase/keyboard-fidget/c3ae9c94-2525-4e61-91ac-b9f8c79e7151.png",
+            "https://img.cyndiglobal.com/showcase/keyboard-fidget/24e4642e-c38c-460e-81a6-c1f809cdc0f1.png",
+            "https://img.cyndiglobal.com/showcase/keyboard-fidget/b54ba0c7-6846-4cea-a736-bef041095968.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/keyboard-fidget/1442d73d-4cba-4764-a708-3801779fd26f.jpg"
         }
       ]
     },
@@ -1524,7 +1622,7 @@
       "products": [
         {
           "id": "cy-2027-plushie-keychain-34",
-          "sku": "2027-14-34",
+          "sku": "2027-34",
           "name": "Plushie Keychain (Hamster)",
           "description": "4 inch micro plush hamster keychain with a screenprinted outfit.",
           "features": [
@@ -1560,13 +1658,16 @@
           ],
           "currency": "$",
           "colors": [],
-          "image": "https://img.cyndiglobal.com/showcase/plushie-keychain/be454735-7dfd-4183-b782-da35fe947872.jpg",
           "gallery": [
-            "https://img.cyndiglobal.com/showcase/plushie-keychain/be454735-7dfd-4183-b782-da35fe947872.jpg",
-            "https://img.cyndiglobal.com/showcase/plushie-keychain/3bb217ab-f870-426b-b9b2-ae3457a2f387.jpg",
             "https://img.cyndiglobal.com/showcase/plushie-keychain/8dfd6b02-ae55-4c12-8784-70f313a9e191.jpg",
-            "https://img.cyndiglobal.com/showcase/plushie-keychain/20e6232f-ca92-4724-a93a-66c82c3e2b41.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/plushie-keychain/20e6232f-ca92-4724-a93a-66c82c3e2b41.jpg",
+            "https://img.cyndiglobal.com/showcase/plushie-keychain/3bb217ab-f870-426b-b9b2-ae3457a2f387.jpg",
+            "https://img.cyndiglobal.com/showcase/plushie-keychain/31f4dc78-b089-4813-a03c-3b195f4cbdf0.png",
+            "https://img.cyndiglobal.com/showcase/plushie-keychain/8591613e-52f1-43f4-986a-88340c5a1e87.png",
+            "https://img.cyndiglobal.com/showcase/plushie-keychain/07cb5d1b-8573-4634-95b0-be6028513722.png",
+            "https://img.cyndiglobal.com/showcase/plushie-keychain/002effc4-715b-4906-9d98-cd3e1bbbfac5.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/plushie-keychain/8dfd6b02-ae55-4c12-8784-70f313a9e191.jpg"
         }
       ]
     },
@@ -1576,7 +1677,7 @@
       "products": [
         {
           "id": "cy-2027-jacket-35",
-          "sku": "2027-15-35",
+          "sku": "2027-35",
           "name": "Zip-Up Jacket — Soft Shell, Mandarin Collar",
           "description": "Soft shell zip-up with a Mandarin collar, windproof and water-repellent.",
           "features": [
@@ -1607,17 +1708,17 @@
           "additionalCharges": [],
           "currency": "$",
           "colors": [],
-          "image": "https://img.cyndiglobal.com/showcase/jacket/b6acedc2-23a0-4301-8529-f521bc80a042.jpg",
           "gallery": [
             "https://img.cyndiglobal.com/showcase/jacket/b6acedc2-23a0-4301-8529-f521bc80a042.jpg",
             "https://img.cyndiglobal.com/showcase/jacket/f9a9a59b-2264-481e-917d-e081a7175d6e.jpg",
-            "https://img.cyndiglobal.com/showcase/jacket/18b3ffa2-d53a-416b-8a00-e65107b96be6.jpg",
-            "https://img.cyndiglobal.com/showcase/jacket/64fff247-91f0-423e-8ed0-76bd5c22be3b.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/jacket/64fff247-91f0-423e-8ed0-76bd5c22be3b.jpg",
+            "https://img.cyndiglobal.com/showcase/jacket/18b3ffa2-d53a-416b-8a00-e65107b96be6.jpg"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/jacket/b6acedc2-23a0-4301-8529-f521bc80a042.jpg"
         },
         {
           "id": "cy-2027-jacket-36",
-          "sku": "2027-15-36",
+          "sku": "2027-36",
           "name": "Zip-Up Jacket — Softshell, Windproof & Waterproof",
           "description": "Softshell zip-up with fleece warmth and a water-repellent outer.",
           "features": [
@@ -1648,17 +1749,24 @@
           "additionalCharges": [],
           "currency": "$",
           "colors": [],
-          "image": "https://img.cyndiglobal.com/showcase/jacket/faadc1af-fb2e-436b-80c6-638347525ca3.jpg",
           "gallery": [
             "https://img.cyndiglobal.com/showcase/jacket/faadc1af-fb2e-436b-80c6-638347525ca3.jpg",
             "https://img.cyndiglobal.com/showcase/jacket/bbce3201-3cdd-492c-94ba-5beb4bcb5636.jpg",
             "https://img.cyndiglobal.com/showcase/jacket/ea96c8eb-c1ab-4a02-b076-3b259f412461.jpg",
-            "https://img.cyndiglobal.com/showcase/jacket/1b217c41-3063-4329-8358-9b3d5d139c57.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/jacket/1b217c41-3063-4329-8358-9b3d5d139c57.jpg",
+            "https://img.cyndiglobal.com/showcase/jacket/76765e1e-4961-492f-ab36-3a46cb6d19b9.png",
+            "https://img.cyndiglobal.com/showcase/jacket/56819bca-8388-4ac7-8865-d02cafe80ad5.png",
+            "https://img.cyndiglobal.com/showcase/jacket/38da0201-a26c-4ef6-8790-d885f7a3b086.png",
+            "https://img.cyndiglobal.com/showcase/jacket/b698dc11-6694-4cb1-8364-6810b619ee4c.png",
+            "https://img.cyndiglobal.com/showcase/jacket/f5d5077f-0ec7-4f23-9b6b-ad2174c92a07.png",
+            "https://img.cyndiglobal.com/showcase/jacket/7f9f3620-6cbe-4c1a-a482-ca35b7339208.png",
+            "https://img.cyndiglobal.com/showcase/jacket/38c8f03a-819b-44cf-8f00-cc4e63e96bb3.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/jacket/faadc1af-fb2e-436b-80c6-638347525ca3.jpg"
         },
         {
           "id": "cy-2027-jacket-37",
-          "sku": "2027-15-37",
+          "sku": "2027-37",
           "name": "Zip-Up Jacket — Hardshell, Windproof & Waterproof",
           "description": "Hardshell zip-up rated 8000 mm waterproof and 10,000+ breathable.",
           "features": [
@@ -1690,17 +1798,23 @@
           "additionalCharges": [],
           "currency": "$",
           "colors": [],
-          "image": "https://img.cyndiglobal.com/showcase/jacket/4c049485-0586-4e91-ae0f-f70cc9562ed3.jpg",
           "gallery": [
             "https://img.cyndiglobal.com/showcase/jacket/4c049485-0586-4e91-ae0f-f70cc9562ed3.jpg",
             "https://img.cyndiglobal.com/showcase/jacket/083b29a6-6c2b-4efc-be6a-1c61fa7d4544.jpg",
-            "https://img.cyndiglobal.com/showcase/jacket/98b62ae0-888f-48f4-9db4-0fd1cd6c54c6.jpg",
-            "https://img.cyndiglobal.com/showcase/jacket/10375b04-45e9-4f10-b982-32e50fb19c16.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/jacket/6691bec7-b649-424c-b48e-655a6b9c08ef.png",
+            "https://img.cyndiglobal.com/showcase/jacket/10375b04-45e9-4f10-b982-32e50fb19c16.jpg",
+            "https://img.cyndiglobal.com/showcase/jacket/4ccef6f1-fa31-47bd-96d2-c3760d5a8bf0.png",
+            "https://img.cyndiglobal.com/showcase/jacket/3ffd7401-ee3c-48c1-94e9-91aee260f017.png",
+            "https://img.cyndiglobal.com/showcase/jacket/419e93cb-9af3-476d-9ac2-1cb109caaa43.png",
+            "https://img.cyndiglobal.com/showcase/jacket/de8446bf-e5ab-40d9-a5f5-cd3286468e52.png",
+            "https://img.cyndiglobal.com/showcase/jacket/d21455d4-8c4f-4f79-9974-0f1dc35447e7.png",
+            "https://img.cyndiglobal.com/showcase/jacket/77b4b376-07ca-4931-a9ca-43f78b99e057.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/jacket/4c049485-0586-4e91-ae0f-f70cc9562ed3.jpg"
         },
         {
           "id": "cy-2027-jacket-38",
-          "sku": "2027-16-38",
+          "sku": "2027-38",
           "name": "Premium Jacket — M's Houdini",
           "description": "Premium M's Houdini jacket.",
           "features": [
@@ -1741,17 +1855,20 @@
               "image": "https://img.cyndiglobal.com/showcase/jacket/23d1a09b-f100-4c1e-9a99-9136459590a6.jpg"
             }
           ],
-          "image": "https://img.cyndiglobal.com/showcase/jacket/23d1a09b-f100-4c1e-9a99-9136459590a6.jpg",
           "gallery": [
             "https://img.cyndiglobal.com/showcase/jacket/23d1a09b-f100-4c1e-9a99-9136459590a6.jpg",
             "https://img.cyndiglobal.com/showcase/jacket/16c13981-e935-4f17-84ea-3444461fbbad.jpg",
             "https://img.cyndiglobal.com/showcase/jacket/760772dd-27ca-422f-96d8-f41b4bb29ab2.jpg",
-            "https://img.cyndiglobal.com/showcase/jacket/0d074ec1-612a-4aa9-a7d6-037e7d1306b9.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/jacket/0d074ec1-612a-4aa9-a7d6-037e7d1306b9.jpg",
+            "https://img.cyndiglobal.com/showcase/jacket/8f849b40-db58-4b49-b2bf-dc1fd25b2ddf.png",
+            "https://img.cyndiglobal.com/showcase/jacket/9bc6a309-785f-473d-9872-db6dc470e5e7.png",
+            "https://img.cyndiglobal.com/showcase/jacket/6597ae5c-c0ad-44d2-a7e2-bffdd0fefd3a.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/jacket/23d1a09b-f100-4c1e-9a99-9136459590a6.jpg"
         },
         {
           "id": "cy-2027-jacket-39",
-          "sku": "2027-16-39",
+          "sku": "2027-39",
           "name": "Premium Jacket — M's Light & Variable",
           "description": "Premium M's Light & Variable jacket.",
           "features": [
@@ -1817,17 +1934,20 @@
               "image": "https://img.cyndiglobal.com/showcase/jacket/d4bfc517-6e45-4ea3-95ac-88520704f184.jpg"
             }
           ],
-          "image": "https://img.cyndiglobal.com/showcase/jacket/d4bfc517-6e45-4ea3-95ac-88520704f184.jpg",
           "gallery": [
             "https://img.cyndiglobal.com/showcase/jacket/d4bfc517-6e45-4ea3-95ac-88520704f184.jpg",
             "https://img.cyndiglobal.com/showcase/jacket/88d18f5f-0bdf-4c6a-9524-56f54fba22bf.jpg",
             "https://img.cyndiglobal.com/showcase/jacket/33393e56-6d9b-4e2d-ae5b-574591fd1667.jpg",
-            "https://img.cyndiglobal.com/showcase/jacket/52728e4f-86ed-480d-987d-3c4f17825cee.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/jacket/52728e4f-86ed-480d-987d-3c4f17825cee.jpg",
+            "https://img.cyndiglobal.com/showcase/jacket/2610c12b-1262-47d6-89bc-c468ba31c2b1.png",
+            "https://img.cyndiglobal.com/showcase/jacket/6dbd6a4f-d252-46da-878b-44f3d7fcfc86.png",
+            "https://img.cyndiglobal.com/showcase/jacket/f8faec25-c226-4620-9864-532425d43d66.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/jacket/d4bfc517-6e45-4ea3-95ac-88520704f184.jpg"
         },
         {
           "id": "cy-2027-jacket-40",
-          "sku": "2027-16-40",
+          "sku": "2027-40",
           "name": "Premium Jacket — Better Sweater Fleece",
           "description": "Premium Better Sweater Fleece jacket.",
           "features": [
@@ -1860,16 +1980,18 @@
             {
               "name": "Grey",
               "hex": "#8C8C8C",
-              "image": "https://img.cyndiglobal.com/showcase/jacket/5919e446-11e8-4ed1-93bc-e0b6034e4815.jpg"
+              "image": "https://img.cyndiglobal.com/showcase/jacket/9077ace5-9c32-4418-85e8-9b7d945894d3.png"
             }
           ],
-          "image": "https://img.cyndiglobal.com/showcase/jacket/5919e446-11e8-4ed1-93bc-e0b6034e4815.jpg",
           "gallery": [
-            "https://img.cyndiglobal.com/showcase/jacket/5919e446-11e8-4ed1-93bc-e0b6034e4815.jpg",
+            "https://img.cyndiglobal.com/showcase/jacket/9077ace5-9c32-4418-85e8-9b7d945894d3.png",
             "https://img.cyndiglobal.com/showcase/jacket/05e8e857-4f2c-421d-a957-6d5c708902aa.jpg",
             "https://img.cyndiglobal.com/showcase/jacket/eb03dcda-6eeb-478a-b6c0-f7d08d0629f3.jpg",
-            "https://img.cyndiglobal.com/showcase/jacket/d670d177-ce79-42a1-8080-1091e19fb5e0.jpg"
-          ]
+            "https://img.cyndiglobal.com/showcase/jacket/d670d177-ce79-42a1-8080-1091e19fb5e0.jpg",
+            "https://img.cyndiglobal.com/showcase/jacket/501527a3-0291-4582-8781-6d37cf03c23b.png",
+            "https://img.cyndiglobal.com/showcase/jacket/8bafef77-c76d-444a-b1ae-70e9305c0d5c.png"
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/jacket/9077ace5-9c32-4418-85e8-9b7d945894d3.png"
         }
       ]
     }

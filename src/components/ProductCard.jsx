@@ -25,7 +25,7 @@ export default function ProductCard({ product, onOpenGallery }) {
       <div className="quote-detail-content h-full border border-stone-200 bg-white p-4 transition hover:border-stone-400">
         {/* Thumbnail + Start a Project revealed on hover */}
         <div className="quote-thumbnail-container pb-2 text-center">
-          <div className="detail-wrapper">
+          <div className="detail-wrapper relative">
             <button
               type="button"
               onClick={() => onOpenGallery?.(gallery, 0)}
@@ -38,6 +38,11 @@ export default function ProductCard({ product, onOpenGallery }) {
                 onClick={() => onOpenGallery?.(gallery, 0)}
               />
             </button>
+            {gallery.length > 1 && (
+              <span className="pointer-events-none absolute bottom-2 right-2 rounded-full bg-black/55 px-2 py-0.5 text-[10px] font-medium tabular-nums text-white backdrop-blur-sm">
+                {gallery.length} photos
+              </span>
+            )}
           </div>
 
           <div className="start-project-link-container">

@@ -73,15 +73,27 @@ export default function GalleryModal({ images, index, onClose, onNavigate }) {
                 <path d="m9 18 6-6-6-6" />
               </svg>
             </button>
-            <div className="flex gap-1.5">
-              {images.map((src, i) => (
-                <button
-                  key={src + i}
-                  onClick={() => onNavigate(i)}
-                  className={`h-1.5 rounded-full transition-all ${i === index ? 'w-6 bg-white' : 'w-1.5 bg-white/40 hover:bg-white/70'}`}
-                  aria-label={`Go to image ${i + 1}`}
-                />
-              ))}
+            <div className="flex max-w-full items-center gap-3">
+              {/* Thumbnail strip — a full catalogue shot has 10+ images, so
+                  dots alone stop being navigable. */}
+              <div className="flex max-w-[70vw] gap-1.5 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                {images.map((src, i) => (
+                  <button
+                    key={src + i}
+                    onClick={() => onNavigate(i)}
+                    className={`h-11 w-11 shrink-0 overflow-hidden rounded-md border-2 transition ${
+                      i === index ? 'border-[#e07a3a]' : 'border-transparent opacity-55 hover:opacity-100'
+                    }`}
+                    aria-label={`Go to image ${i + 1}`}
+                    aria-current={i === index}
+                  >
+                    <img src={src} alt="" className="h-full w-full object-cover" loading="lazy" />
+                  </button>
+                ))}
+              </div>
+              <span className="shrink-0 text-[12px] tabular-nums text-white/70">
+                {index + 1} / {images.length}
+              </span>
             </div>
           </>
         )}
