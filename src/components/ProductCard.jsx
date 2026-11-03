@@ -74,6 +74,27 @@ export default function ProductCard({ product, onOpenGallery }) {
             </ul>
           )}
 
+          {product.spec && (
+            <p className="mt-3 text-[12px] text-stone-500">
+              <span className="font-bold text-stone-700">Spec:</span> {product.spec}
+            </p>
+          )}
+
+          {(product.moq || product.leadTime) && (
+            <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1">
+              {product.moq ? (
+                <p className="text-[12px] text-stone-500">
+                  <span className="font-bold text-stone-700">MOQ:</span> {product.moq} pcs
+                </p>
+              ) : null}
+              {product.leadTime ? (
+                <p className="text-[12px] text-stone-500">
+                  <span className="font-bold text-stone-700">Lead time:</span> {product.leadTime} days
+                </p>
+              ) : null}
+            </div>
+          )}
+
           {product.materials && (
             <p className="mt-3 text-[12px] text-stone-500">
               <span className="font-bold text-stone-700">Materials:</span> {product.materials}
