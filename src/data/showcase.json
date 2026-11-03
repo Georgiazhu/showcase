@@ -56,7 +56,6 @@
             "Estimated purchase quantity: 1,000+ pcs.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [
             {
@@ -117,7 +116,6 @@
           "priceNotes": [
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [
             {
@@ -183,7 +181,6 @@
             "Women's and men's colour options available",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [],
           "gallery": [
@@ -229,7 +226,6 @@
             "Women's and men's colour options available",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [],
           "gallery": [
@@ -275,7 +271,6 @@
           "priceNotes": [
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [
             {
@@ -358,7 +353,6 @@
             "Estimated purchase quantity: 500–1,000 pcs.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [],
           "gallery": [
@@ -402,7 +396,6 @@
             "Estimated purchase quantity: 500–1,000 pcs.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [],
           "gallery": [
@@ -449,12 +442,6 @@
             "Estimated purchase quantity: 500–1,000 pcs.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [
-            {
-              "label": "Larger size surcharge (per unit)",
-              "amount": 2.0
-            }
-          ],
           "currency": "$",
           "colors": [],
           "gallery": [
@@ -496,12 +483,6 @@
             "HRT target budget: US$10–15 per unit.",
             "Estimated purchase quantity: 500–1,000 pcs.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
-          ],
-          "additionalCharges": [
-            {
-              "label": "Larger size surcharge (per unit)",
-              "amount": 2.0
-            }
           ],
           "currency": "$",
           "colors": [],
@@ -551,7 +532,6 @@
             "HRT target budget: US$50–60 per unit.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [],
           "gallery": [
@@ -594,7 +574,6 @@
             "HRT target budget: US$50–60 per unit.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [],
           "gallery": [
@@ -638,7 +617,6 @@
             "Estimated purchase quantity: ~100 pcs.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [
             {
@@ -715,7 +693,6 @@
             "Estimated purchase quantity: ~100 pcs.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [
             {
@@ -788,7 +765,6 @@
             "Estimated purchase quantity: ~100 pcs.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [],
           "gallery": [
@@ -834,7 +810,6 @@
             "Estimated purchase quantity: ~100 pcs.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [],
           "gallery": [
@@ -890,7 +865,6 @@
             "HRT target budget: US$20–30 per unit.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [
             {
@@ -959,7 +933,6 @@
             "HRT target budget: US$20–30 per unit.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [],
           "gallery": [
@@ -1005,7 +978,6 @@
             "HRT target budget: US$20–30 per unit.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [],
           "gallery": [
@@ -1047,12 +1019,6 @@
             "Price varies by size: 45.3 / 54.6 / 59.4 USD per unit.",
             "HRT target budget: US$20–30 per unit.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
-          ],
-          "additionalCharges": [
-            {
-              "label": "Larger size surcharge (per unit)",
-              "amount": 14.1
-            }
           ],
           "currency": "$",
           "colors": [],
@@ -1099,7 +1065,6 @@
             "HRT target budget: US$20–30 per unit.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [],
           "gallery": [
@@ -1150,7 +1115,6 @@
             "Estimated purchase quantity: ~300 pcs.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [],
           "gallery": [
@@ -1192,7 +1156,6 @@
             "Estimated purchase quantity: ~300 pcs.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [],
           "gallery": [
@@ -1236,7 +1199,6 @@
             "Estimated purchase quantity: ~300 pcs.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [],
           "gallery": [
@@ -1282,7 +1244,6 @@
             "The logo design might need marketing approval.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [
             {
@@ -1329,7 +1290,6 @@
             "The logo design might need marketing approval.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [
             {
@@ -1375,7 +1335,6 @@
             "The logo design might need marketing approval.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [
             {
@@ -1427,7 +1386,6 @@
           "priceNotes": [
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [],
           "gallery": [
@@ -1468,7 +1426,6 @@
             "HRT target budget: US$10–15 per unit.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [],
           "gallery": [
@@ -1508,7 +1465,6 @@
             "HRT target budget: US$10–15 per unit.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [],
           "gallery": [
@@ -1548,7 +1504,6 @@
           "priceNotes": [
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [],
           "gallery": [
@@ -1599,7 +1554,6 @@
             "Triple customisation (WASD mold + official HRT colour keycaps + raised letter logos) makes the price a bit high.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [],
           "gallery": [
@@ -1650,12 +1604,6 @@
             "Estimated purchase quantity: ~1,000 pcs.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [
-            {
-              "label": "Larger size surcharge (per unit)",
-              "amount": 2.0
-            }
-          ],
           "currency": "$",
           "colors": [],
           "gallery": [
@@ -1705,7 +1653,6 @@
             "Estimated purchase quantity: ~500 pcs.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [],
           "gallery": [
@@ -1746,7 +1693,6 @@
             "Estimated purchase quantity: ~500 pcs.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [],
           "gallery": [
@@ -1795,7 +1741,6 @@
             "Estimated purchase quantity: ~500 pcs.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [],
           "gallery": [
@@ -1841,7 +1786,6 @@
             "Estimated purchase quantity: ~100 pcs.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [
             {
@@ -1895,7 +1839,6 @@
             "Estimated purchase quantity: ~100 pcs.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [
             {
@@ -1974,7 +1917,6 @@
             "Estimated purchase quantity: ~100 pcs.",
             "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [],
           "currency": "$",
           "colors": [
             {

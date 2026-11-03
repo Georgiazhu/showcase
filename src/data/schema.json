@@ -30,7 +30,6 @@
       "pricing": "Tiered pricing [{quantity, price}]",
       "priceIncludes": "Decoration included in the price",
       "priceNotes": "Price notes (array)",
-      "additionalCharges": "Additional charges [{label, amount}]",
       "currency": "Currency symbol — $, ¥ or €",
       "spec": "Specification line — dimensions, capacity, weight",
       "moq": "Minimum order quantity (units)",
@@ -41,7 +40,6 @@
     "Image paths start with / and map to the public/ folder, e.g. public/images/products/totes/x.jpg → /images/products/totes/x.jpg",
     "Colour swatches beyond 8 are collapsed automatically and can be expanded with show more",
     "Write prices in ascending quantity order — the front end renders them as a tier table",
-    "When several sizes carry different prices, the tier table shows the lowest and the difference is listed as a surcharge",
     "spec / moq / leadTime are shown on the product card under the description"
   ]
 }

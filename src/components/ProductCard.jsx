@@ -7,7 +7,7 @@ const cur = (c) => (c === 'CNY' ? '¥' : c === 'EUR' ? '€' : '$')
 /**
  * Product card — mirrors the Kotis .quote-detail-wrapper structure:
  * Thumbnail (Start a Project reveals on hover) + name + sku + description + features
- * + Colors + Sizes + tiered pricing table + Price Includes + Additional Charges
+ * + Colors + Sizes + tiered pricing table + Price Includes
  */
 export default function ProductCard({ product, onOpenGallery }) {
   // Identify the selected swatch by index: names may be blank, and two
@@ -20,7 +20,6 @@ export default function ProductCard({ product, onOpenGallery }) {
 
   const symbol = cur(product.currency || '$')
   const pricing = product.pricing || []
-  const charges = product.additionalCharges || []
 
   return (
     <div className="quote-detail-wrapper mb-10">
@@ -164,23 +163,6 @@ export default function ProductCard({ product, onOpenGallery }) {
                   {n}
                 </p>
               ))}
-            </div>
-          )}
-
-          {charges.length > 0 && (
-            <div className="quote-details-info">
-              <h4 className="mb-1 mt-3 text-[13px] font-bold text-stone-900">Additional Charges</h4>
-              <ul className="space-y-0.5">
-                {charges.map((c, i) => (
-                  <li key={i} className="flex justify-between text-[12px] text-stone-600">
-                    <span>{c.label}</span>
-                    <span className="font-medium text-stone-700">
-                      {symbol}
-                      {Number(c.amount).toFixed(2)}
-                    </span>
-                  </li>
-                ))}
-              </ul>
             </div>
           )}
         </div>

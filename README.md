@@ -91,7 +91,6 @@ Edit `src/data/showcase.json` and append an entry to the relevant category's `pr
   ],
   "priceIncludes": "1-color heat transfer imprint, 1 location.",
   "priceNotes": ["Pre tax. Pre shipping"],
-  "additionalCharges": [{ "label": "Setup (per color)", "amount": 70 }],
   "currency": "$"
 }
 ```
@@ -120,7 +119,6 @@ Note the `/showcase/` prefix on image paths — the site is served from that sub
 | `pricing[]` | `{quantity, price}` — a single tier renders as Quantity/Price rows | ✅ |
 | `priceIncludes` | Decoration included in the price | |
 | `priceNotes[]` | Price notes | |
-| `additionalCharges[]` | `{label, amount}` | |
 | `currency` | `$` / `¥` / `€` | |
 
 Full details also live in `src/data/schema.json`.
