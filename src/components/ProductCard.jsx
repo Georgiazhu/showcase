@@ -24,14 +24,14 @@ export default function ProductCard({ product, onOpenGallery }) {
 
   return (
     <div className="quote-detail-wrapper mb-10">
-      <div className="quote-detail-content h-full border border-stone-200 bg-white p-4 transition hover:border-stone-400">
+      <div className="quote-detail-content h-full rounded-2xl border border-stone-200 bg-white p-4 shadow-[0_1px_2px_rgba(15,31,58,0.04)] transition hover:border-stone-300 hover:shadow-[0_10px_28px_rgba(15,31,58,0.08)]">
         {/* Thumbnail + Start a Project revealed on hover */}
         <div className="quote-thumbnail-container pb-2 text-center">
-          <div className="detail-wrapper relative">
+          <div className="detail-wrapper relative overflow-hidden rounded-xl">
             <button
               type="button"
               onClick={() => onOpenGallery?.(gallery, 0)}
-              className="block w-full cursor-zoom-in overflow-hidden rounded-md bg-[#f2efe9]"
+              className="block w-full cursor-zoom-in overflow-hidden rounded-xl bg-[#f2efe9]"
               aria-label={`View ${product.name} images`}
             >
               <ProductImage
@@ -63,7 +63,9 @@ export default function ProductCard({ product, onOpenGallery }) {
 
         {/* Details */}
         <div className="quote-details detail_view">
-          <h5 className="quote-name-text mt-4 text-[15px] font-bold text-stone-900">{product.name}</h5>
+          <h5 className="quote-name-text mt-4 text-[15px] font-bold leading-snug text-[#0f1f3a]">
+            {product.name}
+          </h5>
           <p className="quote-id-text text-[10px] text-stone-400">{product.sku}</p>
 
           {product.description && (

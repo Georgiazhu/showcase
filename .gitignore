@@ -32,3 +32,7 @@ pnpm-debug.log*
 # deployment
 .wrangler/
 .cloudflare/
+
+# Local preview harness (not part of the build)
+.preview-server.mjs
+.preview-data.json
