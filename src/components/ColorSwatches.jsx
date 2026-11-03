@@ -1,10 +1,13 @@
 import { useState } from 'react'
 
-const VISIBLE_LIMIT = 8
+const VISIBLE_LIMIT = 12
 
 /**
- * Colour swatches — mirrors Kotis .quote-color-swatches:
- * Click a swatch to swap the main image; more than 8 colours collapse behind "... show more / show less".
+ * Colour swatches — a row of colour dots.
+ *
+ * Each swatch is just the colour itself; the name is revealed on hover as a
+ * tooltip above the dot, so a product with a dozen colours stays compact.
+ * Clicking a swatch swaps the main image.
  */
 export default function ColorSwatches({ colors = [], onSelect, activeIndex }) {
   const [expanded, setExpanded] = useState(false)
@@ -15,35 +18,42 @@ export default function ColorSwatches({ colors = [], onSelect, activeIndex }) {
 
   return (
     <div className="quote-details-info quote-color-swatches">
-      <h4 className="mb-1 mt-3 text-[13px] font-bold text-stone-900">Colors</h4>
-      <div className="quote-color-swatch flex flex-wrap items-center gap-1.5">
+      <h4 className="mb-2 mt-3 text-[13px] font-bold text-stone-900">Colors</h4>
+
+      <div className="quote-color-swatch flex flex-wrap items-center gap-2">
         {visible.map((c, i) => {
           const active = activeIndex === i
-          const label = c.name || c.hex || 'Colour'
+          const label = c.name || 'Unnamed'
           return (
-            <button
-              key={`${c.name || c.hex}-${i}`}
-              type="button"
-              onClick={() => onSelect?.(c, i)}
-              title={label}
-              className={`group/color flex items-center gap-1.5 rounded-full border px-2 py-1 text-[12px] transition ${
-                active
-                  ? 'border-stone-900 bg-stone-900 text-white'
-                  : 'border-stone-300 bg-white text-stone-600 hover:border-stone-500'
-              }`}
-            >
-              <span
-                className="h-3 w-3 shrink-0 rounded-full ring-1 ring-black/10"
+            <span key={`${c.name || c.hex}-${i}`} className="group/color relative inline-flex">
+              <button
+                type="button"
+                onClick={() => onSelect?.(c, i)}
+                aria-label={label}
+                aria-pressed={active}
+                className={`block h-7 w-7 cursor-pointer rounded-full transition ${
+                  active
+                    ? 'ring-2 ring-stone-900 ring-offset-2 ring-offset-white'
+                    : 'ring-1 ring-black/15 hover:ring-2 hover:ring-stone-500'
+                }`}
                 style={{ backgroundColor: c.hex || '#d6d3d1' }}
               />
-              {c.name || <span className="text-stone-400">Unnamed</span>}
-            </button>
+
+              {/* Name on hover */}
+              <span
+                role="tooltip"
+                className="pointer-events-none absolute bottom-full left-1/2 z-20 mb-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-stone-900 px-2 py-1 text-[11px] font-medium text-white opacity-0 shadow-lg transition-opacity duration-150 group-hover/color:opacity-100"
+              >
+                {label}
+              </span>
+            </span>
           )
         })}
+
         {hidden > 0 && (
           <button
             type="button"
-            className="color-swatch-show-more"
+            className="color-swatch-show-more ml-1"
             onClick={() => setExpanded((v) => !v)}
           >
             {expanded ? '... show less' : `... show more (${hidden})`}
