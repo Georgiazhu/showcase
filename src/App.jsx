@@ -129,7 +129,10 @@ export default function App() {
       <div className="showcase-disclaimer-section bg-white">
         <div className="mx-auto max-w-[1400px] px-5 py-5 lg:px-10">
           <p className="disclaimer text-[12px] leading-relaxed text-stone-500">
-            <strong className="font-semibold text-stone-700">All prices herein are pre-tax and pre-shipping unless otherwise noted, are considered confidential, and are valid for 30 days from receipt of quote.</strong>{' '}
+            <strong className="font-semibold text-stone-700">
+              {meta?.disclaimer ||
+                'All prices herein are pre-tax and pre-shipping unless otherwise noted, are considered confidential, and are valid for 30 days from receipt of quote.'}
+            </strong>{' '}
             Pricing and availability are subject to change without notice.
           </p>
         </div>

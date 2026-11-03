@@ -28,7 +28,7 @@ export default function ShowcaseHeader({ meta }) {
             )}
           </p>
           {meta.jobs?.length > 0 && (
-            <p className="mt-1 text-sm text-stone-600">
+            <p className="mt-1 flex flex-wrap items-center gap-x-5 gap-y-1 text-sm text-stone-600">
               {meta.jobs.map((j) => (
                 <span key={j.value}>
                   <strong className="font-semibold text-stone-900">{j.label}: </strong>

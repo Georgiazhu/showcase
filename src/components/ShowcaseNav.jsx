@@ -25,13 +25,15 @@ export default function ShowcaseNav({ categories = [], user = null, onLogout }) 
           <span className="text-lg font-bold tracking-tight text-stone-900">Cyndi</span>
         </a>
 
-        {/* Desktop: category anchor navigation — Kotis category browsing */}
-        <ul className="hidden items-center gap-6 lg:flex">
+        {/* Desktop: category anchor navigation — Kotis category browsing.
+            A full catalogue has 10+ categories, so the row scrolls horizontally
+            instead of pushing the brand mark and account controls off-screen. */}
+        <ul className="hidden min-w-0 flex-1 items-center gap-5 overflow-x-auto px-4 lg:flex [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {categories.map((c) => (
-            <li key={c.id}>
+            <li key={c.id} className="shrink-0">
               <a
                 href={`#${c.id}`}
-                className="text-sm font-medium text-stone-600 transition-colors hover:text-stone-900"
+                className="whitespace-nowrap text-[13px] font-medium text-stone-600 transition-colors hover:text-stone-900"
               >
                 {c.name}
               </a>
