@@ -1,160 +1,1309 @@
 {
-  "$schema": "./schema.json",
   "meta": {
     "title": "SHOWCASE",
-    "subtitle": "Cyndi Global — Custom Swag Proposal",
-    "projectName": "Cyndi Global | Corporate Gifting 2026",
-    "date": "10/29/26",
+    "subtitle": "Cyndi Global — 2027 Campus Shortlist",
+    "projectName": "2027 Campus Shortlist",
+    "date": "11/03/26",
     "recipients": [
-      { "name": "Sarah Song", "email": "sarah@cyndiglobal.com" }
+      {
+        "name": "HRT",
+        "email": "hrt@cyndiglobal.com"
+      }
     ],
     "jobs": [
-      { "label": "Job", "value": "CY-2026-SWAG-001" }
+      {
+        "label": "Programme",
+        "value": "2027 Campus Shortlist"
+      },
+      {
+        "label": "Items",
+        "value": "38 shortlisted products across 10 categories"
+      }
     ],
-    "disclaimer": "All prices herein are pre-tax and pre-shipping unless otherwise noted, are considered confidential, and are valid for 30 days from receipt of quote. Pricing and availability are subject to change without notice."
+    "disclaimer": "All prices are indicative unit pricing in USD, pre-tax and pre-shipping, at the stated MOQ. Production lead times are estimates in working days and exclude artwork approval, sampling and freight. Pricing and availability are subject to change without notice. Product / colour / design are to be confirmed. Logo artwork may require marketing approval."
   },
   "categories": [
     {
-      "id": "canvas-totes",
-      "name": "Canvas Totes",
+      "id": "t-shirt",
+      "name": "T-Shirt",
       "products": [
         {
-          "id": "cy-tote-001",
-          "sku": "T3265271",
-          "name": "Heritage Supply Co. Legacy Tote",
-          "description": "From work to weekend to travel, the Legacy Tote moves with ease. Sleek recycled materials and smart interior organization ensure timeless style — so you're always polished and prepared.",
+          "id": "cy-2027-t-shirt-03",
+          "sku": "2027-1-03",
+          "name": "Short-Sleeve T-Shirt",
+          "description": "Heavyweight combed cotton short sleeve with a relaxed, everyday fit.",
           "features": [
-            "Zippered top access to main compartment with interior organization and a laptop sleeve with secured flap",
-            "Additional front panel zippered pocket for smaller essentials and back panel trolley tunnel",
-            "Vegan leather wrapped tote handles for comfortable hand carry",
-            "Durable construction using recycled materials with reinforced vegan leather bottom panel"
+            "Relaxed fit, casual and comfortable",
+            "1x1 rib knit crew neck",
+            "Shoulder to shoulder taping",
+            "Side seamed"
           ],
-          "materials": "210D rPET/PU Canvas, 100% Recycled Poly Foam, 58% Recycled PU",
-          "image": "/images/products/canvas-totes/legacy-tote.jpg",
-          "gallery": [
-            "/images/products/canvas-totes/legacy-tote.jpg",
-            "/images/products/canvas-totes/legacy-tote-2.jpg"
+          "materials": "180GSM heavyweight 100% combed ring spun cotton",
+          "spec": "XS-5XL",
+          "moq": 200,
+          "leadTime": 10,
+          "sizes": [
+            "XS-5XL"
           ],
-          "colors": [
-            { "name": "Black", "hex": "#1c1917", "image": "/images/products/canvas-totes/legacy-tote.jpg" },
-            { "name": "Trench Coat", "hex": "#c3b49a", "image": "/images/products/canvas-totes/legacy-tote.jpg" }
-          ],
-          "sizes": ["14.5\"L x 15\"H x 4.75\"W"],
           "pricing": [
-            { "quantity": 300, "price": 39.98 }
+            {
+              "quantity": 200,
+              "price": 15.9
+            }
           ],
-          "priceIncludes": "1-color heat transfer imprint, 1 location.",
+          "priceIncludes": "Base product in 180GSM heavyweight 100% combed ring spun cotton. Custom artwork and decoration quoted separately.",
           "priceNotes": [
-            "Pre tax. Pre shipping",
-            "Cost may vary based upon final approved artwork."
+            "Estimated purchase quantity: 1,000+ pcs.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "additionalCharges": [
-            { "label": "Setup (per color)", "amount": 70 },
-            { "label": "Setup (full color)", "amount": 110 },
-            { "label": "Add'l color/location run charge (per unit)", "amount": 1.25 }
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [
+            {
+              "name": "Pantone 14-4104 TCX Sky Blue",
+              "hex": "#7EB1D8",
+              "image": "https://img.cyndiglobal.com/showcase/t-shirt/8fd85a6d-c31a-4b54-84cc-98e26ef88d82.jpg"
+            },
+            {
+              "name": "Pantone 15-1206 TCX Oatmeal",
+              "hex": "#D9CDBE",
+              "image": "https://img.cyndiglobal.com/showcase/t-shirt/8fd85a6d-c31a-4b54-84cc-98e26ef88d82.jpg"
+            },
+            {
+              "name": "Pantone 14-1310 TCX Peach Bloom",
+              "hex": "#F5C0A8",
+              "image": "https://img.cyndiglobal.com/showcase/t-shirt/8fd85a6d-c31a-4b54-84cc-98e26ef88d82.jpg"
+            }
           ],
-          "currency": "$"
+          "image": "https://img.cyndiglobal.com/showcase/t-shirt/8fd85a6d-c31a-4b54-84cc-98e26ef88d82.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/t-shirt/8fd85a6d-c31a-4b54-84cc-98e26ef88d82.jpg",
+            "https://img.cyndiglobal.com/showcase/t-shirt/fda0f20d-067b-48f5-a002-740a76e08183.jpg",
+            "https://img.cyndiglobal.com/showcase/t-shirt/a90da709-344b-4b74-9e12-b37633bbcb5c.jpg",
+            "https://img.cyndiglobal.com/showcase/t-shirt/538a8b66-e53c-454a-889f-d44437f139f6.jpg"
+          ]
         },
         {
-          "id": "cy-tote-002",
-          "sku": "T3265267",
-          "name": "FEED Organic Cotton Rivet Tote",
-          "description": "More than just a tote — this tote helps provide 5 school meals to kids around the world. A stylish and versatile tote for the market, the library, or the office.",
+          "id": "cy-2027-t-shirt-04",
+          "sku": "2027-2-04",
+          "name": "Long-Sleeve T-Shirt",
+          "description": "Heavyweight Siro-spun cotton long sleeve, true to shoulder with ribbed cuffs.",
           "features": [
-            "Open main compartment for easy access",
-            "Exterior side pocket for daily essentials",
-            "FEED brand giveback message printed on the interior",
-            "Crafted using 8oz. 100% GOTS certified organic cotton with copper rivets"
+            "True-to-shoulder fit, clean & flattering silhouette",
+            "1x1 rib knit crew neck, soft against skin",
+            "Double-stitched rib construction, neat stitching & durable",
+            "Ribbed cuffs, versatile, wind-resistant",
+            "Shoulder to shoulder taping",
+            "Side seamed"
           ],
-          "materials": "8oz. 100% GOTS Certified Organic Cotton, Copper Rivets",
-          "image": "/images/products/canvas-totes/feed-rivet-tote.jpg",
-          "gallery": [
-            "/images/products/canvas-totes/feed-rivet-tote.jpg"
+          "materials": "230GSM heavyweight 100% compact combed Siro-spun cotton",
+          "spec": "S-XL",
+          "moq": 200,
+          "leadTime": 10,
+          "sizes": [
+            "S-XL"
           ],
-          "colors": [
-            { "name": "Natural", "hex": "#e7e0d0", "image": "/images/products/canvas-totes/feed-rivet-tote.jpg" },
-            { "name": "Black", "hex": "#1c1917", "image": "/images/products/canvas-totes/feed-rivet-tote.jpg" }
-          ],
-          "sizes": ["15\"L x 16\"H x 4\"W"],
           "pricing": [
-            { "quantity": 300, "price": 29.5 }
+            {
+              "quantity": 200,
+              "price": 15.9
+            }
           ],
-          "priceIncludes": "1-color print, 1 location (2 color max).",
-          "priceNotes": ["Pre tax. Pre shipping"],
-          "additionalCharges": [
-            { "label": "Setup (per color)", "amount": 70 },
-            { "label": "Add'l color/location run charge (per unit)", "amount": 1.25 }
+          "priceIncludes": "Base product in 230GSM heavyweight 100% compact combed Siro-spun cotton. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "currency": "$"
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [
+            {
+              "name": "White",
+              "hex": "#FFFFFF",
+              "image": "https://img.cyndiglobal.com/showcase/t-shirt/778b4361-472e-4190-bebc-267e6e86dc1c.jpg"
+            },
+            {
+              "name": "Pearl White",
+              "hex": "#F2F0EB",
+              "image": "https://img.cyndiglobal.com/showcase/t-shirt/778b4361-472e-4190-bebc-267e6e86dc1c.jpg"
+            },
+            {
+              "name": "Dark Grey",
+              "hex": "#4A4A4A",
+              "image": "https://img.cyndiglobal.com/showcase/t-shirt/778b4361-472e-4190-bebc-267e6e86dc1c.jpg"
+            },
+            {
+              "name": "Midnight Navy",
+              "hex": "#1B2A47",
+              "image": "https://img.cyndiglobal.com/showcase/t-shirt/778b4361-472e-4190-bebc-267e6e86dc1c.jpg"
+            },
+            {
+              "name": "Black",
+              "hex": "#111111",
+              "image": "https://img.cyndiglobal.com/showcase/t-shirt/778b4361-472e-4190-bebc-267e6e86dc1c.jpg"
+            }
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/t-shirt/778b4361-472e-4190-bebc-267e6e86dc1c.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/t-shirt/778b4361-472e-4190-bebc-267e6e86dc1c.jpg",
+            "https://img.cyndiglobal.com/showcase/t-shirt/63018076-3690-464e-90e4-dfd35392ff7e.jpg",
+            "https://img.cyndiglobal.com/showcase/t-shirt/ebf7959b-a545-4ed1-ab56-c1802754e52d.jpg",
+            "https://img.cyndiglobal.com/showcase/t-shirt/ebe17260-d5ef-4b6e-9ce3-3c0b611a85b8.jpg"
+          ]
+        },
+        {
+          "id": "cy-2027-t-shirt-05",
+          "sku": "2027-2-05",
+          "name": "Long-Sleeve T-Shirt — Rudolf® Fabric, Quick Dry",
+          "description": "Rudolf-treated quick-dry long sleeve with 7A antibacterial performance.",
+          "features": [
+            "Engineered to rapidly absorb moisture and evaporate sweat",
+            "7A antibacterial",
+            "True-to-shoulder fit",
+            "1x1 rib knit crew neck, soft against skin"
+          ],
+          "materials": "Rudolf® | BETTER CHEMISTRY German Rudolf treatment premium grade fabric",
+          "spec": "S-XL",
+          "moq": 300,
+          "leadTime": 15,
+          "sizes": [
+            "S-XL"
+          ],
+          "pricing": [
+            {
+              "quantity": 300,
+              "price": 23.9
+            }
+          ],
+          "priceIncludes": "Base product in Rudolf® | BETTER CHEMISTRY German Rudolf treatment premium grade fabric. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "Women's and men's colour options available",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [],
+          "image": "https://img.cyndiglobal.com/showcase/t-shirt/794d0478-dfb4-4c71-b9b7-7c08c97c34fb.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/t-shirt/794d0478-dfb4-4c71-b9b7-7c08c97c34fb.jpg",
+            "https://img.cyndiglobal.com/showcase/t-shirt/7978d5cc-c77d-4743-b5a6-428ddaec82a0.jpg",
+            "https://img.cyndiglobal.com/showcase/t-shirt/ad2c2657-2baf-43cd-b2d8-8622f7d52ec8.jpg",
+            "https://img.cyndiglobal.com/showcase/t-shirt/aea28d72-75b0-474b-ba3e-b3f8c389c244.jpg"
+          ]
+        },
+        {
+          "id": "cy-2027-t-shirt-06",
+          "sku": "2027-2-06",
+          "name": "Long-Sleeve T-Shirt — New Zealand Merino Wool",
+          "description": "New Zealand Merino Wool long sleeve — naturally temperature regulating.",
+          "features": [
+            "Merino blend — naturally temperature-regulating",
+            "Anti-odor, anti-bacteria — no re-wear panic",
+            "Lightweight knit, built for layering",
+            "Flatlock seams — zero rub",
+            "Regular fit, clean on, comfortable in"
+          ],
+          "materials": "New Zealand Merino Wool",
+          "spec": "S-XL",
+          "moq": 200,
+          "leadTime": 15,
+          "sizes": [
+            "S-XL"
+          ],
+          "pricing": [
+            {
+              "quantity": 200,
+              "price": 28.9
+            }
+          ],
+          "priceIncludes": "Base product in New Zealand Merino Wool. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "Women's and men's colour options available",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [],
+          "image": "https://img.cyndiglobal.com/showcase/t-shirt/c1421439-f617-4229-bfc1-1bda75dd7ed0.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/t-shirt/c1421439-f617-4229-bfc1-1bda75dd7ed0.jpg",
+            "https://img.cyndiglobal.com/showcase/t-shirt/6cab81e4-e7ab-43c7-af69-edc1ef67d7ea.jpg",
+            "https://img.cyndiglobal.com/showcase/t-shirt/d3c80ea4-077a-4c7e-8059-96a73815a35c.jpg",
+            "https://img.cyndiglobal.com/showcase/t-shirt/75706e72-18ba-4273-8f65-a14b0b428514.jpg"
+          ]
+        },
+        {
+          "id": "cy-2027-t-shirt-07",
+          "sku": "2027-2-07",
+          "name": "Long-Sleeve T-Shirt — Fleece Thermal",
+          "description": "Fleece thermal half zip in a fitted athletic cut with moisture wicking.",
+          "features": [
+            "Quick dry, moisture wicking, breathable, thermal, anti-bacterial",
+            "Anti-bacterial — stays fresh",
+            "Thermal warmth without bulk",
+            "Half zip for easy venting",
+            "Raglan sleeves, full range of motion",
+            "Fitted athletic cut"
+          ],
+          "materials": "90.8% Polyester / 9.2% Spandex, 260 g fabric weight",
+          "spec": "S-4XL",
+          "moq": 300,
+          "leadTime": 20,
+          "sizes": [
+            "S-4XL"
+          ],
+          "pricing": [
+            {
+              "quantity": 300,
+              "price": 24.7
+            }
+          ],
+          "priceIncludes": "Base product in 90.8% Polyester / 9.2% Spandex, 260 g fabric weight. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [
+            {
+              "name": "Army Green",
+              "hex": "#4B5320",
+              "image": "https://img.cyndiglobal.com/showcase/t-shirt/b2d64881-d8ba-4fba-8d85-41412650cdba.jpg"
+            },
+            {
+              "name": "Orange",
+              "hex": "#E8702A",
+              "image": "https://img.cyndiglobal.com/showcase/t-shirt/b2d64881-d8ba-4fba-8d85-41412650cdba.jpg"
+            },
+            {
+              "name": "Navy",
+              "hex": "#1F2A44",
+              "image": "https://img.cyndiglobal.com/showcase/t-shirt/b2d64881-d8ba-4fba-8d85-41412650cdba.jpg"
+            },
+            {
+              "name": "Gray",
+              "hex": "#8C8C8C",
+              "image": "https://img.cyndiglobal.com/showcase/t-shirt/b2d64881-d8ba-4fba-8d85-41412650cdba.jpg"
+            },
+            {
+              "name": "Black",
+              "hex": "#111111",
+              "image": "https://img.cyndiglobal.com/showcase/t-shirt/b2d64881-d8ba-4fba-8d85-41412650cdba.jpg"
+            },
+            {
+              "name": "White",
+              "hex": "#FFFFFF",
+              "image": "https://img.cyndiglobal.com/showcase/t-shirt/b2d64881-d8ba-4fba-8d85-41412650cdba.jpg"
+            }
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/t-shirt/b2d64881-d8ba-4fba-8d85-41412650cdba.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/t-shirt/b2d64881-d8ba-4fba-8d85-41412650cdba.jpg",
+            "https://img.cyndiglobal.com/showcase/t-shirt/4995fb43-1ff0-4799-94b9-d60408f8b5bc.jpg",
+            "https://img.cyndiglobal.com/showcase/t-shirt/8413c745-1708-46a5-a7b4-40ba462f38c9.jpg",
+            "https://img.cyndiglobal.com/showcase/t-shirt/1e970292-a31f-4d94-9647-09e433cfd103.jpg"
+          ]
         }
       ]
     },
     {
-      "id": "squeeze-bottles",
-      "name": "Squeeze Bottles",
+      "id": "duffel-bag",
+      "name": "Foldable Duffel Bag",
       "products": [
         {
-          "id": "cy-bottle-001",
-          "sku": "T3264605",
-          "name": "21oz CamelBak Podium 3.0 Chill",
-          "description": "A 21 oz vacuum-insulated stainless steel bottle with a leak-proof lid designed to keep drinks cold and carbonated.",
+          "id": "cy-2027-duffel-bag-08",
+          "sku": "2027-3-08",
+          "name": "Foldable Duffel Bag-Foldable Style 1",
+          "description": "Three-in-one convertible duffel that folds down and carries three ways.",
           "features": [
-            "21oz vacuum-insulated stainless steel construction",
-            "Leak-proof Chug Cap lid",
-            "Powder-coated finish for grip and durability",
-            "BPA-free and dishwasher safe"
+            "3-in-1 convertible design: one bag, three carrying modes — handbag / shoulder bag / crossbody bag",
+            "Spacious practical storage for daily personal belongings",
+            "Solid wear-resistant material with exquisite craftsmanship",
+            "Folded size 26(H) x 17(L) cm, unfolded size 27(H) x 47(L) x 23(W) cm"
           ],
-          "materials": "18/8 Stainless Steel, BPA-Free Polypropylene Lid",
-          "image": "/images/products/squeeze-bottles/camelbak-podium.jpg",
-          "gallery": [
-            "/images/products/squeeze-bottles/camelbak-podium.jpg"
+          "materials": "Solid wear-resistant material with exquisite craftsmanship",
+          "spec": "27(H) x 47(L) x 23(W)cm",
+          "moq": 500,
+          "leadTime": 10,
+          "sizes": [
+            "27(H) x 47(L) x 23(W) cm"
           ],
-          "colors": [
-            { "name": "Aluminum", "hex": "#c8c8c8", "image": "/images/products/squeeze-bottles/camelbak-podium.jpg" },
-            { "name": "Aqua Blue", "hex": "#8cc5e0", "image": "/images/products/squeeze-bottles/camelbak-podium.jpg" },
-            { "name": "Black", "hex": "#1c1917", "image": "/images/products/squeeze-bottles/camelbak-podium.jpg" }
-          ],
-          "sizes": ["21 oz / 620 ml"],
           "pricing": [
-            { "quantity": 300, "price": 34.0 }
+            {
+              "quantity": 500,
+              "price": 15.59
+            }
           ],
-          "priceIncludes": "Laser Engrave, 1 location on lid.",
-          "priceNotes": ["Pre tax. Pre shipping"],
-          "additionalCharges": [
-            { "label": "Setup (per color)", "amount": 70 },
-            { "label": "Setup (full color)", "amount": 110 }
+          "priceIncludes": "Base product in Solid wear-resistant material with exquisite craftsmanship. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "HRT target budget: US$10–15 per unit.",
+            "Estimated purchase quantity: 500–1,000 pcs.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "currency": "$"
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [],
+          "image": "https://img.cyndiglobal.com/showcase/duffel-bag/5bc9476e-d431-409e-9604-d080ae07a8c4.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/duffel-bag/5bc9476e-d431-409e-9604-d080ae07a8c4.jpg",
+            "https://img.cyndiglobal.com/showcase/duffel-bag/41521c2a-0abd-429d-b423-93e155a9e0b4.jpg",
+            "https://img.cyndiglobal.com/showcase/duffel-bag/80b40733-bbd2-42a0-8920-c5984e08b015.jpg",
+            "https://img.cyndiglobal.com/showcase/duffel-bag/4a14304c-3fff-426d-b909-f967eaea0663.jpg"
+          ]
         },
         {
-          "id": "cy-bottle-002",
-          "sku": "T3264602",
-          "name": "22oz Van Metro Sport Bottle — Push/Pull Cap 4CP Duplex",
-          "description": "A streamlined 22oz sport bottle with push/pull cap and 4-color duplex print for a bold brand statement.",
+          "id": "cy-2027-duffel-bag-09",
+          "sku": "2027-3-09",
+          "name": "Foldable Duffel Bag-Foldable Style 2",
+          "description": "Compact convertible duffel with soft handles and a water-resistant shell.",
           "features": [
-            "22oz capacity with push/pull sport cap",
-            "4-color duplex printing available",
-            "BPA-free, reusable, and eco-friendly"
+            "3-in-1 convertible design: one bag, three carrying modes — handbag / shoulder bag / crossbody bag",
+            "Soft comfortable handles",
+            "Water-resistant & scratch-resistant",
+            "Folded size 26(H) x 17(L) cm, unfolded size 25(H) x 43(L) x 20(W) cm"
           ],
-          "materials": "Food-grade PP, Tritan",
-          "image": "/images/products/squeeze-bottles/van-metro.jpg",
-          "gallery": [
-            "/images/products/squeeze-bottles/van-metro.jpg"
+          "materials": "Soft comfortable handles, water-resistant & scratch-resistant shell",
+          "spec": "25(H) x 43(L) x 20(W)cm",
+          "moq": 500,
+          "leadTime": 15,
+          "sizes": [
+            "25(H) x 43(L) x 20(W) cm"
           ],
-          "colors": [
-            { "name": "Clear", "hex": "#eef6fb", "image": "/images/products/squeeze-bottles/van-metro.jpg" },
-            { "name": "Black", "hex": "#1c1917", "image": "/images/products/squeeze-bottles/van-metro.jpg" }
-          ],
-          "sizes": ["22 oz"],
           "pricing": [
-            { "quantity": 300, "price": 22.75 }
+            {
+              "quantity": 500,
+              "price": 19.59
+            }
           ],
-          "priceIncludes": "Full-color digital transfer imprint, 1 location.",
-          "priceNotes": ["Pre tax. Pre shipping"],
+          "priceIncludes": "Base product in Soft comfortable handles, water-resistant & scratch-resistant shell. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "HRT target budget: US$10–15 per unit.",
+            "Estimated purchase quantity: 500–1,000 pcs.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [],
+          "image": "https://img.cyndiglobal.com/showcase/duffel-bag/84366392-87f0-4374-9053-121685b50a94.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/duffel-bag/84366392-87f0-4374-9053-121685b50a94.jpg",
+            "https://img.cyndiglobal.com/showcase/duffel-bag/b95c7328-2e0f-4077-a62a-d6dc71be9ef5.jpg",
+            "https://img.cyndiglobal.com/showcase/duffel-bag/5ef6b6f2-6733-443a-b485-e2e6f3eb45ac.jpg",
+            "https://img.cyndiglobal.com/showcase/duffel-bag/13793966-b047-4060-9a0c-073c13617daa.jpg"
+          ]
+        },
+        {
+          "id": "cy-2027-duffel-bag-10",
+          "sku": "2027-3-10",
+          "name": "Foldable Duffel Bag-Foldable Style 3",
+          "description": "Cellphone-sized foldable duffel with a 30 kg load capacity.",
+          "features": [
+            "Folds down to the size of a cellphone for easy storage",
+            "Weighs only 310 g, supports a load capacity up to 30 kg",
+            "Stacks securely on a suitcase to free your hands",
+            "1 main compartment, 2 front pockets, 1 zipped pocket with slot-in function",
+            "Top carry handle with detachable shoulder strap",
+            "Durable and easy to store, lightweight & water resistant"
+          ],
+          "materials": "Durable, lightweight & water-resistant",
+          "spec": "L:28(H) x 48(L) x 23(W)cm XL:44(H) x 70(L) x 30(W)cm",
+          "moq": 500,
+          "leadTime": 10,
+          "sizes": [
+            "L — 28(H) x 48(L) x 23(W) cm XL:44(H) x 70(L) x 30(W) cm"
+          ],
+          "pricing": [
+            {
+              "quantity": 500,
+              "price": 13.5
+            }
+          ],
+          "priceIncludes": "Base product in Durable, lightweight & water-resistant. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "Price varies by size: 13.5 / 15.5 USD per unit.",
+            "HRT target budget: US$10–15 per unit.",
+            "Estimated purchase quantity: 500–1,000 pcs.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
           "additionalCharges": [
-            { "label": "Setup (full color)", "amount": 110 }
+            {
+              "label": "Larger size surcharge (per unit)",
+              "amount": 2.0
+            }
           ],
-          "currency": "$"
+          "currency": "$",
+          "colors": [],
+          "image": "https://img.cyndiglobal.com/showcase/duffel-bag/7bc70c57-4689-487f-88c6-14ab5ad360ab.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/duffel-bag/7bc70c57-4689-487f-88c6-14ab5ad360ab.jpg",
+            "https://img.cyndiglobal.com/showcase/duffel-bag/30f487c9-a9af-4299-803b-77a1a76d93e7.jpg",
+            "https://img.cyndiglobal.com/showcase/duffel-bag/1f1e91cf-382b-4448-8561-d545f7cb3384.jpg",
+            "https://img.cyndiglobal.com/showcase/duffel-bag/419041a0-ae4f-48ac-956d-b8b827493e3b.jpg"
+          ]
+        },
+        {
+          "id": "cy-2027-duffel-bag-11",
+          "sku": "2027-3-11",
+          "name": "Foldable Duffel Bag-Foldable Style 4",
+          "description": "Lightweight foldable duffel in three sizes, weighing only 140 g.",
+          "features": [
+            "Folds down to the size of a cellphone for easy storage",
+            "Weighs only 140 g, supports a load capacity up to 20 kg",
+            "Stacks securely on a suitcase to free your hands",
+            "1 main compartment, 1 zipped pocket with slot-in function",
+            "Top carry handle with detachable shoulder strap",
+            "Durable and easy to store, lightweight & water resistant"
+          ],
+          "materials": "Durable, lightweight & water-resistant",
+          "spec": "S:30(H) x 39(L) x 19(W)cm M:37(H) x 48(L) x 17(W)cm L:43(H) x 56(L) x 17(W)cm",
+          "moq": 500,
+          "leadTime": 10,
+          "sizes": [
+            "S — 30(H) x 39(L) x 19(W) cm M:37(H) x 48(L) x 17(W) cm L:43(H) x 56(L) x 17(W) cm"
+          ],
+          "pricing": [
+            {
+              "quantity": 500,
+              "price": 6.5
+            }
+          ],
+          "priceIncludes": "Base product in Durable, lightweight & water-resistant. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "Price varies by size: 6.5 / 7.5 / 8.5 USD per unit.",
+            "HRT target budget: US$10–15 per unit.",
+            "Estimated purchase quantity: 500–1,000 pcs.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [
+            {
+              "label": "Larger size surcharge (per unit)",
+              "amount": 2.0
+            }
+          ],
+          "currency": "$",
+          "colors": [],
+          "image": "https://img.cyndiglobal.com/showcase/duffel-bag/1160a5af-65ae-4988-9ce1-8aa1a1846a0f.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/duffel-bag/1160a5af-65ae-4988-9ce1-8aa1a1846a0f.jpg",
+            "https://img.cyndiglobal.com/showcase/duffel-bag/d9630637-9f0c-464d-9521-53b0ede1cd79.jpg",
+            "https://img.cyndiglobal.com/showcase/duffel-bag/2905f5cf-bf76-4dcd-b514-18f28bfb5f72.jpg",
+            "https://img.cyndiglobal.com/showcase/duffel-bag/947e1d6f-605c-44c8-aa3e-44abb4da2141.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "backpack",
+      "name": "Mid-Tier & Premium Backpack",
+      "products": [
+        {
+          "id": "cy-2027-backpack-12",
+          "sku": "2027-4-12",
+          "name": "Mid-Tier Backpack-Hiking Backpack",
+          "description": "Mid-tier hiking backpack with a professional load-bearing system.",
+          "features": [
+            "Professional load-bearing system for multi-scene use",
+            "Breathable shoulder straps",
+            "Hollow back panel",
+            "Size: 48(H) x 27(L) x 20(W) cm"
+          ],
+          "materials": "Ultralight 0.60 kg, 20L capacity",
+          "spec": "48(H) x 27(L) x 20(W) cm Capacity:26L",
+          "moq": 300,
+          "leadTime": 20,
+          "sizes": [
+            "48(H) x 27(L) x 20(W) cm Capacity:26L"
+          ],
+          "pricing": [
+            {
+              "quantity": 300,
+              "price": 55.0
+            }
+          ],
+          "priceIncludes": "Base product in Ultralight 0.60 kg, 20L capacity. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "HRT target budget: US$50–60 per unit.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [],
+          "image": "https://img.cyndiglobal.com/showcase/backpack/a25e4413-ead5-4a93-b5fa-02e826756abe.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/backpack/a25e4413-ead5-4a93-b5fa-02e826756abe.jpg",
+            "https://img.cyndiglobal.com/showcase/backpack/efce25af-ccfe-46a8-8c0e-8f8913dc42c2.jpg",
+            "https://img.cyndiglobal.com/showcase/backpack/1e902b99-5721-48c5-9ddf-6f9af7f549b1.jpg",
+            "https://img.cyndiglobal.com/showcase/backpack/1dc532d5-1765-4930-83b5-6641358369d9.jpg"
+          ]
+        },
+        {
+          "id": "cy-2027-backpack-13",
+          "sku": "2027-4-13",
+          "name": "Mid-Tier Backpack — Business Backpack",
+          "description": "Mid-tier business backpack with a laptop compartment and luggage sleeve.",
+          "features": [
+            "Laptop compartment with expandable space",
+            "Luggage sleeve feature, lockable zipper pulls",
+            "Size: 38(H) x 29(L) x 13(W) cm"
+          ],
+          "materials": "Water-resistant, lightweight design",
+          "spec": "38(H) x 29(L) x 13(W) cm Capacity:15L",
+          "moq": 300,
+          "leadTime": 20,
+          "sizes": [
+            "38(H) x 29(L) x 13(W) cm Capacity:15L"
+          ],
+          "pricing": [
+            {
+              "quantity": 300,
+              "price": 58.9
+            }
+          ],
+          "priceIncludes": "Base product in Water-resistant, lightweight design. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "HRT target budget: US$50–60 per unit.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [],
+          "image": "https://img.cyndiglobal.com/showcase/backpack/ad3d59cf-af36-445f-83ef-05342d7852e6.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/backpack/ad3d59cf-af36-445f-83ef-05342d7852e6.jpg",
+            "https://img.cyndiglobal.com/showcase/backpack/74146965-b516-46d2-a868-d24e2405058c.jpg",
+            "https://img.cyndiglobal.com/showcase/backpack/27b4350b-b457-4acd-8af4-0951214ed8cd.jpg",
+            "https://img.cyndiglobal.com/showcase/backpack/6c9e9b34-65e8-4afd-951e-86de3b6c09b0.jpg"
+          ]
+        },
+        {
+          "id": "cy-2027-backpack-14",
+          "sku": "2027-5-14",
+          "name": "Premium Backpack-bellroy — Capacity:18L",
+          "description": "Premium 18L backpack in the Bellroy line.",
+          "features": [
+            "Premium-tier build with a refined silhouette",
+            "Multiple capacities: 18L, 20L, 24L, 26L",
+            "Full-colour logo embroidery and patch options"
+          ],
+          "materials": "Premium construction, 18L / 20L / 24L / 26L options",
+          "spec": "Capacity:18L",
+          "moq": 10,
+          "leadTime": 30,
+          "sizes": [
+            "Capacity:18L"
+          ],
+          "pricing": [
+            {
+              "quantity": 10,
+              "price": 142.57
+            }
+          ],
+          "priceIncludes": "Base product in Premium construction, 18L / 20L / 24L / 26L options. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "HRT target budget: 100 per unit.",
+            "Estimated purchase quantity: ~100 pcs.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [
+            {
+              "name": "Black",
+              "hex": "#111111",
+              "image": "https://img.cyndiglobal.com/showcase/backpack/60cc10b3-b115-4802-8b8b-4b36a945c535.jpg"
+            },
+            {
+              "name": "Grey",
+              "hex": "#8C8C8C",
+              "image": "https://img.cyndiglobal.com/showcase/backpack/60cc10b3-b115-4802-8b8b-4b36a945c535.jpg"
+            },
+            {
+              "name": "Blue",
+              "hex": "#3D6EA8",
+              "image": "https://img.cyndiglobal.com/showcase/backpack/60cc10b3-b115-4802-8b8b-4b36a945c535.jpg"
+            },
+            {
+              "name": "Orange",
+              "hex": "#E8702A",
+              "image": "https://img.cyndiglobal.com/showcase/backpack/60cc10b3-b115-4802-8b8b-4b36a945c535.jpg"
+            },
+            {
+              "name": "Navy",
+              "hex": "#1F2A44",
+              "image": "https://img.cyndiglobal.com/showcase/backpack/60cc10b3-b115-4802-8b8b-4b36a945c535.jpg"
+            },
+            {
+              "name": "Green",
+              "hex": "#4E7A45",
+              "image": "https://img.cyndiglobal.com/showcase/backpack/60cc10b3-b115-4802-8b8b-4b36a945c535.jpg"
+            }
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/backpack/60cc10b3-b115-4802-8b8b-4b36a945c535.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/backpack/60cc10b3-b115-4802-8b8b-4b36a945c535.jpg",
+            "https://img.cyndiglobal.com/showcase/backpack/ba104b00-a3ac-40ec-9710-c8166bc8b678.jpg",
+            "https://img.cyndiglobal.com/showcase/backpack/f8f752fc-c650-4177-82c9-09cee8040da8.jpg",
+            "https://img.cyndiglobal.com/showcase/backpack/de49ea73-c00a-4ec1-9b9c-78db92578ffd.jpg"
+          ]
+        },
+        {
+          "id": "cy-2027-backpack-15",
+          "sku": "2027-5-15",
+          "name": "Premium Backpack-bellroy — Capacity:20L",
+          "description": "Premium 20L backpack in the Bellroy line.",
+          "features": [
+            "Premium-tier build with a refined silhouette",
+            "Multiple capacities: 18L, 20L, 24L, 26L",
+            "Full-colour logo embroidery and patch options"
+          ],
+          "materials": "Premium construction, 18L / 20L / 24L / 26L options",
+          "spec": "Capacity:20L",
+          "moq": 10,
+          "leadTime": 30,
+          "sizes": [
+            "Capacity:20L"
+          ],
+          "pricing": [
+            {
+              "quantity": 10,
+              "price": 103.93
+            }
+          ],
+          "priceIncludes": "Base product in Premium construction, 18L / 20L / 24L / 26L options. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "HRT target budget: 100 per unit.",
+            "Estimated purchase quantity: ~100 pcs.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [
+            {
+              "name": "Black",
+              "hex": "#111111",
+              "image": "https://img.cyndiglobal.com/showcase/backpack/9934010c-8ae6-4644-9702-badae118375c.jpg"
+            },
+            {
+              "name": "Grey",
+              "hex": "#8C8C8C",
+              "image": "https://img.cyndiglobal.com/showcase/backpack/9934010c-8ae6-4644-9702-badae118375c.jpg"
+            },
+            {
+              "name": "Blue",
+              "hex": "#3D6EA8",
+              "image": "https://img.cyndiglobal.com/showcase/backpack/9934010c-8ae6-4644-9702-badae118375c.jpg"
+            },
+            {
+              "name": "Orange",
+              "hex": "#E8702A",
+              "image": "https://img.cyndiglobal.com/showcase/backpack/9934010c-8ae6-4644-9702-badae118375c.jpg"
+            },
+            {
+              "name": "Navy",
+              "hex": "#1F2A44",
+              "image": "https://img.cyndiglobal.com/showcase/backpack/9934010c-8ae6-4644-9702-badae118375c.jpg"
+            },
+            {
+              "name": "Green",
+              "hex": "#4E7A45",
+              "image": "https://img.cyndiglobal.com/showcase/backpack/9934010c-8ae6-4644-9702-badae118375c.jpg"
+            }
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/backpack/9934010c-8ae6-4644-9702-badae118375c.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/backpack/9934010c-8ae6-4644-9702-badae118375c.jpg",
+            "https://img.cyndiglobal.com/showcase/backpack/e60c96ec-7c3c-4608-80d3-06ade4d3562f.jpg",
+            "https://img.cyndiglobal.com/showcase/backpack/0f8f2183-ae72-4830-babd-74c211b0dc29.jpg",
+            "https://img.cyndiglobal.com/showcase/backpack/b05700f5-dcd6-499f-ab20-a7b191708efb.jpg"
+          ]
+        },
+        {
+          "id": "cy-2027-backpack-16",
+          "sku": "2027-5-16",
+          "name": "Premium Backpack-patagonia — Capacity:26L",
+          "description": "Premium 26L backpack in the Patagonia line.",
+          "features": [],
+          "materials": "",
+          "spec": "Capacity:26L",
+          "moq": 10,
+          "leadTime": 40,
+          "sizes": [
+            "Capacity:26L"
+          ],
+          "pricing": [
+            {
+              "quantity": 10,
+              "price": 128.0
+            }
+          ],
+          "priceIncludes": "Base product in standard specification. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "HRT target budget: 100 per unit.",
+            "Estimated purchase quantity: ~100 pcs.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [],
+          "image": "https://img.cyndiglobal.com/showcase/backpack/1b0e3d94-c21c-4953-9730-c5964cb48c06.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/backpack/1b0e3d94-c21c-4953-9730-c5964cb48c06.jpg",
+            "https://img.cyndiglobal.com/showcase/backpack/18a58205-d3dd-4e15-a412-33764b388e92.jpg",
+            "https://img.cyndiglobal.com/showcase/backpack/93489949-dc23-4615-9f71-33b0e6f16ea5.jpg",
+            "https://img.cyndiglobal.com/showcase/backpack/2b8c56c5-e2a4-47d9-91c4-eaa16de55eaa.jpg"
+          ]
+        },
+        {
+          "id": "cy-2027-backpack-17",
+          "sku": "2027-5-17",
+          "name": "Premium Backpack-patagonia — Capacity:24L",
+          "description": "Premium 24L backpack in the Patagonia line.",
+          "features": [],
+          "materials": "",
+          "spec": "Capacity:24L",
+          "moq": 10,
+          "leadTime": 40,
+          "sizes": [
+            "Capacity:24L"
+          ],
+          "pricing": [
+            {
+              "quantity": 10,
+              "price": 120.0
+            }
+          ],
+          "priceIncludes": "Base product in standard specification. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "HRT target budget: 100 per unit.",
+            "Estimated purchase quantity: ~100 pcs.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [],
+          "image": "https://img.cyndiglobal.com/showcase/backpack/eb2692af-3bf9-4646-a33e-4fb9499e5d2d.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/backpack/eb2692af-3bf9-4646-a33e-4fb9499e5d2d.jpg",
+            "https://img.cyndiglobal.com/showcase/backpack/fb9d7548-4399-4422-908e-015cc0e34547.jpg",
+            "https://img.cyndiglobal.com/showcase/backpack/9830cdcc-2ff7-40da-b8ef-61a85f12894a.jpg",
+            "https://img.cyndiglobal.com/showcase/backpack/59d1f1fd-8231-4c60-9086-11079503ce19.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sling-bag",
+      "name": "Side / Sling Bag",
+      "products": [
+        {
+          "id": "cy-2027-sling-bag-18",
+          "sku": "2027-6-18",
+          "name": "Side / Sling Bag–U-shaped lightweight pull cord",
+          "description": "U-shaped lightweight sling with a secure bottle strap.",
+          "features": [
+            "Featherweight, water-resistant shell that shrugs off rain without adding bulk",
+            "Silky-smooth zippers and reinforced buckles that hold up season after season",
+            "Secure side strap keeps a water bottle locked in place and within easy reach",
+            "Size: 20(H) x 39(L) x 10(W) cm"
+          ],
+          "materials": "Featherweight, water-resistant shell",
+          "spec": "Size: 20(H) x39(L) x 10 (W)cm",
+          "moq": 300,
+          "leadTime": 15,
+          "sizes": [
+            "Size: 20(H) x39(L) x 10 (W) cm"
+          ],
+          "pricing": [
+            {
+              "quantity": 300,
+              "price": 25.8
+            }
+          ],
+          "priceIncludes": "Base product in Featherweight, water-resistant shell. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "HRT target budget: US$20–30 per unit.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [
+            {
+              "name": "Black",
+              "hex": "#111111",
+              "image": "https://img.cyndiglobal.com/showcase/sling-bag/00462966-ff8b-48e6-9625-440ef4026740.jpg"
+            },
+            {
+              "name": "Silver Grey",
+              "hex": "#B9BCC0",
+              "image": "https://img.cyndiglobal.com/showcase/sling-bag/00462966-ff8b-48e6-9625-440ef4026740.jpg"
+            },
+            {
+              "name": "Khaki Brown",
+              "hex": "#8B7355",
+              "image": "https://img.cyndiglobal.com/showcase/sling-bag/00462966-ff8b-48e6-9625-440ef4026740.jpg"
+            },
+            {
+              "name": "Light Sage",
+              "hex": "#B7C4A8",
+              "image": "https://img.cyndiglobal.com/showcase/sling-bag/00462966-ff8b-48e6-9625-440ef4026740.jpg"
+            }
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/sling-bag/00462966-ff8b-48e6-9625-440ef4026740.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/sling-bag/00462966-ff8b-48e6-9625-440ef4026740.jpg",
+            "https://img.cyndiglobal.com/showcase/sling-bag/21a54a23-ef8b-49d7-b1ba-ecbdebb3679e.jpg",
+            "https://img.cyndiglobal.com/showcase/sling-bag/9b604eef-7875-4ccc-b696-0a632afac6df.jpg",
+            "https://img.cyndiglobal.com/showcase/sling-bag/a29c4428-1605-44e0-a445-47b010b7cf40.jpg"
+          ]
+        },
+        {
+          "id": "cy-2027-sling-bag-19",
+          "sku": "2027-6-19",
+          "name": "Side / Sling Bag–Bellroy style 7L",
+          "description": "7L sling with magnetic buckles and a fold-flat packable design.",
+          "features": [
+            "Magnetic quick-release buckles",
+            "Smooth-glide zips, reinforced hardware",
+            "Side strap for your bottle",
+            "Fold-flat packable design",
+            "Roomy main compartment",
+            "Size: 20(H) x 29(L) x 10(W) cm"
+          ],
+          "materials": "Lightweight waterproof nylon",
+          "spec": "Size: 20(H) x29(L) x 10 (W)cm",
+          "moq": 300,
+          "leadTime": 15,
+          "sizes": [
+            "Size: 20(H) x29(L) x 10 (W) cm"
+          ],
+          "pricing": [
+            {
+              "quantity": 300,
+              "price": 29.8
+            }
+          ],
+          "priceIncludes": "Base product in Lightweight waterproof nylon. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "HRT target budget: US$20–30 per unit.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [],
+          "image": "https://img.cyndiglobal.com/showcase/sling-bag/b08e19d4-eabd-4e90-8f37-c10ef21378c3.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/sling-bag/b08e19d4-eabd-4e90-8f37-c10ef21378c3.jpg",
+            "https://img.cyndiglobal.com/showcase/sling-bag/a487747c-d32f-4e0d-b116-a5b8197bd427.jpg",
+            "https://img.cyndiglobal.com/showcase/sling-bag/fe27aa3a-fc48-4797-8c40-373d1735b863.jpg",
+            "https://img.cyndiglobal.com/showcase/sling-bag/830625d6-e1e2-48ae-889f-4c75c28b6def.jpg"
+          ]
+        },
+        {
+          "id": "cy-2027-sling-bag-20",
+          "sku": "2027-6-20",
+          "name": "Side / Sling Bag–Lightweight mesh waterproof nylon bag",
+          "description": "Mesh waterproof nylon sling that carries four ways.",
+          "features": [
+            "Built for the trail — packs down small",
+            "Four ways to carry: crossbody, shoulder, chest or back",
+            "Expandable & packable",
+            "Multiple quick-access pockets",
+            "Adjustable metal hardware, breathable curved strap",
+            "Size: 19(H) x 30(L) x 3(W) cm"
+          ],
+          "materials": "Lightweight water-resistant Oxford",
+          "spec": "Size: 19(H) x30(L) x 3 (W)cm",
+          "moq": 300,
+          "leadTime": 10,
+          "sizes": [
+            "Size: 19(H) x30(L) x 3 (W) cm"
+          ],
+          "pricing": [
+            {
+              "quantity": 300,
+              "price": 18.5
+            }
+          ],
+          "priceIncludes": "Base product in Lightweight water-resistant Oxford. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "HRT target budget: US$20–30 per unit.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [],
+          "image": "https://img.cyndiglobal.com/showcase/sling-bag/38367638-e6e8-4061-96b0-254155bc721f.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/sling-bag/38367638-e6e8-4061-96b0-254155bc721f.jpg",
+            "https://img.cyndiglobal.com/showcase/sling-bag/6203b28d-f43f-4c89-8274-8cbd4335ce7e.jpg",
+            "https://img.cyndiglobal.com/showcase/sling-bag/407cc761-ce41-4590-82bc-ecae01757308.jpg",
+            "https://img.cyndiglobal.com/showcase/sling-bag/b606a31e-5147-4a94-ba5b-31fb09a9038d.jpg"
+          ]
+        },
+        {
+          "id": "cy-2027-sling-bag-21",
+          "sku": "2027-6-21",
+          "name": "Side / Sling Bag–Three Fjallraven sling bags",
+          "description": "Three Fjallraven sling bags in three sizes.",
+          "features": [
+            "Magnetic quick-release buckles",
+            "Smooth-glide zips, reinforced hardware",
+            "Side strap for your bottle",
+            "Fold-flat packable design",
+            "Roomy main compartment",
+            "Three sizes: 17(H) x 11(L) x 4(W) / 12(H) x 21(L) x 6(W) / 12(H) x 28(L) x 10(W) cm"
+          ],
+          "materials": "Durable shell with reinforced hardware",
+          "spec": "Size: 17(H) x11(L) x 4 (W)cm Size: 12(H) x21(L) x 6 (W)cm Size: 12(H) x28(L) x 10 (W)cm",
+          "moq": 100,
+          "leadTime": 15,
+          "sizes": [
+            "Size: 17(H) x11(L) x 4 (W) cm Size: 12(H) x21(L) x 6 (W) cm Size: 12(H) x28(L) x 10 (W) cm"
+          ],
+          "pricing": [
+            {
+              "quantity": 100,
+              "price": 45.3
+            }
+          ],
+          "priceIncludes": "Base product in Durable shell with reinforced hardware. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "Price varies by size: 45.3 / 54.6 / 59.4 USD per unit.",
+            "HRT target budget: US$20–30 per unit.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [
+            {
+              "label": "Larger size surcharge (per unit)",
+              "amount": 14.1
+            }
+          ],
+          "currency": "$",
+          "colors": [],
+          "image": "https://img.cyndiglobal.com/showcase/sling-bag/6a0e1f22-3ee2-4bfd-9e49-99cf82f0e764.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/sling-bag/6a0e1f22-3ee2-4bfd-9e49-99cf82f0e764.jpg",
+            "https://img.cyndiglobal.com/showcase/sling-bag/ee5af123-4c10-46e1-9963-be67bedae021.jpg",
+            "https://img.cyndiglobal.com/showcase/sling-bag/7a4297db-e256-4c16-bffc-540750a42268.jpg",
+            "https://img.cyndiglobal.com/showcase/sling-bag/4ec77789-7fda-419b-9168-eebcf52e9243.jpg"
+          ]
+        },
+        {
+          "id": "cy-2027-sling-bag-22",
+          "sku": "2027-6-22",
+          "name": "Side / Sling Bag–Outdoor colorful lightweight sling bag",
+          "description": "Colourful outdoor sling in water-resistant Oxford.",
+          "features": [
+            "Built for the trail — packs down small",
+            "Four ways to carry: crossbody, shoulder, chest or back",
+            "Expandable & packable",
+            "Multiple quick-access pockets",
+            "Adjustable metal hardware, breathable curved strap",
+            "Size: 15(H) x 27(L) x 5(W) cm"
+          ],
+          "materials": "Lightweight water-resistant Oxford",
+          "spec": "Size: 15(H) x27(L) x 5 (W)cm",
+          "moq": 300,
+          "leadTime": 15,
+          "sizes": [
+            "Size: 15(H) x27(L) x 5 (W) cm"
+          ],
+          "pricing": [
+            {
+              "quantity": 300,
+              "price": 25.8
+            }
+          ],
+          "priceIncludes": "Base product in Lightweight water-resistant Oxford. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "HRT target budget: US$20–30 per unit.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [],
+          "image": "https://img.cyndiglobal.com/showcase/sling-bag/73ea7c74-05cf-4c8d-b98f-de822646e97d.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/sling-bag/73ea7c74-05cf-4c8d-b98f-de822646e97d.jpg",
+            "https://img.cyndiglobal.com/showcase/sling-bag/abb9c384-025e-489c-b286-6613bf4d8f14.jpg",
+            "https://img.cyndiglobal.com/showcase/sling-bag/90da2b8e-509c-41c5-836b-23388883800d.jpg",
+            "https://img.cyndiglobal.com/showcase/sling-bag/c1edc7d3-ae45-4465-aaa8-497f4a91eaff.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "electronics-pouch",
+      "name": "Electronics Pouch",
+      "products": [
+        {
+          "id": "cy-2027-electronics-pouch-23",
+          "sku": "2027-7-23",
+          "name": "Electronics Pouch-style 1",
+          "description": "Electronics pouch in 900D water-resistant fabric, 180 g.",
+          "features": [
+            "Multi-compartment",
+            "Fits every tech essential",
+            "Double zipper + handle",
+            "Only 180 g",
+            "Size: 14(H) x 24(L) x 6(W) cm"
+          ],
+          "materials": "900D water-resistant",
+          "spec": "Size: 14(H) x24(L) x 6 (W)cm Weight: 180 g",
+          "moq": 500,
+          "leadTime": 35,
+          "sizes": [
+            "Size: 14(H) x24(L) x 6 (W) cm Weight: 180 g"
+          ],
+          "pricing": [
+            {
+              "quantity": 500,
+              "price": 7.8
+            }
+          ],
+          "priceIncludes": "Base product in 900D water-resistant. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "HRT target budget: ~US$6 per unit.",
+            "Estimated purchase quantity: ~300 pcs.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [],
+          "image": "https://img.cyndiglobal.com/showcase/electronics-pouch/e8263830-fe6c-4765-a4bf-b257a8bbea4a.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/electronics-pouch/e8263830-fe6c-4765-a4bf-b257a8bbea4a.jpg",
+            "https://img.cyndiglobal.com/showcase/electronics-pouch/0093f7e4-0fab-49ed-a872-4ab6c0cdf5a7.jpg",
+            "https://img.cyndiglobal.com/showcase/electronics-pouch/8db97a80-0a6d-4a73-bc5c-fc1e47fc1ea3.jpg",
+            "https://img.cyndiglobal.com/showcase/electronics-pouch/00b8e71a-3102-48b2-923d-081c474dceba.jpg"
+          ]
+        },
+        {
+          "id": "cy-2027-electronics-pouch-24",
+          "sku": "2027-7-24",
+          "name": "Electronics Pouch-style 2",
+          "description": "Roomy multi-compartment electronics pouch, 360 g.",
+          "features": [
+            "Multi-compartment",
+            "Fits every tech essential",
+            "Double zipper + handle",
+            "Size: 16(H) x 24(L) x 9(W) cm"
+          ],
+          "materials": "Water-resistant",
+          "spec": "Size: 16(H) x24(L) x 9 (W)cm Weight: 360 g",
+          "moq": 200,
+          "leadTime": 15,
+          "sizes": [
+            "Size: 16(H) x24(L) x 9 (W) cm Weight: 360 g"
+          ],
+          "pricing": [
+            {
+              "quantity": 200,
+              "price": 8.5
+            }
+          ],
+          "priceIncludes": "Base product in Water-resistant. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "HRT target budget: ~US$6 per unit.",
+            "Estimated purchase quantity: ~300 pcs.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [],
+          "image": "https://img.cyndiglobal.com/showcase/electronics-pouch/fd0c9881-d1b0-4f27-a64e-6014bbb5d562.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/electronics-pouch/fd0c9881-d1b0-4f27-a64e-6014bbb5d562.jpg",
+            "https://img.cyndiglobal.com/showcase/electronics-pouch/6b818779-996d-484a-9d05-90a8a6b9e42f.jpg",
+            "https://img.cyndiglobal.com/showcase/electronics-pouch/e259ebaf-1628-4bef-9f3e-e006e1738fca.jpg",
+            "https://img.cyndiglobal.com/showcase/electronics-pouch/a43c4880-9c88-462f-8db8-802be08afae6.jpg"
+          ]
+        },
+        {
+          "id": "cy-2027-electronics-pouch-25",
+          "sku": "2027-7-25",
+          "name": "Electronics Pouch-style 3",
+          "description": "Ultralight multi-compartment electronics pouch, 125 g.",
+          "features": [
+            "Multi-compartment",
+            "Fits every tech essential",
+            "Only 125 g",
+            "Size: 14.5(H) x 24.5(L) x 7.5(W) cm"
+          ],
+          "materials": "Water-resistant",
+          "spec": "Size: 14.5(H) x24.5(L) x 7.5 (W)cm Weight: 125 g",
+          "moq": 300,
+          "leadTime": 15,
+          "sizes": [
+            "Size: 14.5(H) x24.5(L) x 7.5 (W) cm Weight: 125 g"
+          ],
+          "pricing": [
+            {
+              "quantity": 300,
+              "price": 5.7
+            }
+          ],
+          "priceIncludes": "Base product in Water-resistant. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "HRT target budget: ~US$6 per unit.",
+            "Estimated purchase quantity: ~300 pcs.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [],
+          "image": "https://img.cyndiglobal.com/showcase/electronics-pouch/9d0bc4a9-ee0b-4274-adc2-888dd265a7e0.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/electronics-pouch/9d0bc4a9-ee0b-4274-adc2-888dd265a7e0.jpg",
+            "https://img.cyndiglobal.com/showcase/electronics-pouch/bd92bc1a-9532-4afe-9106-876475884d98.jpg",
+            "https://img.cyndiglobal.com/showcase/electronics-pouch/15e850bf-b82a-49db-a514-2817a8f0d725.jpg",
+            "https://img.cyndiglobal.com/showcase/electronics-pouch/6a7099f8-8e1f-4aa4-aa14-7a61c53b09f4.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "headwear",
+      "name": "Headwear",
+      "products": [
+        {
+          "id": "cy-2027-headwear-26",
+          "sku": "2027-8-26",
+          "name": "Cap-Quick-Dry Dark Mesh Pattern",
+          "description": "Quick-dry mesh cap with 3D embroidery, 90 g.",
+          "features": [
+            "Super lightweight at 90 g",
+            "Foldable and does not wrinkle easily",
+            "Quick-drying and breathable sports tech fabric",
+            "3D heavy industry embroidery craft",
+            "Size: 16(H) x 23(L) x 13(W) cm — one size fits all, adjustable"
+          ],
+          "materials": "Quick-drying and breathable sports tech fabric",
+          "spec": "Size: 16(H) x23(L) x 13 (W)cm Weight: 90 g , one size fits all, adjustable",
+          "moq": 300,
+          "leadTime": 10,
+          "sizes": [
+            "Size: 16(H) x23(L) x 13 (W) cm Weight: 90 g , one size fits all, adjustable"
+          ],
+          "pricing": [
+            {
+              "quantity": 300,
+              "price": 14.98
+            }
+          ],
+          "priceIncludes": "Base product in Quick-drying and breathable sports tech fabric. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "The logo design might need marketing approval.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [
+            {
+              "name": "Dark Gray (leaning black)",
+              "hex": "#3A3A3A",
+              "image": "https://img.cyndiglobal.com/showcase/headwear/3cee0a78-f42d-4299-b93b-1e8275a2d6c3.jpg"
+            }
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/headwear/3cee0a78-f42d-4299-b93b-1e8275a2d6c3.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/headwear/3cee0a78-f42d-4299-b93b-1e8275a2d6c3.jpg",
+            "https://img.cyndiglobal.com/showcase/headwear/ac9e46e2-61fe-428d-9f67-4a9146dc3b60.jpg",
+            "https://img.cyndiglobal.com/showcase/headwear/df185b91-cb58-4be1-8afd-8066c12aa823.jpg",
+            "https://img.cyndiglobal.com/showcase/headwear/0f165add-10c9-4d32-b8f7-47b6711efa4b.jpg"
+          ]
+        },
+        {
+          "id": "cy-2027-headwear-27",
+          "sku": "2027-8-27",
+          "name": "Cap-Quick-Dry Perforated",
+          "description": "Quick-dry perforated cap with 3D embroidery, 90 g.",
+          "features": [
+            "Super lightweight at 90 g",
+            "Foldable and does not wrinkle easily",
+            "Quick-drying and breathable sports tech fabric",
+            "3D heavy industry embroidery craft",
+            "Hat circumference 56-58 cm — one size fits all, adjustable"
+          ],
+          "materials": "Quick-drying and breathable sports tech fabric",
+          "spec": "Hat circumference: 56-58 cm, one size fits all, adjustable Weight: 90 g",
+          "moq": 300,
+          "leadTime": 10,
+          "sizes": [
+            "Hat circumference: 56-58 cm, one size fits all, adjustable Weight: 90 g"
+          ],
+          "pricing": [
+            {
+              "quantity": 300,
+              "price": 14.98
+            }
+          ],
+          "priceIncludes": "Base product in Quick-drying and breathable sports tech fabric. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "The logo design might need marketing approval.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [
+            {
+              "name": "Gray",
+              "hex": "#8C8C8C",
+              "image": "https://img.cyndiglobal.com/showcase/headwear/533c1045-e9d3-4c02-8a0a-b556418c9c80.jpg"
+            }
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/headwear/533c1045-e9d3-4c02-8a0a-b556418c9c80.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/headwear/533c1045-e9d3-4c02-8a0a-b556418c9c80.jpg",
+            "https://img.cyndiglobal.com/showcase/headwear/ea496c14-1da9-4e90-a7a8-7e9fd7cb94fe.jpg",
+            "https://img.cyndiglobal.com/showcase/headwear/fba0dd40-2ac8-4641-84af-e704a6aefaf1.jpg",
+            "https://img.cyndiglobal.com/showcase/headwear/5cc2d14d-e8df-4abc-85fe-49f21eccfebf.jpg"
+          ]
+        },
+        {
+          "id": "cy-2027-headwear-28",
+          "sku": "2027-9-28",
+          "name": "Beanie",
+          "description": "Acrylic beanie with a 3D special embroidery technique.",
+          "features": [
+            "Hat circumference 54-60 cm — one size fits all",
+            "Logo uses a 3D special embroidery technique — stitching is neither too solid nor too plain",
+            "Full and glossy embroidery style",
+            "Customized by multiple well-known sports brand partners"
+          ],
+          "materials": "100% Acrylic, weight 100 g",
+          "spec": "Hat circumference: 54-60cm, one size fits all Weight: 100 g",
+          "moq": 300,
+          "leadTime": 30,
+          "sizes": [
+            "Hat circumference: 54-60 cm, one size fits all Weight: 100 g"
+          ],
+          "pricing": [
+            {
+              "quantity": 300,
+              "price": 14.98
+            }
+          ],
+          "priceIncludes": "Base product in 100% Acrylic, weight 100 g. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "The logo design might need marketing approval.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [
+            {
+              "name": "Black",
+              "hex": "#111111",
+              "image": "https://img.cyndiglobal.com/showcase/headwear/4e68f4b5-71ec-4bc4-8b8f-1b688f5b9133.jpg"
+            }
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/headwear/4e68f4b5-71ec-4bc4-8b8f-1b688f5b9133.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/headwear/4e68f4b5-71ec-4bc4-8b8f-1b688f5b9133.jpg",
+            "https://img.cyndiglobal.com/showcase/headwear/db6e6b3c-c7c1-41b8-a9be-beacfbd3f455.jpg",
+            "https://img.cyndiglobal.com/showcase/headwear/a0c5f297-f37d-4fed-acbf-51b4af1bace4.jpg",
+            "https://img.cyndiglobal.com/showcase/headwear/b9e72aee-57c2-4d2c-96b2-f00d9003f5cb.jpg"
+          ]
         }
       ]
     },
@@ -163,64 +1312,564 @@
       "name": "Drinkware",
       "products": [
         {
-          "id": "cy-drink-001",
-          "sku": "T3263348",
-          "name": "Jett Aluminum Chug Lid Hydration Bottle — 16 Oz.",
-          "description": "A lightweight 16 oz aluminum hydration bottle with a chug lid, built for active days on the job.",
+          "id": "cy-2027-drinkware-29",
+          "sku": "2027-10-29",
+          "name": "Owala Bottle (535ml)",
+          "description": "Owala-style 535 ml bottle in 316 stainless steel with a leakproof lid.",
           "features": [
-            "Single-wall aluminum construction",
-            "Chug lid with leak-resistant seal",
-            "Fits standard car cup holders"
+            "Non-slip silicone base for stable placement",
+            "Double-wall vacuum insulation — keeps drinks hot or cold",
+            "Built-in carry ring, lightweight & portable for travel",
+            "Leakproof sealed lid — no spills inside bags",
+            "Size: 24.3(H) x 7.6(W) cm, capacity 535 ml / 18 oz, weight 340 g"
           ],
-          "materials": "Aluminum, Polypropylene Lid",
-          "image": "/images/products/drinkware/jett-aluminum.jpg",
-          "gallery": [
-            "/images/products/drinkware/jett-aluminum.jpg"
+          "materials": "Food-grade 316 stainless steel liner, safe and corrosion-resistant",
+          "spec": "Size: 24.3(H) x 7.6(W)cm Cap.:535ml/ 18oz Weight:340g",
+          "moq": 100,
+          "leadTime": 20,
+          "sizes": [
+            "Size: 24.3(H) x 7.6(W) cm Cap.:535ml/ 18oz Weight:340g"
           ],
-          "colors": [
-            { "name": "Black", "hex": "#1c1917", "image": "/images/products/drinkware/jett-aluminum.jpg" },
-            { "name": "Silver", "hex": "#c8c8c8", "image": "/images/products/drinkware/jett-aluminum.jpg" }
-          ],
-          "sizes": ["16 oz"],
           "pricing": [
-            { "quantity": 300, "price": 18.9 }
+            {
+              "quantity": 100,
+              "price": 23.98
+            }
           ],
-          "priceIncludes": "Laser Engrave, 1 location on lid.",
-          "priceNotes": ["Pre tax. Pre shipping"],
-          "additionalCharges": [
-            { "label": "Setup (per color)", "amount": 70 }
+          "priceIncludes": "Base product in Food-grade 316 stainless steel liner, safe and corrosion-resistant. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
           ],
-          "currency": "$"
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [],
+          "image": "https://img.cyndiglobal.com/showcase/drinkware/4b68dca6-1a18-4715-9d6a-5211474cc1c6.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/drinkware/4b68dca6-1a18-4715-9d6a-5211474cc1c6.jpg",
+            "https://img.cyndiglobal.com/showcase/drinkware/fb48bcd1-2891-427c-8a58-ab952a8b036c.jpg",
+            "https://img.cyndiglobal.com/showcase/drinkware/b55437c2-b0e1-46d4-a4cd-ae0cf44d14f3.jpg",
+            "https://img.cyndiglobal.com/showcase/drinkware/81c68aa2-d2bb-412f-bf16-239092ecb481.jpg"
+          ]
         },
         {
-          "id": "cy-drink-002",
-          "sku": "T3263350",
-          "name": "Zigoo Silicone Collapsible Bottle 18oz",
-          "description": "A collapsible 18oz silicone bottle that folds down for easy packing — great for travel and events.",
+          "id": "cy-2027-drinkware-30",
+          "sku": "2027-11-30",
+          "name": "Insulated Protein Shaker — 600 ml",
+          "description": "Insulated 600 ml protein shaker in 304 stainless steel.",
           "features": [
-            "Collapses to half its height",
-            "Food-grade, BPA-free silicone",
-            "Leak-resistant screw cap"
+            "Double-wall vacuum insulation",
+            "Leakproof sealed lid",
+            "Size: 32(H) x 7.5(W) cm, capacity 600 ml / 20 oz, weight 500 g"
           ],
-          "materials": "Food-grade BPA-Free Silicone, PP Cap",
-          "image": "/images/products/drinkware/zigoo-collapsible.jpg",
-          "gallery": [
-            "/images/products/drinkware/zigoo-collapsible.jpg"
+          "materials": "Food-grade 304 stainless steel liner",
+          "spec": "Size: 32(H) x 7.5(W)cm Cap.:600ml/ 20oz Weight:500g",
+          "moq": 200,
+          "leadTime": 20,
+          "sizes": [
+            "Size: 32(H) x 7.5(W) cm Cap.:600ml/ 20oz Weight:500g"
           ],
-          "colors": [
-            { "name": "Aqua Blue", "hex": "#8cc5e0", "image": "/images/products/drinkware/zigoo-collapsible.jpg" },
-            { "name": "Black", "hex": "#1c1917", "image": "/images/products/drinkware/zigoo-collapsible.jpg" }
-          ],
-          "sizes": ["18 oz"],
           "pricing": [
-            { "quantity": 300, "price": 16.4 }
+            {
+              "quantity": 200,
+              "price": 12.5
+            }
           ],
-          "priceIncludes": "1-color print, 1 location.",
-          "priceNotes": ["Pre tax. Pre shipping"],
+          "priceIncludes": "Base product in Food-grade 304 stainless steel liner. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "HRT target budget: US$10–15 per unit.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [],
+          "image": "https://img.cyndiglobal.com/showcase/drinkware/2ec8988d-213b-4441-ab2e-2611a289d2ff.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/drinkware/2ec8988d-213b-4441-ab2e-2611a289d2ff.jpg",
+            "https://img.cyndiglobal.com/showcase/drinkware/f2c572d7-385e-4a71-b523-2abafb622603.jpg",
+            "https://img.cyndiglobal.com/showcase/drinkware/b7908f95-27e5-4f59-9101-672522878fc9.jpg",
+            "https://img.cyndiglobal.com/showcase/drinkware/b46a6658-4f00-445a-835f-403f83df5f8c.jpg"
+          ]
+        },
+        {
+          "id": "cy-2027-drinkware-31",
+          "sku": "2027-11-31",
+          "name": "Insulated Protein Shaker-Stanley",
+          "description": "Stanley-style 591 ml protein shaker in 304 stainless steel.",
+          "features": [
+            "Double-wall vacuum insulation",
+            "Leakproof sealed lid",
+            "Size: 26(H) x 7.3(W) cm, capacity 591 ml / 20 oz, weight 600 g"
+          ],
+          "materials": "Food-grade 304 stainless steel liner",
+          "spec": "Size: 26(H) x 7.3(W)cm Cap.:591ml/ 20oz Weight:600g",
+          "moq": 300,
+          "leadTime": 20,
+          "sizes": [
+            "Size: 26(H) x 7.3(W) cm Cap.:591ml/ 20oz Weight:600g"
+          ],
+          "pricing": [
+            {
+              "quantity": 300,
+              "price": 49.6
+            }
+          ],
+          "priceIncludes": "Base product in Food-grade 304 stainless steel liner. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "HRT target budget: US$10–15 per unit.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [],
+          "image": "https://img.cyndiglobal.com/showcase/drinkware/76d57aec-16db-4ee4-984f-7c62af06f1e0.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/drinkware/76d57aec-16db-4ee4-984f-7c62af06f1e0.jpg",
+            "https://img.cyndiglobal.com/showcase/drinkware/7a8e9ad3-7bbc-4087-87a7-14d9e70da142.jpg",
+            "https://img.cyndiglobal.com/showcase/drinkware/2bd25e8b-ba09-4d81-9fea-a667ece519e1.jpg",
+            "https://img.cyndiglobal.com/showcase/drinkware/a30581af-aafc-4a65-acd0-2add504aa296.jpg"
+          ]
+        },
+        {
+          "id": "cy-2027-drinkware-32",
+          "sku": "2027-12-32",
+          "name": "Compact Coffee Bottle",
+          "description": "Compact 280 ml coffee bottle in 316 stainless steel, 200 g.",
+          "features": [
+            "Non-slip silicone base for stable placement",
+            "Double-wall vacuum insulation — keeps drinks hot or cold",
+            "Built-in carry ring, lightweight & portable for travel",
+            "Leakproof sealed lid — no spills inside bags",
+            "Size: 14(H) x 7.5(W) cm, capacity 280 ml / 10 oz, weight 200 g"
+          ],
+          "materials": "Food-grade 316 stainless steel liner, safe and corrosion-resistant",
+          "spec": "14(H) x 7.5(W)cm Cap.:280ml/ 10oz Weight:200g",
+          "moq": 50,
+          "leadTime": 12,
+          "sizes": [
+            "14(H) x 7.5(W) cm Cap.:280ml/ 10oz Weight:200g"
+          ],
+          "pricing": [
+            {
+              "quantity": 50,
+              "price": 5.98
+            }
+          ],
+          "priceIncludes": "Base product in Food-grade 316 stainless steel liner, safe and corrosion-resistant. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [],
+          "image": "https://img.cyndiglobal.com/showcase/drinkware/2116f117-2f76-4f94-a220-18a0ae4ab382.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/drinkware/2116f117-2f76-4f94-a220-18a0ae4ab382.jpg",
+            "https://img.cyndiglobal.com/showcase/drinkware/65235fed-971d-4b51-9c69-76408320cd05.jpg",
+            "https://img.cyndiglobal.com/showcase/drinkware/33a7ffa5-b0e6-4bde-8719-d9d55cae90ae.jpg",
+            "https://img.cyndiglobal.com/showcase/drinkware/28cf8203-75d4-4534-8b6f-5fdb51d403e6.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keyboard-fidget",
+      "name": "Keyboard Fidget",
+      "products": [
+        {
+          "id": "cy-2027-keyboard-fidget-33",
+          "sku": "2027-13-33",
+          "name": "Keyboard Fidget (4-key WASD)",
+          "description": "4-key WASD fidget with a custom clear mould and 3D printed keycaps.",
+          "features": [
+            "Custom clear WASD mold",
+            "3D printed keycaps",
+            "3D raised custom letters and symbols",
+            "Custom HRT official colour scheme with Pantone codes",
+            "Size: 4.2(H) x 6(L) x 1.2(W) cm"
+          ],
+          "materials": "Custom clear WASD mold with 3D printed keycaps",
+          "spec": "Size: 4.2(H) x6(L) x 1.2 (W)cm",
+          "moq": 500,
+          "leadTime": 20,
+          "sizes": [
+            "Size: 4.2(H) x6(L) x 1.2 (W) cm"
+          ],
+          "pricing": [
+            {
+              "quantity": 500,
+              "price": 3.89
+            }
+          ],
+          "priceIncludes": "Base product in Custom clear WASD mold with 3D printed keycaps. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "Triple customisation (WASD mold + official HRT colour keycaps + raised letter logos) makes the price a bit high.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [],
+          "image": "https://img.cyndiglobal.com/showcase/keyboard-fidget/1442d73d-4cba-4764-a708-3801779fd26f.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/keyboard-fidget/1442d73d-4cba-4764-a708-3801779fd26f.jpg",
+            "https://img.cyndiglobal.com/showcase/keyboard-fidget/267d4cd6-cb56-4394-90c9-fe89cb00cea1.jpg",
+            "https://img.cyndiglobal.com/showcase/keyboard-fidget/48d41973-3174-4437-abf9-8cccf8418229.jpg",
+            "https://img.cyndiglobal.com/showcase/keyboard-fidget/2b48ce6c-a459-45cc-8040-7876d337a5ab.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "plushie-keychain",
+      "name": "Plushie Keychain",
+      "products": [
+        {
+          "id": "cy-2027-plushie-keychain-34",
+          "sku": "2027-14-34",
+          "name": "Plushie Keychain (Hamster)",
+          "description": "4 inch micro plush hamster keychain with a screenprinted outfit.",
+          "features": [
+            "4 inch diameter micro plush hamster keychain",
+            "Hamster wears a hoody with screenprint on the front",
+            "Non-removable double-sided 2.00\" wide x 1.10\" tall strap",
+            "Sewn-in tag on the bottom of the plushie as shown in the mockup"
+          ],
+          "materials": "Micro plush in PMS 151C and white, eyes and embroidered mouth in black, silver hardware",
+          "spec": "10.2(H) x 10.2(L) x 10.2(W)cm",
+          "moq": 1000,
+          "leadTime": 40,
+          "sizes": [
+            "10.2(H) x 10.2(L) x 10.2(W) cm"
+          ],
+          "pricing": [
+            {
+              "quantity": 1000,
+              "price": 6.5
+            }
+          ],
+          "priceIncludes": "Base product in Micro plush in PMS 151C and white, eyes and embroidered mouth in black, silver hardware. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "Price varies by size: 6.5 / 8.5 USD per unit.",
+            "Estimated purchase quantity: ~1,000 pcs.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
           "additionalCharges": [
-            { "label": "Setup (per color)", "amount": 70 }
+            {
+              "label": "Larger size surcharge (per unit)",
+              "amount": 2.0
+            }
           ],
-          "currency": "$"
+          "currency": "$",
+          "colors": [],
+          "image": "https://img.cyndiglobal.com/showcase/plushie-keychain/be454735-7dfd-4183-b782-da35fe947872.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/plushie-keychain/be454735-7dfd-4183-b782-da35fe947872.jpg",
+            "https://img.cyndiglobal.com/showcase/plushie-keychain/3bb217ab-f870-426b-b9b2-ae3457a2f387.jpg",
+            "https://img.cyndiglobal.com/showcase/plushie-keychain/8dfd6b02-ae55-4c12-8784-70f313a9e191.jpg",
+            "https://img.cyndiglobal.com/showcase/plushie-keychain/20e6232f-ca92-4724-a93a-66c82c3e2b41.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jacket",
+      "name": "Mid-Tier & Premium Zip-Up Jacket",
+      "products": [
+        {
+          "id": "cy-2027-jacket-35",
+          "sku": "2027-15-35",
+          "name": "Zip-Up Jacket — Soft Shell, Mandarin Collar",
+          "description": "Soft shell zip-up with a Mandarin collar, windproof and water-repellent.",
+          "features": [
+            "3D tailored fit, proper freedom of movement",
+            "Windproof outside, fleece warmth inside",
+            "Water-repellent — light rain just rolls off",
+            "Sizes: S-3XL (see Size Chart)"
+          ],
+          "materials": "Soft shell — windproof outer, fleece warmth inner",
+          "spec": "S-3XL",
+          "moq": 300,
+          "leadTime": 10,
+          "sizes": [
+            "S-3XL"
+          ],
+          "pricing": [
+            {
+              "quantity": 300,
+              "price": 35.9
+            }
+          ],
+          "priceIncludes": "Base product in Soft shell — windproof outer, fleece warmth inner. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "HRT target budget: US$30–50 per unit.",
+            "Estimated purchase quantity: ~500 pcs.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [],
+          "image": "https://img.cyndiglobal.com/showcase/jacket/b6acedc2-23a0-4301-8529-f521bc80a042.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/jacket/b6acedc2-23a0-4301-8529-f521bc80a042.jpg",
+            "https://img.cyndiglobal.com/showcase/jacket/f9a9a59b-2264-481e-917d-e081a7175d6e.jpg",
+            "https://img.cyndiglobal.com/showcase/jacket/18b3ffa2-d53a-416b-8a00-e65107b96be6.jpg",
+            "https://img.cyndiglobal.com/showcase/jacket/64fff247-91f0-423e-8ed0-76bd5c22be3b.jpg"
+          ]
+        },
+        {
+          "id": "cy-2027-jacket-36",
+          "sku": "2027-15-36",
+          "name": "Zip-Up Jacket — Softshell, Windproof & Waterproof",
+          "description": "Softshell zip-up with fleece warmth and a water-repellent outer.",
+          "features": [
+            "3D tailored fit, proper freedom of movement",
+            "Windproof outside, fleece warmth inside",
+            "Water-repellent — light rain just rolls off",
+            "Sizes: XS-4XL (see Size Chart)"
+          ],
+          "materials": "Softshell — windproof outer, fleece warmth inner",
+          "spec": "S-3XL",
+          "moq": 300,
+          "leadTime": 10,
+          "sizes": [
+            "S-3XL"
+          ],
+          "pricing": [
+            {
+              "quantity": 300,
+              "price": 48.9
+            }
+          ],
+          "priceIncludes": "Base product in Softshell — windproof outer, fleece warmth inner. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "HRT target budget: US$30–50 per unit.",
+            "Estimated purchase quantity: ~500 pcs.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [],
+          "image": "https://img.cyndiglobal.com/showcase/jacket/faadc1af-fb2e-436b-80c6-638347525ca3.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/jacket/faadc1af-fb2e-436b-80c6-638347525ca3.jpg",
+            "https://img.cyndiglobal.com/showcase/jacket/bbce3201-3cdd-492c-94ba-5beb4bcb5636.jpg",
+            "https://img.cyndiglobal.com/showcase/jacket/ea96c8eb-c1ab-4a02-b076-3b259f412461.jpg",
+            "https://img.cyndiglobal.com/showcase/jacket/1b217c41-3063-4329-8358-9b3d5d139c57.jpg"
+          ]
+        },
+        {
+          "id": "cy-2027-jacket-37",
+          "sku": "2027-15-37",
+          "name": "Zip-Up Jacket — Hardshell, Windproof & Waterproof",
+          "description": "Hardshell zip-up rated 8000 mm waterproof and 10,000+ breathable.",
+          "features": [
+            "8000 mm waterproof, 10,000+ breathable",
+            "Windproof, yet still breathes",
+            "3-layer ripstop, built to last",
+            "Hood fits over a helmet",
+            "Sizes: XS-4XL (see Size Chart)"
+          ],
+          "materials": "3-layer ripstop hard shell, 8000 mm waterproof / 10,000+ breathable",
+          "spec": "S-2XL",
+          "moq": 300,
+          "leadTime": 10,
+          "sizes": [
+            "S-2XL"
+          ],
+          "pricing": [
+            {
+              "quantity": 300,
+              "price": 54.5
+            }
+          ],
+          "priceIncludes": "Base product in 3-layer ripstop hard shell, 8000 mm waterproof / 10,000+ breathable. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "HRT target budget: US$30–50 per unit.",
+            "Estimated purchase quantity: ~500 pcs.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [],
+          "image": "https://img.cyndiglobal.com/showcase/jacket/4c049485-0586-4e91-ae0f-f70cc9562ed3.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/jacket/4c049485-0586-4e91-ae0f-f70cc9562ed3.jpg",
+            "https://img.cyndiglobal.com/showcase/jacket/083b29a6-6c2b-4efc-be6a-1c61fa7d4544.jpg",
+            "https://img.cyndiglobal.com/showcase/jacket/98b62ae0-888f-48f4-9db4-0fd1cd6c54c6.jpg",
+            "https://img.cyndiglobal.com/showcase/jacket/10375b04-45e9-4f10-b982-32e50fb19c16.jpg"
+          ]
+        },
+        {
+          "id": "cy-2027-jacket-38",
+          "sku": "2027-16-38",
+          "name": "Premium Jacket — M's Houdini",
+          "description": "Premium M's Houdini jacket.",
+          "features": [
+            "Premium better-sweater fleece construction",
+            "Lightweight warmth with a refined finish",
+            "Full-colour logo embroidery and patch options"
+          ],
+          "materials": "Houdini waterproof shell",
+          "spec": "S-5XL",
+          "moq": 1,
+          "leadTime": 40,
+          "sizes": [
+            "S-5XL"
+          ],
+          "pricing": [
+            {
+              "quantity": 1,
+              "price": 121.9
+            }
+          ],
+          "priceIncludes": "Base product in Houdini waterproof shell. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "HRT target budget: >US$100 per unit.",
+            "Estimated purchase quantity: ~100 pcs.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [
+            {
+              "name": "Black",
+              "hex": "#111111",
+              "image": "https://img.cyndiglobal.com/showcase/jacket/23d1a09b-f100-4c1e-9a99-9136459590a6.jpg"
+            },
+            {
+              "name": "Khaki",
+              "hex": "#8B8D6F",
+              "image": "https://img.cyndiglobal.com/showcase/jacket/23d1a09b-f100-4c1e-9a99-9136459590a6.jpg"
+            }
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/jacket/23d1a09b-f100-4c1e-9a99-9136459590a6.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/jacket/23d1a09b-f100-4c1e-9a99-9136459590a6.jpg",
+            "https://img.cyndiglobal.com/showcase/jacket/16c13981-e935-4f17-84ea-3444461fbbad.jpg",
+            "https://img.cyndiglobal.com/showcase/jacket/760772dd-27ca-422f-96d8-f41b4bb29ab2.jpg",
+            "https://img.cyndiglobal.com/showcase/jacket/0d074ec1-612a-4aa9-a7d6-037e7d1306b9.jpg"
+          ]
+        },
+        {
+          "id": "cy-2027-jacket-39",
+          "sku": "2027-16-39",
+          "name": "Premium Jacket — M's Light & Variable",
+          "description": "Premium M's Light & Variable jacket.",
+          "features": [
+            "Premium better-sweater fleece construction",
+            "Lightweight warmth with a refined finish",
+            "Full-colour logo embroidery and patch options"
+          ],
+          "materials": "Light & Variable shell",
+          "spec": "S-5XL",
+          "moq": 1,
+          "leadTime": 40,
+          "sizes": [
+            "S-5XL"
+          ],
+          "pricing": [
+            {
+              "quantity": 1,
+              "price": 145.0
+            }
+          ],
+          "priceIncludes": "Base product in Light & Variable shell. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "HRT target budget: >US$100 per unit.",
+            "Estimated purchase quantity: ~100 pcs.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [
+            {
+              "name": "Purple",
+              "hex": "#6B4E8C",
+              "image": "https://img.cyndiglobal.com/showcase/jacket/d4bfc517-6e45-4ea3-95ac-88520704f184.jpg"
+            },
+            {
+              "name": "Black",
+              "hex": "#111111",
+              "image": "https://img.cyndiglobal.com/showcase/jacket/d4bfc517-6e45-4ea3-95ac-88520704f184.jpg"
+            },
+            {
+              "name": "Forest Green",
+              "hex": "#2F4F3A",
+              "image": "https://img.cyndiglobal.com/showcase/jacket/d4bfc517-6e45-4ea3-95ac-88520704f184.jpg"
+            },
+            {
+              "name": "Teal",
+              "hex": "#2E6B6B",
+              "image": "https://img.cyndiglobal.com/showcase/jacket/d4bfc517-6e45-4ea3-95ac-88520704f184.jpg"
+            },
+            {
+              "name": "Sand",
+              "hex": "#D8C9A8",
+              "image": "https://img.cyndiglobal.com/showcase/jacket/d4bfc517-6e45-4ea3-95ac-88520704f184.jpg"
+            },
+            {
+              "name": "Grey",
+              "hex": "#8C8C8C",
+              "image": "https://img.cyndiglobal.com/showcase/jacket/d4bfc517-6e45-4ea3-95ac-88520704f184.jpg"
+            },
+            {
+              "name": "Orange",
+              "hex": "#E8702A",
+              "image": "https://img.cyndiglobal.com/showcase/jacket/d4bfc517-6e45-4ea3-95ac-88520704f184.jpg"
+            }
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/jacket/d4bfc517-6e45-4ea3-95ac-88520704f184.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/jacket/d4bfc517-6e45-4ea3-95ac-88520704f184.jpg",
+            "https://img.cyndiglobal.com/showcase/jacket/88d18f5f-0bdf-4c6a-9524-56f54fba22bf.jpg",
+            "https://img.cyndiglobal.com/showcase/jacket/33393e56-6d9b-4e2d-ae5b-574591fd1667.jpg",
+            "https://img.cyndiglobal.com/showcase/jacket/52728e4f-86ed-480d-987d-3c4f17825cee.jpg"
+          ]
+        },
+        {
+          "id": "cy-2027-jacket-40",
+          "sku": "2027-16-40",
+          "name": "Premium Jacket — Better Sweater Fleece",
+          "description": "Premium Better Sweater Fleece jacket.",
+          "features": [
+            "Premium better-sweater fleece construction",
+            "Lightweight warmth with a refined finish",
+            "Full-colour logo embroidery and patch options"
+          ],
+          "materials": "Better Sweater Fleece",
+          "spec": "S-5XL",
+          "moq": 1,
+          "leadTime": 40,
+          "sizes": [
+            "S-5XL"
+          ],
+          "pricing": [
+            {
+              "quantity": 1,
+              "price": 142.0
+            }
+          ],
+          "priceIncludes": "Base product in Better Sweater Fleece. Custom artwork and decoration quoted separately.",
+          "priceNotes": [
+            "HRT target budget: >US$100 per unit.",
+            "Estimated purchase quantity: ~100 pcs.",
+            "Pre tax. Pre shipping. Cost may vary based upon final artwork."
+          ],
+          "additionalCharges": [],
+          "currency": "$",
+          "colors": [
+            {
+              "name": "Grey",
+              "hex": "#8C8C8C",
+              "image": "https://img.cyndiglobal.com/showcase/jacket/5919e446-11e8-4ed1-93bc-e0b6034e4815.jpg"
+            }
+          ],
+          "image": "https://img.cyndiglobal.com/showcase/jacket/5919e446-11e8-4ed1-93bc-e0b6034e4815.jpg",
+          "gallery": [
+            "https://img.cyndiglobal.com/showcase/jacket/5919e446-11e8-4ed1-93bc-e0b6034e4815.jpg",
+            "https://img.cyndiglobal.com/showcase/jacket/05e8e857-4f2c-421d-a957-6d5c708902aa.jpg",
+            "https://img.cyndiglobal.com/showcase/jacket/eb03dcda-6eeb-478a-b6c0-f7d08d0629f3.jpg",
+            "https://img.cyndiglobal.com/showcase/jacket/d670d177-ce79-42a1-8080-1091e19fb5e0.jpg"
+          ]
         }
       ]
     }
