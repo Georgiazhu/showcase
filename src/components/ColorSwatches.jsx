@@ -6,7 +6,7 @@ const VISIBLE_LIMIT = 8
  * Colour swatches — mirrors Kotis .quote-color-swatches:
  * Click a swatch to swap the main image; more than 8 colours collapse behind "... show more / show less".
  */
-export default function ColorSwatches({ colors = [], onSelect, activeColor }) {
+export default function ColorSwatches({ colors = [], onSelect, activeIndex }) {
   const [expanded, setExpanded] = useState(false)
   if (!colors.length) return null
 
@@ -18,13 +18,14 @@ export default function ColorSwatches({ colors = [], onSelect, activeColor }) {
       <h4 className="mb-1 mt-3 text-[13px] font-bold text-stone-900">Colors</h4>
       <div className="quote-color-swatch flex flex-wrap items-center gap-1.5">
         {visible.map((c, i) => {
-          const active = activeColor === c.name
+          const active = activeIndex === i
+          const label = c.name || c.hex || 'Colour'
           return (
             <button
-              key={`${c.name}-${i}`}
+              key={`${c.name || c.hex}-${i}`}
               type="button"
-              onClick={() => onSelect?.(c)}
-              title={c.name}
+              onClick={() => onSelect?.(c, i)}
+              title={label}
               className={`group/color flex items-center gap-1.5 rounded-full border px-2 py-1 text-[12px] transition ${
                 active
                   ? 'border-stone-900 bg-stone-900 text-white'
@@ -35,7 +36,7 @@ export default function ColorSwatches({ colors = [], onSelect, activeColor }) {
                 className="h-3 w-3 shrink-0 rounded-full ring-1 ring-black/10"
                 style={{ backgroundColor: c.hex || '#d6d3d1' }}
               />
-              {c.name}
+              {c.name || <span className="text-stone-400">Unnamed</span>}
             </button>
           )
         })}

@@ -10,10 +10,12 @@ const cur = (c) => (c === 'CNY' ? '¥' : c === 'EUR' ? '€' : '$')
  * + Colors + Sizes + tiered pricing table + Price Includes + Additional Charges
  */
 export default function ProductCard({ product, onOpenGallery }) {
-  const [activeColor, setActiveColor] = useState(null)
+  // Identify the selected swatch by index: names may be blank, and two
+  // swatches can share a name.
+  const [activeIndex, setActiveIndex] = useState(null)
 
   const gallery = product.gallery?.length ? product.gallery : product.image ? [product.image] : []
-  const colorImages = product.colors?.find((c) => c.name === activeColor)?.image
+  const colorImages = product.colors?.[activeIndex]?.image
   const mainImage = colorImages || product.image || gallery[0]
 
   const symbol = cur(product.currency || '$')
@@ -108,8 +110,8 @@ export default function ProductCard({ product, onOpenGallery }) {
 
           <ColorSwatches
             colors={product.colors}
-            activeColor={activeColor}
-            onSelect={(c) => setActiveColor(c.name === activeColor ? null : c.name)}
+            activeIndex={activeIndex}
+            onSelect={(c, i) => setActiveIndex(i === activeIndex ? null : i)}
           />
 
           {product.sizes?.length > 0 && (
