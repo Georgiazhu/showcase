@@ -111,7 +111,7 @@ export default function ShowcaseNav({ categories = [], user = null, onLogout }) 
       </div>
 
       {/* Row 2 — category directory, full width, scrolls sideways */}
-      <div className="border-b border-stone-200 bg-[#faf9f6]">
+      <div className="border-b border-stone-200/80 bg-[#f2efe9]">
         <nav className="mx-auto max-w-[1400px] px-5 lg:px-10">
           <ul
             ref={railRef}

@@ -63,7 +63,7 @@ export default function ProductCard({ product, onOpenGallery }) {
 
         {/* Details */}
         <div className="quote-details detail_view">
-          <h5 className="quote-name-text mt-4 text-[15px] font-bold leading-snug text-[#0f1f3a]">
+          <h5 className="quote-name-text mt-4 text-[15px] font-bold leading-snug text-stone-900">
             {product.name}
           </h5>
           <p className="quote-id-text text-[10px] text-stone-400">{product.sku}</p>

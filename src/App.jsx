@@ -178,32 +178,32 @@ export default function App() {
       </div>
 
       {/* Footer */}
-      <footer className="border-t border-stone-200 bg-[#0f1f3a]">
-        <div className="mx-auto flex max-w-[1400px] flex-col gap-3 px-5 py-10 text-sm text-white/55 sm:flex-row sm:items-center sm:justify-between lg:px-10">
+      <footer className="border-t border-stone-200/80 bg-[#eae4d9]">
+        <div className="mx-auto flex max-w-[1400px] flex-col gap-3 px-5 py-10 text-sm text-stone-500 sm:flex-row sm:items-center sm:justify-between lg:px-10">
           <div className="flex items-center gap-3">
             <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#e07a3a] text-xs font-bold text-white">
               C
             </span>
-            <span className="font-medium text-white">Cyndi Global</span>
+            <span className="font-medium text-stone-900">Cyndi Global</span>
           </div>
           <p>
             {totalProducts} products · {categories.length} categories · {imageCount} photographs ·
             Swag &amp; Brand Management
           </p>
           <div className="flex gap-5">
-            <a href="/showcase/" className="transition hover:text-white">
+            <a href="/showcase/" className="transition hover:text-stone-900">
               Showcase
             </a>
-            <a href="/" className="transition hover:text-white">
+            <a href="/" className="transition hover:text-stone-900">
               Home
             </a>
             <a
               href="mailto:projects@cyndiglobal.com"
-              className="transition hover:text-white"
+              className="transition hover:text-stone-900"
             >
               Contact
             </a>
-            <a href="/admin/showcase.html" className="transition hover:text-white">
+            <a href="/admin/showcase.html" className="transition hover:text-stone-900">
               Edit
             </a>
           </div>
