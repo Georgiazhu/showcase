@@ -115,42 +115,41 @@ export default function ProductCard({ product, onOpenGallery }) {
             onSelect={(c, i) => setActiveIndex(i === activeIndex ? null : i)}
           />
 
-          {product.sizes?.length > 0 && (
-            <div className="quote-details-info">
-              <h4 className="mb-1 mt-3 text-[13px] font-bold text-stone-900">Sizes</h4>
-              <p className="text-[13px] text-stone-600">
-                {product.sizes.join(' · ')}
-                {product.sizeChart && (
-                  <>
-                    {' · '}
-                    <button
-                      type="button"
-                      onClick={() => onOpenGallery?.([product.sizeChart], 0, 'Size Chart')}
-                      className="font-medium text-[#b7410e] underline underline-offset-2 transition hover:text-[#e07a3a]"
-                    >
-                      Size Chart
-                    </button>
-                  </>
-                )}
-              </p>
-            </div>
-          )}
-
-          {/* A product can carry a size chart even when it lists no sizes. */}
-          {!product.sizes?.length && product.sizeChart && (
-            <div className="quote-details-info">
-              <h4 className="mb-1 mt-3 text-[13px] font-bold text-stone-900">Sizes</h4>
-              <p className="text-[13px] text-stone-600">
-                <button
-                  type="button"
-                  onClick={() => onOpenGallery?.([product.sizeChart], 0, 'Size Chart')}
-                  className="font-medium text-[#b7410e] underline underline-offset-2 transition hover:text-[#e07a3a]"
-                >
-                  Size Chart
-                </button>
-              </p>
-            </div>
-          )}
+          {(() => {
+            // sizeChart may be an array (normal) or a single URL (legacy rows).
+            const charts = Array.isArray(product.sizeChart)
+              ? product.sizeChart.filter(Boolean)
+              : product.sizeChart
+                ? [product.sizeChart]
+                : []
+            if (!charts.length) return null
+            const label = charts.length > 1 ? `Size Chart (${charts.length})` : 'Size Chart'
+            const link = (
+              <button
+                type="button"
+                onClick={() => onOpenGallery?.(charts, 0, 'Size Chart')}
+                className="font-medium text-[#b7410e] underline underline-offset-2 transition hover:text-[#e07a3a]"
+              >
+                {label}
+              </button>
+            )
+            return (
+              <div className="quote-details-info">
+                <h4 className="mb-1 mt-3 text-[13px] font-bold text-stone-900">Sizes</h4>
+                <p className="text-[13px] text-stone-600">
+                  {product.sizes?.length > 0 ? (
+                    <>
+                      {product.sizes.join(' · ')}
+                      {' · '}
+                      {link}
+                    </>
+                  ) : (
+                    link
+                  )}
+                </p>
+              </div>
+            )
+          })()}
 
           {pricing.length > 0 && (
             <table className="quantity-table mt-3">
