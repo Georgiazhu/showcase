@@ -8,7 +8,7 @@ import { fetchShowcase } from './data/loadShowcase.js'
 import { checkSession, logout } from './data/session.js'
 
 export default function App() {
-  const [gallery, setGallery] = useState({ images: [], index: null })
+  const [gallery, setGallery] = useState({ images: [], index: null, title: '' })
   const [data, setData] = useState(null)
   const [loadError, setLoadError] = useState(null)
   // 'checking' | 'anon' | 'authed'
@@ -64,12 +64,12 @@ export default function App() {
     setAuthState('anon')
   }, [])
 
-  const openGallery = useCallback((images, index = 0) => {
-    setGallery({ images: images || [], index })
+  const openGallery = useCallback((images, index = 0, title = '') => {
+    setGallery({ images: images || [], index, title })
   }, [])
 
   const closeGallery = useCallback(() => {
-    setGallery({ images: [], index: null })
+    setGallery({ images: [], index: null, title: '' })
   }, [])
 
   const navigate = useCallback((index) => {
@@ -213,6 +213,7 @@ export default function App() {
       <GalleryModal
         images={gallery.images}
         index={gallery.index}
+        title={gallery.title}
         onClose={closeGallery}
         onNavigate={navigate}
       />

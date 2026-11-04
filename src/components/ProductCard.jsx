@@ -118,7 +118,37 @@ export default function ProductCard({ product, onOpenGallery }) {
           {product.sizes?.length > 0 && (
             <div className="quote-details-info">
               <h4 className="mb-1 mt-3 text-[13px] font-bold text-stone-900">Sizes</h4>
-              <p className="text-[13px] text-stone-600">{product.sizes.join(' · ')}</p>
+              <p className="text-[13px] text-stone-600">
+                {product.sizes.join(' · ')}
+                {product.sizeChart && (
+                  <>
+                    {' · '}
+                    <button
+                      type="button"
+                      onClick={() => onOpenGallery?.([product.sizeChart], 0)}
+                      className="font-medium text-[#b7410e] underline underline-offset-2 transition hover:text-[#e07a3a]"
+                    >
+                      Size Chart
+                    </button>
+                  </>
+                )}
+              </p>
+            </div>
+          )}
+
+          {/* A product can carry a size chart even when it lists no sizes. */}
+          {!product.sizes?.length && product.sizeChart && (
+            <div className="quote-details-info">
+              <h4 className="mb-1 mt-3 text-[13px] font-bold text-stone-900">Sizes</h4>
+              <p className="text-[13px] text-stone-600">
+                <button
+                  type="button"
+                  onClick={() => onOpenGallery?.([product.sizeChart], 0)}
+                  className="font-medium text-[#b7410e] underline underline-offset-2 transition hover:text-[#e07a3a]"
+                >
+                  Size Chart
+                </button>
+              </p>
             </div>
           )}
 

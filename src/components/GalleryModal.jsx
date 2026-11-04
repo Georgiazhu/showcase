@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react'
  * Image lightbox — mirrors Kotis QuoteModal:
  * Click the main image to open; ← → to navigate, Esc to close, click outside to dismiss.
  */
-export default function GalleryModal({ images, index, onClose, onNavigate }) {
+export default function GalleryModal({ images, index, onClose, onNavigate, title }) {
   const closeRef = useRef(null)
 
   useEffect(() => {
@@ -34,7 +34,7 @@ export default function GalleryModal({ images, index, onClose, onNavigate }) {
       onClick={onClose}
       role="dialog"
       aria-modal="true"
-      aria-label="Product image gallery"
+      aria-label={title || 'Product image gallery'}
     >
       <button
         ref={closeRef}
@@ -50,7 +50,7 @@ export default function GalleryModal({ images, index, onClose, onNavigate }) {
       <div className="relative flex max-h-full max-w-4xl flex-col items-center gap-4" onClick={(e) => e.stopPropagation()}>
         <img
           src={images[index]}
-          alt={`Product image ${index + 1} of ${images.length}`}
+          alt={title || `Product image ${index + 1} of ${images.length}`}
           className="max-h-[78vh] max-w-full rounded-lg bg-white object-contain shadow-2xl"
         />
         {images.length > 1 && (
