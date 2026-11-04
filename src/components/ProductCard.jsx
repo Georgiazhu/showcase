@@ -125,7 +125,7 @@ export default function ProductCard({ product, onOpenGallery }) {
                     {' · '}
                     <button
                       type="button"
-                      onClick={() => onOpenGallery?.([product.sizeChart], 0)}
+                      onClick={() => onOpenGallery?.([product.sizeChart], 0, 'Size Chart')}
                       className="font-medium text-[#b7410e] underline underline-offset-2 transition hover:text-[#e07a3a]"
                     >
                       Size Chart
@@ -143,7 +143,7 @@ export default function ProductCard({ product, onOpenGallery }) {
               <p className="text-[13px] text-stone-600">
                 <button
                   type="button"
-                  onClick={() => onOpenGallery?.([product.sizeChart], 0)}
+                  onClick={() => onOpenGallery?.([product.sizeChart], 0, 'Size Chart')}
                   className="font-medium text-[#b7410e] underline underline-offset-2 transition hover:text-[#e07a3a]"
                 >
                   Size Chart

@@ -51,8 +51,15 @@ export default function GalleryModal({ images, index, onClose, onNavigate, title
         <img
           src={images[index]}
           alt={title || `Product image ${index + 1} of ${images.length}`}
+          // The lightbox opens on top of the page, so the browser may never
+          // count it as in-viewport - load it eagerly or the modal opens blank.
+          loading="eager"
+          decoding="async"
           className="max-h-[78vh] max-w-full rounded-lg bg-white object-contain shadow-2xl"
         />
+        {title && (
+          <p className="text-center text-[13px] font-semibold text-white/90">{title}</p>
+        )}
         {images.length > 1 && (
           <>
             <button
