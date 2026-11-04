@@ -152,7 +152,7 @@ export default function App() {
             </span>
             <p className="disclaimer text-[12px] leading-relaxed text-stone-500">
               {meta?.disclaimer ||
-                'All prices herein are pre-tax and pre-shipping unless otherwise noted, are considered confidential, and are valid for 30 days from receipt of quote.'}
+                'All prices are indicative unit pricing in USD, of China VAT, excluding destination country taxes and duties, at stated MOQ. Production lead times are estimates in working days and exclude artwork approval, sampling and freight. Pricing and availability are subject to change without notice. For brand-sourced goods, quotations may fluctuate depending on the actual sourcing location, and we will adopt the globally tax-optimized solution. Our workflow: confirm products → finalize artwork → HRT approves samples → arrange production, with online ordering & inventory portal launched in parallel → warehouse intake inspection and issue inspection report.'}
             </p>
           </div>
         </div>
