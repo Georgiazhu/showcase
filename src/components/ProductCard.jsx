@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import AddToCartDialog from './AddToCartDialog.jsx'
 import ColorSwatches from './ColorSwatches.jsx'
 import ProductImage from './ProductImage.jsx'
 
@@ -9,10 +10,11 @@ const cur = (c) => (c === 'CNY' ? '¥' : c === 'EUR' ? '€' : '$')
  * Thumbnail (Start a Project reveals on hover) + name + sku + description + features
  * + Colors + Sizes + tiered pricing table + Price Includes
  */
-export default function ProductCard({ product, onOpenGallery }) {
+export default function ProductCard({ product, onOpenGallery, onAddToCart }) {
   // Identify the selected swatch by index: names may be blank, and two
   // swatches can share a name.
   const [activeIndex, setActiveIndex] = useState(null)
+  const [adding, setAdding] = useState(false)
 
   const gallery = product.gallery?.length ? product.gallery : product.image ? [product.image] : []
   const colorImages = product.colors?.[activeIndex]?.image
@@ -48,14 +50,28 @@ export default function ProductCard({ product, onOpenGallery }) {
 
           <div className="start-project-link-container">
             <div className="start-project-link pt-3">
-              <a
-                href={`mailto:projects@cyndiglobal.com?subject=${encodeURIComponent(
-                  `Start a Project — ${product.name} (${product.sku})`,
-                )}`}
-                className="inline-block rounded-full bg-[#e07a3a] px-5 py-2 text-[13px] font-medium text-white transition hover:bg-[#b7410e]"
-              >
-                Start a Project
-              </a>
+              <div className="flex flex-wrap items-center justify-center gap-2">
+                <a
+                  href={`mailto:projects@cyndiglobal.com?subject=${encodeURIComponent(
+                    `Start a Project — ${product.name} (${product.sku})`,
+                  )}`}
+                  className="inline-block rounded-full bg-[#e07a3a] px-5 py-2 text-[13px] font-medium text-white transition hover:bg-[#b7410e]"
+                >
+                  Start a Project
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setAdding(true)}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-stone-300 px-4 py-2 text-[13px] font-medium text-stone-700 transition hover:border-stone-900 hover:text-stone-900"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="9" cy="21" r="1" />
+                    <circle cx="20" cy="21" r="1" />
+                    <path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6" />
+                  </svg>
+                  Add to cart
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -196,6 +212,17 @@ export default function ProductCard({ product, onOpenGallery }) {
           )}
         </div>
       </div>
+
+      {adding && (
+        <AddToCartDialog
+          product={product}
+          onClose={() => setAdding(false)}
+          onAdd={(item) => {
+            onAddToCart?.(item)
+            setAdding(false)
+          }}
+        />
+      )}
     </div>
   )
 }

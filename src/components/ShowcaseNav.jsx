@@ -9,7 +9,15 @@ import { useEffect, useRef, useState } from 'react'
  * directory gets the full width on its own line and scrolls sideways, the
  * account controls stay pinned to the right of the brand row.
  */
-export default function ShowcaseNav({ categories = [], user = null, onLogout }) {
+export default function ShowcaseNav({
+  categories = [],
+  user = null,
+  onLogout,
+  cartCount = 0,
+  onOpenCart,
+  onOpenCatalogue,
+  currentView = 'catalogue',
+}) {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const [activeId, setActiveId] = useState(categories[0]?.id ?? null)
@@ -83,6 +91,32 @@ export default function ShowcaseNav({ categories = [], user = null, onLogout }) 
                 </button>
               </div>
             )}
+            <button
+              type="button"
+              onClick={onOpenCart}
+              className={`relative flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition ${
+                currentView === 'cart'
+                  ? 'border-stone-900 bg-stone-900 text-white'
+                  : 'border-stone-300 text-stone-700 hover:border-stone-900 hover:text-stone-900'
+              }`}
+              aria-label={`Open cart, ${cartCount} item${cartCount === 1 ? '' : 's'}`}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="9" cy="21" r="1" />
+                <circle cx="20" cy="21" r="1" />
+                <path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6" />
+              </svg>
+              <span className="hidden sm:inline">Cart</span>
+              {cartCount > 0 && (
+                <span
+                  className={`absolute -right-1.5 -top-1.5 flex h-5 min-w-[20px] items-center justify-center rounded-full px-1 text-[10px] font-bold tabular-nums ${
+                    currentView === 'cart' ? 'bg-white text-stone-900' : 'bg-[#e07a3a] text-white'
+                  }`}
+                >
+                  {cartCount > 99 ? '99+' : cartCount}
+                </span>
+              )}
+            </button>
             <a
               href="/admin/showcase.html"
               className="hidden rounded-full border border-stone-300 px-4 py-2 text-sm font-medium text-stone-700 transition hover:border-stone-900 hover:text-stone-900 sm:block"
@@ -110,7 +144,9 @@ export default function ShowcaseNav({ categories = [], user = null, onLogout }) 
         </nav>
       </div>
 
-      {/* Row 2 — category directory, full width, scrolls sideways */}
+      {/* Row 2 — category directory, full width, scrolls sideways.
+          Hidden on the cart and order views, which have their own structure. */}
+      {currentView === 'catalogue' && (
       <div className="border-b border-stone-200/80 bg-[#f2efe9]">
         <nav className="mx-auto max-w-[1400px] px-5 lg:px-10">
           <ul
@@ -139,8 +175,9 @@ export default function ShowcaseNav({ categories = [], user = null, onLogout }) 
           </ul>
         </nav>
       </div>
+      )}
 
-      {open && (
+      {currentView === 'catalogue' && open && (
         <div className="border-b border-stone-200 bg-white px-5 py-3 lg:hidden">
           <ul className="space-y-1">
             {categories.map((c) => (
