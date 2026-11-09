@@ -48,14 +48,14 @@ export default function ProductCard({ product, onOpenGallery, onAddToCart }) {
             )}
           </div>
 
-          <div className="cart-action pt-3">
+          <div className="cart-action pt-2.5">
             <div className="flex justify-center">
               <button
                 type="button"
                 onClick={() => setAdding(true)}
-                className="inline-flex items-center gap-1.5 rounded-full bg-[#e07a3a] px-5 py-2 text-[13px] font-medium text-white transition hover:bg-[#b7410e]"
+                className="inline-flex items-center gap-1 rounded-full bg-[#e07a3a] px-3.5 py-1.5 text-[11px] font-medium text-white transition hover:bg-[#b7410e]"
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="9" cy="21" r="1" />
                   <circle cx="20" cy="21" r="1" />
                   <path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6" />
