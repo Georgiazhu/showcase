@@ -9,7 +9,7 @@ const cur = (c) => (c === 'CNY' ? '¥' : c === 'EUR' ? '€' : '$')
  * card and table treatment) but only shows the products that were ordered:
  * basic product information, the chosen colour, the size and the quantity.
  */
-export default function OrderView({ order, productsById, onBack, onPrint }) {
+export default function OrderView({ order, history = [], onOpenOrder, productsById, onBack, onPrint }) {
   if (!order) return null
 
   const items = order.items || []
@@ -69,6 +69,35 @@ export default function OrderView({ order, productsById, onBack, onPrint }) {
         </ol>
       </div>
 
+      {/* Previous orders */}
+      {history.length > 1 && (
+        <div className="mt-6 rounded-2xl border border-stone-200 bg-white p-5">
+          <h2 className="text-[13px] font-bold uppercase tracking-[0.12em] text-stone-900">
+            Previous orders
+          </h2>
+          <ul className="mt-3 divide-y divide-stone-100">
+            {history.slice(1, 6).map((o) => (
+              <li key={o.number} className="flex items-center justify-between gap-4 py-2.5">
+                <div className="min-w-0">
+                  <p className="text-[13px] font-medium text-stone-900">{o.number}</p>
+                  <p className="text-[11px] text-stone-500">
+                    {o.placedAt} · {o.items?.length || 0} product
+                    {o.items?.length === 1 ? '' : 's'} · {o.totalUnits || 0} units
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => onOpenOrder?.(o)}
+                  className="shrink-0 text-[12px] font-medium text-[#b7410e] underline underline-offset-2 transition hover:text-[#e07a3a]"
+                >
+                  View
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
       {/* Ordered products */}
       <h2 className="mt-9 text-[13px] font-bold uppercase tracking-[0.12em] text-stone-900">
         Ordered products
@@ -87,7 +116,7 @@ export default function OrderView({ order, productsById, onBack, onPrint }) {
               <div className="flex gap-4">
                 <div className="h-28 w-28 shrink-0 overflow-hidden rounded-xl bg-[#f2efe9]">
                   {it.image ? (
-                    <img src={it.image} alt={it.name} className="h-full w-full object-cover" loading="lazy" />
+                    <img src={it.image} alt={it.name} className="h-full w-full object-cover" loading="eager" decoding="async" />
                   ) : null}
                 </div>
 

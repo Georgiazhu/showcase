@@ -82,7 +82,7 @@ export default function CartView({ items, productsById, onQuantity, onRemove, on
               >
                 <div className="h-24 w-24 shrink-0 overflow-hidden rounded-xl bg-[#f2efe9]">
                   {it.image ? (
-                    <img src={it.image} alt={it.name} className="h-full w-full object-cover" loading="lazy" />
+                    <img src={it.image} alt={it.name} className="h-full w-full object-cover" loading="eager" decoding="async" />
                   ) : null}
                 </div>
 

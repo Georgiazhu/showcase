@@ -14,8 +14,8 @@ export default function ShowcaseNav({
   user = null,
   onLogout,
   cartCount = 0,
+  cartUnits = 0,
   onOpenCart,
-  onOpenCatalogue,
   currentView = 'catalogue',
 }) {
   const [scrolled, setScrolled] = useState(false)
@@ -99,7 +99,7 @@ export default function ShowcaseNav({
                   ? 'border-stone-900 bg-stone-900 text-white'
                   : 'border-stone-300 text-stone-700 hover:border-stone-900 hover:text-stone-900'
               }`}
-              aria-label={`Open cart, ${cartCount} item${cartCount === 1 ? '' : 's'}`}
+              aria-label={`Open cart, ${cartCount} line${cartCount === 1 ? '' : 's'}, ${cartUnits} unit${cartUnits === 1 ? '' : 's'}`}
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="9" cy="21" r="1" />
@@ -112,8 +112,9 @@ export default function ShowcaseNav({
                   className={`absolute -right-1.5 -top-1.5 flex h-5 min-w-[20px] items-center justify-center rounded-full px-1 text-[10px] font-bold tabular-nums ${
                     currentView === 'cart' ? 'bg-white text-stone-900' : 'bg-[#e07a3a] text-white'
                   }`}
+                  title={`${cartUnits} unit${cartUnits === 1 ? '' : 's'}`}
                 >
-                  {cartCount > 99 ? '99+' : cartCount}
+                  {cartCount}
                 </span>
               )}
             </button>

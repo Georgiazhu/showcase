@@ -31,6 +31,7 @@ export default function App() {
   // 'catalogue' | 'cart' | 'order'
   const [view, setView] = useState('catalogue')
   const [order, setOrder] = useState(null)
+  const [history, setHistory] = useState([])
   const [toast, setToast] = useState('')
 
   const loadContent = useCallback(async () => {
@@ -57,6 +58,7 @@ export default function App() {
         setUser(s.user)
         setAuthState('authed')
         setCart(loadCart())
+        setHistory(loadOrders())
         await loadContent()
       } else {
         setAuthState('anon')
@@ -72,6 +74,7 @@ export default function App() {
       setUser(user || null)
       setAuthState('authed')
       setCart(loadCart())
+      setHistory(loadOrders())
       await loadContent()
     },
     [loadContent],
@@ -143,6 +146,7 @@ export default function App() {
     }
     saveOrder(placed)
     setOrder(placed)
+    setHistory(loadOrders())
     persist([])
     setView('order')
     window.scrollTo({ top: 0, behavior: 'instant' })
@@ -166,7 +170,9 @@ export default function App() {
     return map
   }, [data])
 
-  const cartCount = cart.reduce((n, i) => n + i.quantity, 0)
+  // The badge counts distinct lines, not units - a 500-piece line is one line.
+  const cartCount = cart.length
+  const cartUnits = cart.reduce((n, i) => n + i.quantity, 0)
 
   // Checking session
   if (authState === 'checking') {
@@ -231,6 +237,7 @@ export default function App() {
         user={user}
         onLogout={handleLogout}
         cartCount={cartCount}
+        cartUnits={cartUnits}
         onOpenCart={() => {
           setView('cart')
           window.scrollTo({ top: 0, behavior: 'instant' })
@@ -245,6 +252,12 @@ export default function App() {
       {onOrder ? (
         <OrderView
           order={order}
+          history={history}
+          onOpenOrder={(o) => {
+            setOrder(o)
+            setView('order')
+            window.scrollTo({ top: 0, behavior: 'instant' })
+          }}
           productsById={productsById}
           onBack={() => {
             setView('catalogue')
@@ -305,7 +318,7 @@ export default function App() {
                   {category.products.map((product) => (
                     <ProductCard
                       key={product.id}
-                      product={product}
+                      product={{ ...product, categoryName: category.name }}
                       onOpenGallery={openGallery}
                       onAddToCart={handleAddToCart}
                     />
