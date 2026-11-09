@@ -7,7 +7,7 @@ const cur = (c) => (c === 'CNY' ? '¥' : c === 'EUR' ? '€' : '$')
 
 /**
  * Product card — mirrors the Kotis .quote-detail-wrapper structure:
- * Thumbnail (Start a Project reveals on hover) + name + sku + description + features
+ * Thumbnail (Add to cart always visible) + name + sku + description + features
  * + Colors + Sizes + tiered pricing table + Price Includes
  */
 export default function ProductCard({ product, onOpenGallery, onAddToCart }) {
@@ -26,7 +26,7 @@ export default function ProductCard({ product, onOpenGallery, onAddToCart }) {
   return (
     <div className="quote-detail-wrapper mb-10">
       <div className="quote-detail-content h-full rounded-2xl border border-stone-200 bg-white p-4 shadow-[0_1px_2px_rgba(15,31,58,0.04)] transition hover:border-stone-300 hover:shadow-[0_10px_28px_rgba(15,31,58,0.08)]">
-        {/* Thumbnail + Start a Project revealed on hover */}
+        {/* Thumbnail + Add to cart */}
         <div className="quote-thumbnail-container pb-2 text-center">
           <div className="detail-wrapper relative overflow-hidden rounded-xl">
             <button
@@ -48,30 +48,20 @@ export default function ProductCard({ product, onOpenGallery, onAddToCart }) {
             )}
           </div>
 
-          <div className="start-project-link-container">
-            <div className="start-project-link pt-3">
-              <div className="flex flex-wrap items-center justify-center gap-2">
-                <a
-                  href={`mailto:projects@cyndiglobal.com?subject=${encodeURIComponent(
-                    `Start a Project — ${product.name} (${product.sku})`,
-                  )}`}
-                  className="inline-block rounded-full bg-[#e07a3a] px-5 py-2 text-[13px] font-medium text-white transition hover:bg-[#b7410e]"
-                >
-                  Start a Project
-                </a>
-                <button
-                  type="button"
-                  onClick={() => setAdding(true)}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-stone-300 px-4 py-2 text-[13px] font-medium text-stone-700 transition hover:border-stone-900 hover:text-stone-900"
-                >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="9" cy="21" r="1" />
-                    <circle cx="20" cy="21" r="1" />
-                    <path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6" />
-                  </svg>
-                  Add to cart
-                </button>
-              </div>
+          <div className="cart-action pt-3">
+            <div className="flex justify-center">
+              <button
+                type="button"
+                onClick={() => setAdding(true)}
+                className="inline-flex items-center gap-1.5 rounded-full bg-[#e07a3a] px-5 py-2 text-[13px] font-medium text-white transition hover:bg-[#b7410e]"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="9" cy="21" r="1" />
+                  <circle cx="20" cy="21" r="1" />
+                  <path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6" />
+                </svg>
+                Add to cart
+              </button>
             </div>
           </div>
         </div>

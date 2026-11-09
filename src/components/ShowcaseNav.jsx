@@ -96,8 +96,8 @@ export default function ShowcaseNav({
               onClick={onOpenCart}
               className={`relative flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition ${
                 currentView === 'cart'
-                  ? 'border-stone-900 bg-stone-900 text-white'
-                  : 'border-stone-300 text-stone-700 hover:border-stone-900 hover:text-stone-900'
+                  ? 'border-[#b7410e] bg-[#b7410e] text-white'
+                  : 'border-[#e07a3a] bg-[#e07a3a] text-white hover:bg-[#b7410e] hover:border-[#b7410e]'
               }`}
               aria-label={`Open cart, ${cartCount} line${cartCount === 1 ? '' : 's'}, ${cartUnits} unit${cartUnits === 1 ? '' : 's'}`}
             >
@@ -109,9 +109,7 @@ export default function ShowcaseNav({
               <span className="hidden sm:inline">Cart</span>
               {cartCount > 0 && (
                 <span
-                  className={`absolute -right-1.5 -top-1.5 flex h-5 min-w-[20px] items-center justify-center rounded-full px-1 text-[10px] font-bold tabular-nums ${
-                    currentView === 'cart' ? 'bg-white text-stone-900' : 'bg-[#e07a3a] text-white'
-                  }`}
+                  className={`absolute -right-1.5 -top-1.5 flex h-5 min-w-[20px] items-center justify-center rounded-full border border-[#e07a3a] bg-white px-1 text-[10px] font-bold tabular-nums text-[#b7410e]`}
                   title={`${cartUnits} unit${cartUnits === 1 ? '' : 's'}`}
                 >
                   {cartCount}

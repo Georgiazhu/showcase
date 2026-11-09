@@ -79,24 +79,9 @@ body {
   background: #e07a3a;
 }
 
-/* Revealed when a product card is hovered */
-.start-project-link {
-  opacity: 0;
-  transform: translateY(6px);
-  transition: opacity 0.22s ease, transform 0.22s ease;
-}
-
-.quote-thumbnail-container:hover .start-project-link,
-.quote-thumbnail-container:focus-within .start-project-link {
+/* The cart action sits under every product thumbnail and is always visible. */
+.cart-action {
   opacity: 1;
-  transform: translateY(0);
-}
-
-@media (hover: none) {
-  .start-project-link {
-    opacity: 1;
-    transform: none;
-  }
 }
 
 /* Collapse long colour lists */
