@@ -80,9 +80,23 @@ export default function CartView({ items, productsById, onQuantity, onRemove, on
                 key={it.key}
                 className="flex gap-4 rounded-2xl border border-stone-200 bg-white p-4 shadow-[0_1px_2px_rgba(15,31,58,0.04)]"
               >
-                <div className="h-24 w-24 shrink-0 overflow-hidden rounded-xl bg-[#f2efe9]">
+                <div className="flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-[#f2efe9] p-1">
                   {it.image ? (
-                    <img src={it.image} alt={it.name} className="h-full w-full object-cover" loading="eager" decoding="async" />
+                    <img
+                      src={it.image}
+                      alt={it.name}
+                      className="h-full w-full object-contain"
+                      loading="eager"
+                      decoding="async"
+                      onError={(e) => {
+                        // Fall back to the product's main photo if the colour
+                        // image is unavailable.
+                        const p = productsById[it.productId]
+                        if (p?.image && e.currentTarget.src !== p.image) {
+                          e.currentTarget.src = p.image
+                        }
+                      }}
+                    />
                   ) : null}
                 </div>
 
