@@ -6,6 +6,7 @@ import ProductCard from './components/ProductCard.jsx'
 import GalleryModal from './components/GalleryModal.jsx'
 import CartView from './components/CartView.jsx'
 import OrderView from './components/OrderView.jsx'
+import OrdersView from './components/OrdersView.jsx'
 import { fetchShowcase } from './data/loadShowcase.js'
 import { checkSession, logout } from './data/session.js'
 import { addItem, loadCart, removeItem, saveCart, updateQuantity } from './data/cart.js'
@@ -20,9 +21,12 @@ export default function App() {
   const [user, setUser] = useState(null)
 
   const [cart, setCart] = useState([])
-  // 'catalogue' | 'cart' | 'order'
+  // 'catalogue' | 'cart' | 'order' | 'orders'
   const [view, setView] = useState('catalogue')
   const [order, setOrder] = useState(null)
+  const [justPlaced, setJustPlaced] = useState(false)
+  const [refreshing, setRefreshing] = useState(false)
+  const [refreshError, setRefreshError] = useState('')
   const [history, setHistory] = useState([])
   const [toast, setToast] = useState('')
 
@@ -151,6 +155,8 @@ export default function App() {
         throw e
       }
       setOrder(placed)
+      setJustPlaced(true)
+      setRefreshError('')
       persist([])
       setView('order')
       window.scrollTo({ top: 0, behavior: 'instant' })
@@ -159,11 +165,44 @@ export default function App() {
     [cart, persist, handleAuthLost, refreshHistory],
   )
 
+  // Open the detail view with an order that is already loaded (Orders view).
+  const handleShowOrder = useCallback((o) => {
+    setOrder(o)
+    setJustPlaced(false)
+    setRefreshError('')
+    setView('order')
+    window.scrollTo({ top: 0, behavior: 'instant' })
+  }, [])
+
+  const handleOpenOrders = useCallback(() => {
+    setView('orders')
+    window.scrollTo({ top: 0, behavior: 'instant' })
+  }, [])
+
+  // Re-fetch the order shown in the detail view so staff status changes appear.
+  const handleRefreshOrder = useCallback(async () => {
+    if (!order?.orderNo) return
+    setRefreshing(true)
+    setRefreshError('')
+    try {
+      const o = await fetchOrder(order.orderNo)
+      if (o) setOrder(o)
+      refreshHistory()
+    } catch (e) {
+      if (e?.authRequired) handleAuthLost()
+      else setRefreshError(e?.message || 'Could not refresh the order')
+    } finally {
+      setRefreshing(false)
+    }
+  }, [order?.orderNo, handleAuthLost, refreshHistory])
+
   const handleOpenOrder = useCallback(
     async (orderNo) => {
       try {
         const o = await fetchOrder(orderNo)
         setOrder(o)
+        setJustPlaced(false)
+        setRefreshError('')
         setView('order')
         window.scrollTo({ top: 0, behavior: 'instant' })
       } catch (e) {
@@ -251,6 +290,7 @@ export default function App() {
 
   const onCart = view === 'cart'
   const onOrder = view === 'order'
+  const onOrders = view === 'orders'
 
   return (
     <div className="min-h-screen bg-[#faf9f6]">
@@ -264,6 +304,7 @@ export default function App() {
           setView('cart')
           window.scrollTo({ top: 0, behavior: 'instant' })
         }}
+        onOpenOrders={handleOpenOrders}
         onOpenCatalogue={() => {
           setView('catalogue')
           window.scrollTo({ top: 0, behavior: 'instant' })
@@ -271,11 +312,26 @@ export default function App() {
         currentView={view}
       />
 
-      {onOrder ? (
+      {onOrders ? (
+        <OrdersView
+          onShowOrder={handleShowOrder}
+          onAuthLost={handleAuthLost}
+          onLoaded={setHistory}
+          onBack={() => {
+            setView('catalogue')
+            window.scrollTo({ top: 0, behavior: 'instant' })
+          }}
+        />
+      ) : onOrder ? (
         <OrderView
           order={order}
           history={history}
           onOpenOrder={handleOpenOrder}
+          onOpenOrders={handleOpenOrders}
+          onRefresh={handleRefreshOrder}
+          refreshing={refreshing}
+          refreshError={refreshError}
+          justPlaced={justPlaced}
           productsById={productsById}
           onBack={() => {
             setView('catalogue')

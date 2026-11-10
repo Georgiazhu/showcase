@@ -50,6 +50,27 @@ export async function listOrders() {
   return Array.isArray(data.orders) ? data.orders : []
 }
 
+/** Showcase order numbers look like SC-20260214-AB12CD. */
+const ORDER_NO_RE = /^SC-\d{8}-[A-Z0-9]{1,12}$/
+
+/** Trim + uppercase; returns the normalised number, or null if the format is wrong. */
+export function normalizeOrderNo(input) {
+  const v = String(input ?? '').trim().toUpperCase()
+  return ORDER_NO_RE.test(v) ? v : null
+}
+
+/** Image URLs from the server are only used when http(s) or relative. */
+export function safeImageUrl(url) {
+  if (typeof url !== 'string') return ''
+  const v = url.trim()
+  if (!v) return ''
+  if (/^https?:\/\//i.test(v)) return v
+  // Relative ("/x", "./x", "x/y.jpg") but not protocol-relative or any scheme: (javascript:, data:…)
+  if (v.startsWith('//')) return ''
+  if (/^[a-z][a-z0-9+.-]*:/i.test(v)) return ''
+  return v
+}
+
 /** Display time for an ISO timestamp, e.g. "09 Nov 2026, 14:05". */
 export function formatPlacedAt(iso) {
   const d = new Date(iso)

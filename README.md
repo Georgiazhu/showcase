@@ -14,7 +14,10 @@ contact details (name and email required) and posts only product / colour / size
 `POST /api/showcase/orders` on the main site, which checks the session, enforces MOQ, prices every
 line from the product's tier pricing on the server and stores a real `SC-YYYYMMDD-XXXXXX` order in
 the shared `orders` table. The order page and "Previous orders" are loaded from
-`GET /api/showcase/orders`.
+`GET /api/showcase/orders`. The "Orders" button in the header lists every order placed under this
+(shared) Showcase login with its status, and "Find an order" looks one up by its `SC-` number; the
+order page shows a status progress bar (Pending → Processing → Shipped → In transit → Delivered, or
+Cancelled) and a Refresh action that picks up status changes made in the admin Orders module.
 
 ---
 

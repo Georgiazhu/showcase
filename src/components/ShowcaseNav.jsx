@@ -16,6 +16,7 @@ export default function ShowcaseNav({
   cartCount = 0,
   cartUnits = 0,
   onOpenCart,
+  onOpenOrders,
   currentView = 'catalogue',
 }) {
   const [scrolled, setScrolled] = useState(false)
@@ -65,18 +66,19 @@ export default function ShowcaseNav({
           scrolled ? 'border-stone-200/80 bg-white/85 backdrop-blur-md' : 'border-stone-200 bg-white'
         }`}
       >
-        <nav className="mx-auto flex h-16 max-w-[1400px] items-center justify-between gap-6 px-5 lg:px-10">
-          <a href="/showcase/" className="flex shrink-0 items-center gap-3">
+        <nav className="mx-auto flex h-16 max-w-[1400px] items-center justify-between gap-3 px-5 sm:gap-6 lg:px-10">
+          <a href="/showcase/" className="flex shrink-0 items-center gap-3" aria-label="Cyndi showcase home">
             <span className="flex h-9 w-9 items-center justify-center rounded-full bg-stone-900 text-sm font-bold text-white">
               C
             </span>
-            <span className="text-lg font-bold tracking-tight text-stone-900">Cyndi</span>
+            {/* Wordmark hidden on narrow phones so the account controls fit. */}
+            <span className="hidden text-lg font-bold tracking-tight text-stone-900 min-[420px]:inline">Cyndi</span>
           </a>
 
-          <div className="flex shrink-0 items-center gap-3">
+          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
             {user && (
-              <div className="flex items-center gap-2.5">
-                <span className="flex items-center gap-2 rounded-full border border-stone-300 py-1.5 pl-1.5 pr-3.5 text-[13px] font-medium text-stone-700">
+              <div className="flex items-center gap-2 sm:gap-2.5">
+                <span className="flex items-center gap-2 rounded-full border border-stone-300 py-1.5 pl-1.5 pr-1.5 text-[13px] sm:pr-3.5 font-medium text-stone-700">
                   <span className="flex h-6 w-6 items-center justify-center rounded-full bg-stone-900 text-[10px] font-bold text-white">
                     {(user.displayName || user.username || '?').slice(0, 2).toUpperCase()}
                   </span>
@@ -85,7 +87,7 @@ export default function ShowcaseNav({
                 <button
                   type="button"
                   onClick={onLogout}
-                  className="rounded-full border border-stone-300 px-4 py-2 text-sm font-medium text-stone-700 transition hover:border-stone-900 hover:text-stone-900"
+                  className="rounded-full border border-stone-300 px-3 py-2 text-sm font-medium text-stone-700 transition hover:border-stone-900 hover:text-stone-900 sm:px-4"
                 >
                   Sign out
                 </button>
@@ -93,8 +95,26 @@ export default function ShowcaseNav({
             )}
             <button
               type="button"
+              onClick={onOpenOrders}
+              aria-label="Orders"
+              aria-current={currentView === 'orders' || currentView === 'order' ? 'page' : undefined}
+              className={`flex items-center gap-2 rounded-full border px-3 py-2 text-sm sm:px-4 font-medium transition ${
+                currentView === 'orders' || currentView === 'order'
+                  ? 'border-stone-900 bg-stone-900 text-white'
+                  : 'border-stone-300 text-stone-700 hover:border-stone-900 hover:text-stone-900'
+              }`}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1z" />
+                <path d="M8 5H6a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-2" />
+                <path d="M9 11h6M9 15h4" />
+              </svg>
+              <span className="hidden sm:inline">Orders</span>
+            </button>
+            <button
+              type="button"
               onClick={onOpenCart}
-              className={`relative flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition ${
+              className={`relative flex items-center gap-2 rounded-full border px-3 py-2 sm:px-4 text-sm font-medium transition ${
                 currentView === 'cart'
                   ? 'border-[#b7410e] bg-[#b7410e] text-white'
                   : 'border-[#e07a3a] bg-[#e07a3a] text-white hover:bg-[#b7410e] hover:border-[#b7410e]'
@@ -128,6 +148,7 @@ export default function ShowcaseNav({
             >
               Contact Us
             </a>
+            {currentView === 'catalogue' && (
             <button
               type="button"
               onClick={() => setOpen((v) => !v)}
@@ -139,12 +160,13 @@ export default function ShowcaseNav({
                 {open ? <path d="M18 6 6 18M6 6l12 12" /> : <path d="M3 12h18M3 6h18M3 18h18" />}
               </svg>
             </button>
+            )}
           </div>
         </nav>
       </div>
 
       {/* Row 2 — category directory, full width, scrolls sideways.
-          Hidden on the cart and order views, which have their own structure. */}
+          Hidden on the cart, order and orders views, which have their own structure. */}
       {currentView === 'catalogue' && (
       <div className="border-b border-stone-200/80 bg-[#f2efe9]">
         <nav className="mx-auto max-w-[1400px] px-5 lg:px-10">

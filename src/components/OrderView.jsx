@@ -1,5 +1,6 @@
 import { currencySymbol } from '../data/currency.js'
-import { formatPlacedAt } from '../data/orders.js'
+import { formatPlacedAt, safeImageUrl } from '../data/orders.js'
+import { StatusBadge, StatusProgress } from './OrderStatus.jsx'
 
 /**
  * Order view — the confirmed order.
@@ -11,8 +12,22 @@ import { formatPlacedAt } from '../data/orders.js'
  * `order` is the server order from /api/showcase/orders: prices, line totals
  * and the total were computed on the server and are shown as is.
  * `history` is the server's recent-orders summary list.
+ * `justPlaced` is true right after checkout; `onRefresh` re-fetches the order
+ * so status changes made by staff appear.
  */
-export default function OrderView({ order, history = [], onOpenOrder, productsById, onBack, onPrint }) {
+export default function OrderView({
+  order,
+  history = [],
+  onOpenOrder,
+  productsById,
+  onBack,
+  onPrint,
+  onRefresh,
+  refreshing = false,
+  refreshError = '',
+  justPlaced = false,
+  onOpenOrders,
+}) {
   if (!order) return null
 
   const items = Array.isArray(order.items) ? order.items : []
@@ -28,14 +43,38 @@ export default function OrderView({ order, history = [], onOpenOrder, productsBy
       <div className="rounded-2xl border border-stone-200 bg-white p-6">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
-            <p className="text-[11px] uppercase tracking-[0.2em] text-stone-400">Order confirmed</p>
-            <h1 className="mt-1.5 text-2xl font-bold tracking-tight text-stone-900">{order.orderNo}</h1>
+            <p className="text-[11px] uppercase tracking-[0.2em] text-stone-400">
+              {justPlaced ? 'Order confirmed' : 'Order'}
+            </p>
+            <div className="mt-1.5 flex flex-wrap items-center gap-2.5">
+              <h1 className="text-2xl font-bold tracking-tight text-stone-900">{order.orderNo}</h1>
+              <StatusBadge status={order.status} />
+            </div>
             <p className="mt-1.5 text-[13px] text-stone-500">
               Placed {formatPlacedAt(order.createdAt)} · {items.length} {items.length === 1 ? 'product' : 'products'} ·{' '}
               {units} {units === 1 ? 'unit' : 'units'}
             </p>
           </div>
-          <div className="flex gap-2.5">
+          <div className="flex flex-wrap gap-2.5 print:hidden">
+            {onRefresh && (
+              <button
+                type="button"
+                onClick={onRefresh}
+                disabled={refreshing}
+                className="rounded-full border border-stone-300 px-4 py-2 text-[13px] font-medium text-stone-700 transition hover:border-stone-900 hover:text-stone-900 disabled:opacity-50"
+              >
+                {refreshing ? 'Refreshing…' : 'Refresh'}
+              </button>
+            )}
+            {onOpenOrders && (
+              <button
+                type="button"
+                onClick={onOpenOrders}
+                className="rounded-full border border-stone-300 px-4 py-2 text-[13px] font-medium text-stone-700 transition hover:border-stone-900 hover:text-stone-900"
+              >
+                All orders
+              </button>
+            )}
             <button
               type="button"
               onClick={onPrint}
@@ -53,7 +92,34 @@ export default function OrderView({ order, history = [], onOpenOrder, productsBy
           </div>
         </div>
 
-        <ol className="mt-6 flex flex-wrap gap-x-8 gap-y-2 text-[12px] text-stone-500">
+        {/* Order status */}
+        <div className="mt-6 border-t border-stone-100 pt-5">
+          <div className="flex flex-wrap items-baseline justify-between gap-2">
+            <h2 className="text-[11px] font-bold uppercase tracking-[0.12em] text-stone-500">
+              Order status
+            </h2>
+            <p className="text-[11px] text-stone-400" aria-live="polite">
+              {order.statusUpdatedAt ? `Last updated ${formatPlacedAt(order.statusUpdatedAt)}` : ''}
+            </p>
+          </div>
+          <div className="mt-4">
+            <StatusProgress status={order.status} />
+          </div>
+          {refreshError && (
+            <p role="alert" className="mt-3 text-[12px] font-medium text-[#b7410e]">
+              {refreshError}
+            </p>
+          )}
+        </div>
+
+        {/* Project workflow — general process note, not the order status */}
+        <p className="mt-6 text-[11px] font-bold uppercase tracking-[0.12em] text-stone-500">
+          Project workflow
+        </p>
+        <ol
+          className="mt-2 flex flex-wrap gap-x-8 gap-y-2 text-[12px] text-stone-500"
+          aria-label="Project workflow (general process, not the order status)"
+        >
           {[
             ['1', 'Confirm products'],
             ['2', 'Finalize artwork'],
@@ -102,7 +168,10 @@ export default function OrderView({ order, history = [], onOpenOrder, productsBy
             {previous.map((o) => (
               <li key={o.orderNo} className="flex items-center justify-between gap-4 py-2.5">
                 <div className="min-w-0">
-                  <p className="text-[13px] font-medium text-stone-900">{o.orderNo}</p>
+                  <p className="flex flex-wrap items-center gap-2 text-[13px] font-medium text-stone-900">
+                    {o.orderNo}
+                    <StatusBadge status={o.status} />
+                  </p>
                   <p className="text-[11px] text-stone-500">
                     {formatPlacedAt(o.createdAt)} · {o.lineCount || 0} product
                     {o.lineCount === 1 ? '' : 's'} · {o.itemCount || 0} units ·{' '}
@@ -139,6 +208,8 @@ export default function OrderView({ order, history = [], onOpenOrder, productsBy
           const spec = product.spec
           const materials = product.materials
           const priceIncludes = product.priceIncludes
+          const image = safeImageUrl(it.image)
+          const fallbackImage = safeImageUrl(product.image)
           return (
             <li
               key={`${it.productId}-${it.colorIndex ?? ''}-${it.size ?? ''}-${i}`}
@@ -146,9 +217,9 @@ export default function OrderView({ order, history = [], onOpenOrder, productsBy
             >
               <div className="flex gap-4">
                 <div className="flex h-28 w-28 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-[#f2efe9] p-1">
-                  {it.image ? (
+                  {image || fallbackImage ? (
                     <img
-                      src={it.image}
+                      src={image || fallbackImage}
                       alt={it.name}
                       className="h-full w-full object-contain"
                       loading="eager"
@@ -156,9 +227,8 @@ export default function OrderView({ order, history = [], onOpenOrder, productsBy
                       onError={(e) => {
                         // Fall back to the product's main photo if the colour
                         // image is unavailable.
-                        const p = productsById[it.productId]
-                        if (p?.image && e.currentTarget.src !== p.image) {
-                          e.currentTarget.src = p.image
+                        if (fallbackImage && e.currentTarget.getAttribute('src') !== fallbackImage) {
+                          e.currentTarget.src = fallbackImage
                         }
                       }}
                     />
