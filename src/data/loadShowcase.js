@@ -12,9 +12,11 @@ export async function fetchShowcase() {
     credentials: 'same-origin',
   })
 
-  if (res.status === 401) {
-    const err = new Error('Unauthorized')
+  if (res.status === 401 || res.status === 403) {
+    const data = await res.json().catch(() => ({}))
+    const err = new Error(res.status === 403 ? data.error || 'This account does not have Showcase access' : 'Unauthorized')
     err.authRequired = true
+    err.noAccess = res.status === 403
     throw err
   }
   if (!res.ok) throw new Error(`HTTP ${res.status}`)

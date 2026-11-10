@@ -9,7 +9,7 @@ import { StatusBadge } from './OrderStatus.jsx'
  * order number. Equivalent of the shop's "My orders" + "Track order".
  *
  * onShowOrder(order) opens the detail view with an already-loaded order.
- * onAuthLost() returns to sign-in on a 401. onLoaded(list) lets the app reuse
+ * onAuthLost(err) returns to sign-in on a 401 / 403 (no Showcase access). onLoaded(list) lets the app reuse
  * the list for "Previous orders".
  */
 export default function OrdersView({ onShowOrder, onAuthLost, onLoaded, onBack }) {
@@ -33,7 +33,7 @@ export default function OrdersView({ onShowOrder, onAuthLost, onLoaded, onBack }
       onLoaded?.(list)
     } catch (e) {
       if (e?.authRequired) {
-        onAuthLost?.()
+        onAuthLost?.(e)
         return
       }
       setError(e?.message || 'Could not load orders')
@@ -56,7 +56,7 @@ export default function OrdersView({ onShowOrder, onAuthLost, onLoaded, onBack }
         onShowOrder?.(o)
       } catch (e) {
         if (e?.authRequired) {
-          onAuthLost?.()
+          onAuthLost?.(e)
           return
         }
         const msg = e?.status === 404 ? 'Order not found' : e?.message || 'Could not load the order'
@@ -88,8 +88,7 @@ export default function OrdersView({ onShowOrder, onAuthLost, onLoaded, onBack }
           <p className="text-[11px] uppercase tracking-[0.2em] text-stone-400">Showcase</p>
           <h1 className="mt-1.5 text-2xl font-bold tracking-tight text-stone-900">Orders</h1>
           <p className="mt-1.5 max-w-2xl text-[13px] text-stone-500">
-            All orders placed under this Showcase login are listed here, including those placed by
-            colleagues who share the account.
+            Orders placed with your account.
           </p>
         </div>
         <button

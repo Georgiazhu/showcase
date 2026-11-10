@@ -6,16 +6,17 @@ The **product proposal showcase** for Cyndi Global, built on the Kotis Design sh
 Live URL: <https://www.cyndiglobal.com/showcase/>
 
 > **Sign-in required.** The showcase is gated — visitors must sign in before any product content loads.
-> Initial account: `HRT` / `Aa123456`. The server validates the session too, so the data cannot be
-> fetched by hitting the API directly.
+> It uses the main site's customer accounts (email or username + password); an account needs
+> "Showcase access", which admins grant in `/admin/customers.html` on the main site. The server
+> validates the session too, so the data cannot be fetched by hitting the API directly.
 
 **Ordering.** The cart lives in `localStorage` until the buyer confirms. "Confirm order" asks for
 contact details (name and email required) and posts only product / colour / size / quantity to
 `POST /api/showcase/orders` on the main site, which checks the session, enforces MOQ, prices every
 line from the product's tier pricing on the server and stores a real `SC-YYYYMMDD-XXXXXX` order in
 the shared `orders` table. The order page and "Previous orders" are loaded from
-`GET /api/showcase/orders`. The "Orders" button in the header lists every order placed under this
-(shared) Showcase login with its status, and "Find an order" looks one up by its `SC-` number; the
+`GET /api/showcase/orders`. The "Orders" button in the header lists the orders placed with your own
+account with their status, and "Find an order" looks one up by its `SC-` number; the
 order page shows a status progress bar (Pending → Processing → Shipped → In transit → Delivered, or
 Cancelled) and a Refresh action that picks up status changes made in the admin Orders module.
 

@@ -4,7 +4,7 @@ import { useState } from 'react'
  * Showcase sign-in page.
  * Only this form is shown until signed in; the showcase renders after a successful sign-in.
  */
-export default function ShowcaseLogin({ onSuccess, onError }) {
+export default function ShowcaseLogin({ onSuccess, onError, notice = '' }) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [busy, setBusy] = useState(false)
@@ -22,6 +22,11 @@ export default function ShowcaseLogin({ onSuccess, onError }) {
         body: JSON.stringify({ username: username.trim(), password }),
       })
       const data = await res.json().catch(() => ({}))
+      if (res.status === 403 && data.showcaseAccess === false) {
+        throw new Error(
+          'Your account does not have Showcase access. Please contact Cyndi Global if you need it.',
+        )
+      }
       if (!res.ok) throw new Error(data.error || 'Sign-in failed')
       onSuccess?.(data.user)
     } catch (err) {
@@ -52,7 +57,7 @@ export default function ShowcaseLogin({ onSuccess, onError }) {
         >
           <div className="mb-4">
             <label htmlFor="sc-username" className="mb-1.5 block text-xs text-stone-500">
-              Account
+              Email or username
             </label>
             <input
               id="sc-username"
@@ -62,7 +67,7 @@ export default function ShowcaseLogin({ onSuccess, onError }) {
               autoComplete="username"
               autoFocus
               required
-              placeholder="HRT"
+              placeholder="you@company.com"
               className="w-full rounded-lg border border-stone-300 px-3.5 py-2.5 text-[14px] text-stone-900 outline-none transition placeholder:text-stone-300 focus:border-[#e07a3a] focus:ring-2 focus:ring-[#e07a3a]/15"
             />
           </div>
@@ -82,6 +87,12 @@ export default function ShowcaseLogin({ onSuccess, onError }) {
               className="w-full rounded-lg border border-stone-300 px-3.5 py-2.5 text-[14px] text-stone-900 outline-none transition placeholder:text-stone-300 focus:border-[#e07a3a] focus:ring-2 focus:ring-[#e07a3a]/15"
             />
           </div>
+
+          {notice && !error && (
+            <p className="mb-4 rounded-lg bg-[#eef6fb] px-3.5 py-2.5 text-[13px] text-[#1e5a8a]" role="status">
+              {notice}
+            </p>
+          )}
 
           {error && (
             <p className="mb-4 rounded-lg bg-[#fff1eb] px-3.5 py-2.5 text-[13px] text-[#9a3d22]">

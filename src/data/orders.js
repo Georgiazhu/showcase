@@ -3,7 +3,8 @@
  *
  * Orders are created and priced on the server; the client only sends what was
  * picked (product, colour, size, quantity) plus the contact details.
- * A 401 throws an error with authRequired = true so the app can return to sign-in.
+ * A 401 (signed out) or 403 (no Showcase access) throws an error with authRequired = true
+ * so the app can return to sign-in. Orders are per account: only your own are returned.
  */
 async function request(url, options = {}) {
   const res = await fetch(url, {
@@ -15,6 +16,12 @@ async function request(url, options = {}) {
   if (res.status === 401) {
     const err = new Error('Your session has expired. Please sign in again.')
     err.authRequired = true
+    throw err
+  }
+  if (res.status === 403 && data.showcaseAccess === false) {
+    const err = new Error(data.error || 'This account does not have Showcase access')
+    err.authRequired = true
+    err.noAccess = true
     throw err
   }
   if (!res.ok) {

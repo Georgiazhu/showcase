@@ -19,6 +19,8 @@ export default function App() {
   // 'checking' | 'anon' | 'authed'
   const [authState, setAuthState] = useState('checking')
   const [user, setUser] = useState(null)
+  // Message shown on the sign-in page (e.g. signed in to the shop without Showcase access)
+  const [loginNotice, setLoginNotice] = useState('')
 
   const [cart, setCart] = useState([])
   // 'catalogue' | 'cart' | 'order' | 'orders'
@@ -37,6 +39,7 @@ export default function App() {
       setLoadError(null)
     } catch (e) {
       if (e?.authRequired) {
+        if (e.noAccess) setLoginNotice(e.message)
         setAuthState('anon')
         setData(null)
         return
@@ -50,12 +53,18 @@ export default function App() {
     let alive = true
     checkSession().then(async (s) => {
       if (!alive) return
-      if (s.authenticated) {
+      if (s.authenticated && s.showcaseAccess) {
         setUser(s.user)
         setAuthState('authed')
         setCart(loadCart())
         await loadContent()
       } else {
+        if (s.authenticated) {
+          // Signed in to the shop with an account that has no Showcase access
+          setLoginNotice(
+            'You are signed in with an account that does not have Showcase access. Sign in with a Showcase account.',
+          )
+        }
         setAuthState('anon')
       }
     })
@@ -66,6 +75,7 @@ export default function App() {
 
   const handleLogin = useCallback(
     async (user) => {
+      setLoginNotice('')
       setUser(user || null)
       setAuthState('authed')
       setCart(loadCart())
@@ -86,7 +96,8 @@ export default function App() {
   }, [])
 
   // Session expired mid-flow: drop back to the sign-in form (the cart stays in localStorage).
-  const handleAuthLost = useCallback(() => {
+  const handleAuthLost = useCallback((e) => {
+    setLoginNotice(e?.noAccess ? e.message : '')
     setData(null)
     setUser(null)
     setAuthState('anon')
@@ -99,7 +110,7 @@ export default function App() {
     listOrders()
       .then(setHistory)
       .catch((e) => {
-        if (e?.authRequired) handleAuthLost()
+        if (e?.authRequired) handleAuthLost(e)
       })
   }, [handleAuthLost])
 
@@ -151,7 +162,7 @@ export default function App() {
       try {
         placed = await placeOrder(contact, cart)
       } catch (e) {
-        if (e?.authRequired) handleAuthLost()
+        if (e?.authRequired) handleAuthLost(e)
         throw e
       }
       setOrder(placed)
@@ -189,7 +200,7 @@ export default function App() {
       if (o) setOrder(o)
       refreshHistory()
     } catch (e) {
-      if (e?.authRequired) handleAuthLost()
+      if (e?.authRequired) handleAuthLost(e)
       else setRefreshError(e?.message || 'Could not refresh the order')
     } finally {
       setRefreshing(false)
@@ -206,7 +217,7 @@ export default function App() {
         setView('order')
         window.scrollTo({ top: 0, behavior: 'instant' })
       } catch (e) {
-        if (e?.authRequired) handleAuthLost()
+        if (e?.authRequired) handleAuthLost(e)
         else setToast(e?.message || 'Could not load the order')
       }
     },
@@ -246,7 +257,7 @@ export default function App() {
 
   // Not signed in — show only the login form, no showcase content
   if (authState === 'anon') {
-    return <ShowcaseLogin onSuccess={handleLogin} />
+    return <ShowcaseLogin onSuccess={handleLogin} notice={loginNotice} />
   }
 
   if (loadError) {
