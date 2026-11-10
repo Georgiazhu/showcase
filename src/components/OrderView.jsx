@@ -11,14 +11,11 @@ import { StatusBadge, StatusProgress } from './OrderStatus.jsx'
  *
  * `order` is the server order from /api/showcase/orders: prices, line totals
  * and the total were computed on the server and are shown as is.
- * `history` is the server's recent-orders summary list.
  * `justPlaced` is true right after checkout; `onRefresh` re-fetches the order
  * so status changes made by staff appear.
  */
 export default function OrderView({
   order,
-  history = [],
-  onOpenOrder,
   productsById,
   onBack,
   onPrint,
@@ -35,7 +32,6 @@ export default function OrderView({
   const units = Number(order.itemCount) || items.reduce((n, i) => n + (Number(i.quantity) || 0), 0)
   const orderSym = currencySymbol(order.currency || items[0]?.currency)
   const contact = order.contact || {}
-  const previous = history.filter((o) => o.orderNo !== order.orderNo).slice(0, 5)
 
   return (
     <div className="mx-auto max-w-[1400px] px-5 py-10 lg:px-10">
@@ -157,40 +153,6 @@ export default function OrderView({
           ) : null}
         </dl>
       </div>
-
-      {/* Previous orders */}
-      {previous.length > 0 && (
-        <div className="mt-6 rounded-2xl border border-stone-200 bg-white p-5">
-          <h2 className="text-[13px] font-bold uppercase tracking-[0.12em] text-stone-900">
-            Previous orders
-          </h2>
-          <ul className="mt-3 divide-y divide-stone-100">
-            {previous.map((o) => (
-              <li key={o.orderNo} className="flex items-center justify-between gap-4 py-2.5">
-                <div className="min-w-0">
-                  <p className="flex flex-wrap items-center gap-2 text-[13px] font-medium text-stone-900">
-                    {o.orderNo}
-                    <StatusBadge status={o.status} />
-                  </p>
-                  <p className="text-[11px] text-stone-500">
-                    {formatPlacedAt(o.createdAt)} · {o.lineCount || 0} product
-                    {o.lineCount === 1 ? '' : 's'} · {o.itemCount || 0} units ·{' '}
-                    {currencySymbol(o.currency)}
-                    {formatAmount(o.total)}
-                  </p>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => onOpenOrder?.(o.orderNo)}
-                  className="shrink-0 text-[12px] font-medium text-[#b7410e] underline underline-offset-2 transition hover:text-[#e07a3a]"
-                >
-                  View
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
 
       {/* Ordered products */}
       <h2 className="mt-9 text-[13px] font-bold uppercase tracking-[0.12em] text-stone-900">

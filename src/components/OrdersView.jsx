@@ -207,10 +207,12 @@ export default function OrdersView({ onShowOrder, onAuthLost, onLoaded, onBack }
                       {o.itemCount === 1 ? 'unit' : 'units'}
                     </p>
                   </div>
-                  <span className="text-[13px] font-semibold tabular-nums text-stone-900">
+                  <span className="w-28 shrink-0 text-right text-[13px] font-semibold tabular-nums text-stone-900">
                     {formatMoney(o.total, o.currency)}
                   </span>
-                  <StatusBadge status={o.status} />
+                  <span className="flex w-24 shrink-0 justify-center">
+                    <StatusBadge status={o.status} />
+                  </span>
                 </button>
               </li>
             ))}
