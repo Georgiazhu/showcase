@@ -2,8 +2,7 @@ import { useState } from 'react'
 import AddToCartDialog from './AddToCartDialog.jsx'
 import ColorSwatches from './ColorSwatches.jsx'
 import ProductImage from './ProductImage.jsx'
-
-const cur = (c) => (c === 'CNY' ? '¥' : c === 'EUR' ? '€' : '$')
+import { currencySymbol } from '../data/currency.js'
 
 /**
  * Product card — mirrors the Kotis .quote-detail-wrapper structure:
@@ -20,7 +19,7 @@ export default function ProductCard({ product, onOpenGallery, onAddToCart }) {
   const colorImages = product.colors?.[activeIndex]?.image
   const mainImage = colorImages || product.image || gallery[0]
 
-  const symbol = cur(product.currency || '$')
+  const symbol = currencySymbol(product.currency)
   const pricing = product.pricing || []
 
   return (

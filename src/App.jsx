@@ -8,16 +8,8 @@ import CartView from './components/CartView.jsx'
 import OrderView from './components/OrderView.jsx'
 import { fetchShowcase } from './data/loadShowcase.js'
 import { checkSession, logout } from './data/session.js'
-import {
-  addItem,
-  loadCart,
-  loadOrders,
-  makeOrderNumber,
-  removeItem,
-  saveCart,
-  saveOrder,
-  updateQuantity,
-} from './data/cart.js'
+import { addItem, loadCart, removeItem, saveCart, updateQuantity } from './data/cart.js'
+import { fetchOrder, listOrders, placeOrder } from './data/orders.js'
 
 export default function App() {
   const [gallery, setGallery] = useState({ images: [], index: null, title: '' })
@@ -58,7 +50,6 @@ export default function App() {
         setUser(s.user)
         setAuthState('authed')
         setCart(loadCart())
-        setHistory(loadOrders())
         await loadContent()
       } else {
         setAuthState('anon')
@@ -74,7 +65,6 @@ export default function App() {
       setUser(user || null)
       setAuthState('authed')
       setCart(loadCart())
-      setHistory(loadOrders())
       await loadContent()
     },
     [loadContent],
@@ -88,7 +78,26 @@ export default function App() {
     setCart([])
     setView('catalogue')
     setOrder(null)
+    setHistory([])
   }, [])
+
+  // Session expired mid-flow: drop back to the sign-in form (the cart stays in localStorage).
+  const handleAuthLost = useCallback(() => {
+    setData(null)
+    setUser(null)
+    setAuthState('anon')
+    setView('catalogue')
+    setOrder(null)
+    setHistory([])
+  }, [])
+
+  const refreshHistory = useCallback(() => {
+    listOrders()
+      .then(setHistory)
+      .catch((e) => {
+        if (e?.authRequired) handleAuthLost()
+      })
+  }, [handleAuthLost])
 
   const openGallery = useCallback((images, index = 0, title = '') => {
     setGallery({ images: images || [], index, title })
@@ -130,27 +139,40 @@ export default function App() {
     [cart, persist],
   )
 
-  const handleCheckout = useCallback(() => {
-    const placedAt = new Date().toLocaleString('en-GB', {
-      day: '2-digit',
-      month: 'short',
-      year: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-    })
-    const placed = {
-      number: makeOrderNumber(),
-      placedAt,
-      items: cart,
-      totalUnits: cart.reduce((n, i) => n + i.quantity, 0),
-    }
-    saveOrder(placed)
-    setOrder(placed)
-    setHistory(loadOrders())
-    persist([])
-    setView('order')
-    window.scrollTo({ top: 0, behavior: 'instant' })
-  }, [cart, persist])
+  // Places a real order on the server, which prices it. Throws on failure so
+  // CartView can show the message; the cart is only cleared after success.
+  const handleCheckout = useCallback(
+    async (contact) => {
+      let placed
+      try {
+        placed = await placeOrder(contact, cart)
+      } catch (e) {
+        if (e?.authRequired) handleAuthLost()
+        throw e
+      }
+      setOrder(placed)
+      persist([])
+      setView('order')
+      window.scrollTo({ top: 0, behavior: 'instant' })
+      refreshHistory()
+    },
+    [cart, persist, handleAuthLost, refreshHistory],
+  )
+
+  const handleOpenOrder = useCallback(
+    async (orderNo) => {
+      try {
+        const o = await fetchOrder(orderNo)
+        setOrder(o)
+        setView('order')
+        window.scrollTo({ top: 0, behavior: 'instant' })
+      } catch (e) {
+        if (e?.authRequired) handleAuthLost()
+        else setToast(e?.message || 'Could not load the order')
+      }
+    },
+    [handleAuthLost],
+  )
 
   // Toast auto-dismiss.
   useEffect(() => {
@@ -253,11 +275,7 @@ export default function App() {
         <OrderView
           order={order}
           history={history}
-          onOpenOrder={(o) => {
-            setOrder(o)
-            setView('order')
-            window.scrollTo({ top: 0, behavior: 'instant' })
-          }}
+          onOpenOrder={handleOpenOrder}
           productsById={productsById}
           onBack={() => {
             setView('catalogue')
@@ -268,6 +286,7 @@ export default function App() {
       ) : onCart ? (
         <CartView
           items={cart}
+          meta={meta}
           productsById={productsById}
           onQuantity={handleQuantity}
           onRemove={handleRemove}

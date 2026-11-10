@@ -1,17 +1,74 @@
-import { useMemo } from 'react'
-import { unitPrice } from '../data/cart.js'
+import { useEffect, useMemo, useState } from 'react'
+import { loadCheckoutDraft, saveCheckoutDraft, unitPrice } from '../data/cart.js'
+import { currencySymbol } from '../data/currency.js'
 
-const cur = (c) => (c === 'CNY' ? '¥' : c === 'EUR' ? '€' : '$')
+const FIELDS = [
+  { name: 'name', label: 'Name', required: true, type: 'text', autoComplete: 'name', max: 120 },
+  { name: 'email', label: 'Email', required: true, type: 'email', autoComplete: 'email', max: 254 },
+  { name: 'phone', label: 'Phone', type: 'tel', autoComplete: 'tel', max: 40 },
+  { name: 'company', label: 'Company', type: 'text', autoComplete: 'organization', max: 160 },
+]
+
+function initialContact(meta) {
+  const draft = loadCheckoutDraft() || {}
+  const recipient = meta?.recipients?.[0]
+  return {
+    name: draft.name || '',
+    email: draft.email || '',
+    phone: draft.phone || '',
+    company: draft.company || recipient?.company || recipient?.name || '',
+    notes: draft.notes || '',
+  }
+}
 
 /**
  * Cart view — the items queued for an order.
  *
  * Every line can change colour, size and quantity, and can be removed. The
  * total uses the same tiered pricing the product card shows, so the number
- * here matches the number on the card.
+ * here matches the number on the card. The server re-prices the order when it
+ * is placed, so the confirmed order is authoritative.
+ *
+ * "Confirm order" first opens a contact form; submitting it calls
+ * onCheckout(contact), which resolves on success and throws with the server's
+ * message on failure.
  */
-export default function CartView({ items, productsById, onQuantity, onRemove, onCheckout, onBack }) {
-  const symbol = '$'
+export default function CartView({ items, meta, productsById, onQuantity, onRemove, onCheckout, onBack }) {
+  // One symbol for the summary: the products' shared currency (the server
+  // rejects mixed-currency orders).
+  const symbol = currencySymbol(productsById[items[0]?.productId]?.currency)
+  const [checkingOut, setCheckingOut] = useState(false)
+  const [contact, setContact] = useState(() => initialContact(meta))
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState('')
+
+  useEffect(() => {
+    saveCheckoutDraft(contact)
+  }, [contact])
+
+  const setField = (name) => (e) => setContact((c) => ({ ...c, [name]: e.target.value }))
+
+  const submit = async (e) => {
+    e.preventDefault()
+    if (submitting) return
+    setError('')
+    setSubmitting(true)
+    try {
+      await onCheckout({
+        name: contact.name.trim(),
+        email: contact.email.trim(),
+        phone: contact.phone.trim(),
+        company: contact.company.trim(),
+        notes: contact.notes.trim(),
+      })
+      // Keep the contact details for next time; notes are per order.
+      // (The view switches to the order right away, so write the draft directly.)
+      saveCheckoutDraft({ ...contact, notes: '' })
+    } catch (err) {
+      if (!err?.authRequired) setError(err?.message || 'Could not place the order')
+      setSubmitting(false)
+    }
+  }
   const total = useMemo(
     () =>
       items.reduce((sum, it) => {
@@ -74,7 +131,7 @@ export default function CartView({ items, productsById, onQuantity, onRemove, on
             const moq = it.moq || 1
             const step = moq > 1 ? moq : 1
             const unit = product ? unitPrice(product, it.quantity) : it.unitPrice
-            const sym = cur(product?.currency || '$')
+            const sym = currencySymbol(product?.currency)
             return (
               <li
                 key={it.key}
@@ -225,17 +282,82 @@ export default function CartView({ items, productsById, onQuantity, onRemove, on
             </dl>
 
             <p className="mt-4 rounded-lg bg-[#f2efe9] px-3 py-2.5 text-[11px] leading-relaxed text-stone-600">
-              Prices are indicative unit pricing in USD at the stated MOQ, pre-tax and pre-shipping.
+              Prices are indicative unit pricing at the stated MOQ, pre-tax and pre-shipping.
               Custom artwork and decoration are quoted separately.
             </p>
 
-            <button
-              type="button"
-              onClick={onCheckout}
-              className="mt-4 w-full rounded-full bg-[#e07a3a] px-5 py-3 text-[13px] font-medium text-white transition hover:bg-[#b7410e]"
-            >
-              Confirm order
-            </button>
+            {checkingOut ? (
+              <form onSubmit={submit} className="mt-4 space-y-3">
+                <h3 className="text-[12px] font-bold uppercase tracking-[0.12em] text-stone-900">
+                  Contact details
+                </h3>
+                {FIELDS.map((f) => (
+                  <label key={f.name} className="block text-[12px] text-stone-600">
+                    <span>
+                      {f.label}
+                      {f.required ? <span className="text-[#b7410e]"> *</span> : null}
+                    </span>
+                    <input
+                      name={f.name}
+                      type={f.type}
+                      required={f.required}
+                      maxLength={f.max}
+                      autoComplete={f.autoComplete}
+                      value={contact[f.name]}
+                      onChange={setField(f.name)}
+                      disabled={submitting}
+                      className="mt-1 w-full rounded-lg border border-stone-300 bg-white px-3 py-2 text-[13px] text-stone-900 outline-none transition focus:border-stone-900 disabled:opacity-60"
+                    />
+                  </label>
+                ))}
+                <label className="block text-[12px] text-stone-600">
+                  <span>Notes</span>
+                  <textarea
+                    name="notes"
+                    rows={3}
+                    maxLength={2000}
+                    value={contact.notes}
+                    onChange={setField('notes')}
+                    disabled={submitting}
+                    className="mt-1 w-full resize-y rounded-lg border border-stone-300 bg-white px-3 py-2 text-[13px] text-stone-900 outline-none transition focus:border-stone-900 disabled:opacity-60"
+                  />
+                </label>
+
+                {error ? (
+                  <p role="alert" className="rounded-lg bg-[#b7410e]/10 px-3 py-2 text-[12px] text-[#b7410e]">
+                    {error}
+                  </p>
+                ) : null}
+
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  aria-busy={submitting}
+                  className="w-full rounded-full bg-[#e07a3a] px-5 py-3 text-[13px] font-medium text-white transition hover:bg-[#b7410e] disabled:cursor-wait disabled:opacity-70"
+                >
+                  {submitting ? 'Placing order…' : 'Place order'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCheckingOut(false)
+                    setError('')
+                  }}
+                  disabled={submitting}
+                  className="w-full text-[12px] font-medium text-stone-500 underline underline-offset-4 transition hover:text-stone-900 disabled:opacity-50"
+                >
+                  Back to cart
+                </button>
+              </form>
+            ) : (
+              <button
+                type="button"
+                onClick={() => setCheckingOut(true)}
+                className="mt-4 w-full rounded-full bg-[#e07a3a] px-5 py-3 text-[13px] font-medium text-white transition hover:bg-[#b7410e]"
+              >
+                Confirm order
+              </button>
+            )}
           </div>
         </aside>
       </div>

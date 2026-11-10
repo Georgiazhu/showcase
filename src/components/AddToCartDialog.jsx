@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { unitPrice } from '../data/cart.js'
-
-const cur = (c) => (c === 'CNY' ? '¥' : c === 'EUR' ? '€' : '$')
+import { currencySymbol } from '../data/currency.js'
 
 /**
  * Add to cart panel.
@@ -53,7 +52,7 @@ export default function AddToCartDialog({ product, onClose, onAdd }) {
   }
 
   const unit = useMemo(() => unitPrice(product, quantity), [product, quantity])
-  const symbol = cur(product.currency || '$')
+  const symbol = currencySymbol(product.currency)
 
   const setQty = (v) => {
     const n = Math.max(moq, Math.floor(Number(v) || moq))

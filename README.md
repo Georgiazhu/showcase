@@ -9,6 +9,13 @@ Live URL: <https://www.cyndiglobal.com/showcase/>
 > Initial account: `HRT` / `Aa123456`. The server validates the session too, so the data cannot be
 > fetched by hitting the API directly.
 
+**Ordering.** The cart lives in `localStorage` until the buyer confirms. "Confirm order" asks for
+contact details (name and email required) and posts only product / colour / size / quantity to
+`POST /api/showcase/orders` on the main site, which checks the session, enforces MOQ, prices every
+line from the product's tier pricing on the server and stores a real `SC-YYYYMMDD-XXXXXX` order in
+the shared `orders` table. The order page and "Previous orders" are loaded from
+`GET /api/showcase/orders`.
+
 ---
 
 ## Quick start

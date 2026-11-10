@@ -1,15 +1,14 @@
 /**
  * Cart storage — a small localStorage-backed store.
  *
- * The showcase is a read-only catalogue, so the cart lives entirely in the
- * browser: no API calls, no server state. A line item keeps enough of the
- * product snapshot to render the cart and the order without looking the
- * product up again (which also means the order still renders if the catalogue
- * changes later).
+ * The cart lives in the browser until the order is confirmed; confirmed orders
+ * are created and priced on the server (see ./orders.js). A line item keeps
+ * enough of the product snapshot to render the cart without looking the
+ * product up again.
  */
 
 const KEY = 'cyndi.showcase.cart.v1'
-const ORDERS_KEY = 'cyndi.showcase.orders.v1'
+const CHECKOUT_KEY = 'cyndi.showcase.checkout.v1'
 
 export function loadCart() {
   try {
@@ -30,26 +29,22 @@ export function saveCart(items) {
   }
 }
 
-export function loadOrders() {
+/** Checkout contact-form draft, so a half-filled form survives a reload. */
+export function loadCheckoutDraft() {
   try {
-    const raw = window.localStorage.getItem(ORDERS_KEY)
-    if (!raw) return []
-    const parsed = JSON.parse(raw)
-    return Array.isArray(parsed) ? parsed : []
+    const parsed = JSON.parse(window.localStorage.getItem(CHECKOUT_KEY) || 'null')
+    return parsed && typeof parsed === 'object' ? parsed : null
   } catch {
-    return []
+    return null
   }
 }
 
-export function saveOrder(order) {
-  const orders = loadOrders()
-  orders.unshift(order)
+export function saveCheckoutDraft(draft) {
   try {
-    window.localStorage.setItem(ORDERS_KEY, JSON.stringify(orders.slice(0, 50)))
+    window.localStorage.setItem(CHECKOUT_KEY, JSON.stringify(draft))
   } catch {
     // ignore
   }
-  return order
 }
 
 function isValidItem(it) {
@@ -78,9 +73,13 @@ export function addItem(items, item) {
   return [...items, { ...item, key }]
 }
 
+/** Set a line's quantity, never below the line's MOQ (the server enforces this too). */
 export function updateQuantity(items, key, quantity) {
-  const q = Math.max(1, Math.floor(Number(quantity) || 1))
-  return items.map((i) => (i.key === key ? { ...i, quantity: q } : i))
+  return items.map((i) => {
+    if (i.key !== key) return i
+    const moq = Math.max(1, Math.floor(Number(i.moq) || 1))
+    return { ...i, quantity: Math.max(moq, Math.floor(Number(quantity) || moq)) }
+  })
 }
 
 export function removeItem(items, key) {
@@ -88,8 +87,10 @@ export function removeItem(items, key) {
 }
 
 /**
- * The unit price for a line. Products carry tiered pricing; the cheapest tier
- * that the quantity reaches is the one that applies.
+ * The unit price for a line. Products carry tiered pricing: the highest tier
+ * whose quantity the order reaches applies; below the lowest tier the lowest
+ * tier's price applies. functions/api/showcase/orders.js uses the same rule and
+ * is authoritative — this copy is only for display before the order is placed.
  */
 export function unitPrice(product, quantity) {
   const tiers = (product?.pricing || [])
@@ -112,13 +113,4 @@ export function cartTotal(items, productsById) {
     const p = productsById[it.productId]
     return sum + (p ? lineTotal(p, it.quantity) : 0)
   }, 0)
-}
-
-/** Human-readable order number, e.g. CG-20261109-4F2A. */
-export function makeOrderNumber(date = new Date()) {
-  const y = date.getFullYear()
-  const m = String(date.getMonth() + 1).padStart(2, '0')
-  const d = String(date.getDate()).padStart(2, '0')
-  const rand = Math.random().toString(36).slice(2, 6).toUpperCase()
-  return `CG-${y}${m}${d}-${rand}`
 }

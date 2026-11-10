@@ -1,6 +1,5 @@
-import { unitPrice } from '../data/cart.js'
-
-const cur = (c) => (c === 'CNY' ? '¥' : c === 'EUR' ? '€' : '$')
+import { currencySymbol } from '../data/currency.js'
+import { formatPlacedAt } from '../data/orders.js'
 
 /**
  * Order view — the confirmed order.
@@ -8,17 +7,20 @@ const cur = (c) => (c === 'CNY' ? '¥' : c === 'EUR' ? '€' : '$')
  * It uses the showcase's own visual language (same warm neutral palette, same
  * card and table treatment) but only shows the products that were ordered:
  * basic product information, the chosen colour, the size and the quantity.
+ *
+ * `order` is the server order from /api/showcase/orders: prices, line totals
+ * and the total were computed on the server and are shown as is.
+ * `history` is the server's recent-orders summary list.
  */
 export default function OrderView({ order, history = [], onOpenOrder, productsById, onBack, onPrint }) {
   if (!order) return null
 
-  const items = order.items || []
-  const total = items.reduce((sum, it) => {
-    const p = productsById[it.productId]
-    const unit = p ? unitPrice(p, it.quantity) : it.unitPrice
-    return sum + unit * it.quantity
-  }, 0)
-  const units = items.reduce((n, i) => n + i.quantity, 0)
+  const items = Array.isArray(order.items) ? order.items : []
+  const total = Number(order.total) || 0
+  const units = Number(order.itemCount) || items.reduce((n, i) => n + (Number(i.quantity) || 0), 0)
+  const orderSym = currencySymbol(order.currency || items[0]?.currency)
+  const contact = order.contact || {}
+  const previous = history.filter((o) => o.orderNo !== order.orderNo).slice(0, 5)
 
   return (
     <div className="mx-auto max-w-[1400px] px-5 py-10 lg:px-10">
@@ -27,9 +29,9 @@ export default function OrderView({ order, history = [], onOpenOrder, productsBy
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
             <p className="text-[11px] uppercase tracking-[0.2em] text-stone-400">Order confirmed</p>
-            <h1 className="mt-1.5 text-2xl font-bold tracking-tight text-stone-900">{order.number}</h1>
+            <h1 className="mt-1.5 text-2xl font-bold tracking-tight text-stone-900">{order.orderNo}</h1>
             <p className="mt-1.5 text-[13px] text-stone-500">
-              Placed {order.placedAt} · {items.length} {items.length === 1 ? 'product' : 'products'} ·{' '}
+              Placed {formatPlacedAt(order.createdAt)} · {items.length} {items.length === 1 ? 'product' : 'products'} ·{' '}
               {units} {units === 1 ? 'unit' : 'units'}
             </p>
           </div>
@@ -67,27 +69,50 @@ export default function OrderView({ order, history = [], onOpenOrder, productsBy
             </li>
           ))}
         </ol>
+
+        {/* Contact */}
+        <dl className="mt-6 grid grid-cols-1 gap-x-6 gap-y-1.5 border-t border-stone-100 pt-4 text-[12px] sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            ['Contact', contact.name],
+            ['Email', contact.email],
+            ['Phone', contact.phone],
+            ['Company', contact.company],
+          ].map(([label, value]) => (
+            <div key={label} className="min-w-0">
+              <dt className="text-stone-400">{label}</dt>
+              <dd className="break-words font-medium text-stone-800">{value || '—'}</dd>
+            </div>
+          ))}
+          {order.notes ? (
+            <div className="sm:col-span-2 lg:col-span-4">
+              <dt className="text-stone-400">Notes</dt>
+              <dd className="whitespace-pre-line break-words font-medium text-stone-800">{order.notes}</dd>
+            </div>
+          ) : null}
+        </dl>
       </div>
 
       {/* Previous orders */}
-      {history.length > 1 && (
+      {previous.length > 0 && (
         <div className="mt-6 rounded-2xl border border-stone-200 bg-white p-5">
           <h2 className="text-[13px] font-bold uppercase tracking-[0.12em] text-stone-900">
             Previous orders
           </h2>
           <ul className="mt-3 divide-y divide-stone-100">
-            {history.slice(1, 6).map((o) => (
-              <li key={o.number} className="flex items-center justify-between gap-4 py-2.5">
+            {previous.map((o) => (
+              <li key={o.orderNo} className="flex items-center justify-between gap-4 py-2.5">
                 <div className="min-w-0">
-                  <p className="text-[13px] font-medium text-stone-900">{o.number}</p>
+                  <p className="text-[13px] font-medium text-stone-900">{o.orderNo}</p>
                   <p className="text-[11px] text-stone-500">
-                    {o.placedAt} · {o.items?.length || 0} product
-                    {o.items?.length === 1 ? '' : 's'} · {o.totalUnits || 0} units
+                    {formatPlacedAt(o.createdAt)} · {o.lineCount || 0} product
+                    {o.lineCount === 1 ? '' : 's'} · {o.itemCount || 0} units ·{' '}
+                    {currencySymbol(o.currency)}
+                    {(Number(o.total) || 0).toFixed(2)}
                   </p>
                 </div>
                 <button
                   type="button"
-                  onClick={() => onOpenOrder?.(o)}
+                  onClick={() => onOpenOrder?.(o.orderNo)}
                   className="shrink-0 text-[12px] font-medium text-[#b7410e] underline underline-offset-2 transition hover:text-[#e07a3a]"
                 >
                   View
@@ -104,13 +129,19 @@ export default function OrderView({ order, history = [], onOpenOrder, productsBy
       </h2>
 
       <ul className="mt-4 space-y-4">
-        {items.map((it) => {
-          const product = productsById[it.productId]
-          const sym = cur(product?.currency || '$')
-          const unit = product ? unitPrice(product, it.quantity) : it.unitPrice
+        {items.map((it, i) => {
+          // Descriptive extras (spec, materials…) come from the live catalogue
+          // when the product still exists; prices always come from the order.
+          const product = productsById[it.productId] || {}
+          const sym = currencySymbol(it.currency)
+          const unit = Number(it.unitPrice) || 0
+          const line = Number(it.lineTotal ?? unit * it.quantity) || 0
+          const spec = product.spec
+          const materials = product.materials
+          const priceIncludes = product.priceIncludes
           return (
             <li
-              key={it.key}
+              key={`${it.productId}-${it.colorIndex ?? ''}-${it.size ?? ''}-${i}`}
               className="rounded-2xl border border-stone-200 bg-white p-4 shadow-[0_1px_2px_rgba(15,31,58,0.04)]"
             >
               <div className="flex gap-4">
@@ -138,12 +169,8 @@ export default function OrderView({ order, history = [], onOpenOrder, productsBy
                   <h3 className="text-[15px] font-bold leading-snug text-stone-900">{it.name}</h3>
                   <p className="mt-0.5 text-[10px] text-stone-400">
                     {it.sku}
-                    {it.categoryName ? ` · ${it.categoryName}` : ''}
+                    {product.categoryName ? ` · ${product.categoryName}` : ''}
                   </p>
-
-                  {it.description ? (
-                    <p className="mt-2 text-[12px] leading-relaxed text-stone-600">{it.description}</p>
-                  ) : null}
 
                   {/* Basic product information */}
                   <dl className="mt-3 grid grid-cols-2 gap-x-6 gap-y-1.5 text-[12px] sm:grid-cols-3">
@@ -169,16 +196,16 @@ export default function OrderView({ order, history = [], onOpenOrder, productsBy
                         {it.quantity} {it.quantity === 1 ? 'pc' : 'pcs'}
                       </dd>
                     </div>
-                    {it.spec ? (
+                    {spec ? (
                       <div>
                         <dt className="text-stone-400">Specification</dt>
-                        <dd className="font-medium text-stone-800">{it.spec}</dd>
+                        <dd className="font-medium text-stone-800">{spec}</dd>
                       </div>
                     ) : null}
-                    {it.materials ? (
+                    {materials ? (
                       <div>
                         <dt className="text-stone-400">Materials</dt>
-                        <dd className="font-medium text-stone-800">{it.materials}</dd>
+                        <dd className="font-medium text-stone-800">{materials}</dd>
                       </div>
                     ) : null}
                     {it.leadTime ? (
@@ -189,9 +216,9 @@ export default function OrderView({ order, history = [], onOpenOrder, productsBy
                     ) : null}
                   </dl>
 
-                  {it.priceIncludes ? (
+                  {priceIncludes ? (
                     <p className="mt-3 text-[11px] leading-relaxed text-stone-500">
-                      <span className="font-bold text-stone-700">Price Includes:</span> {it.priceIncludes}
+                      <span className="font-bold text-stone-700">Price Includes:</span> {priceIncludes}
                     </p>
                   ) : null}
 
@@ -213,7 +240,7 @@ export default function OrderView({ order, history = [], onOpenOrder, productsBy
                           <td className="pr-6 font-bold">Line total</td>
                           <td className="font-bold tabular-nums">
                             {sym}
-                            {(unit * it.quantity).toFixed(2)}
+                            {line.toFixed(2)}
                           </td>
                         </tr>
                       </tbody>
@@ -241,11 +268,14 @@ export default function OrderView({ order, history = [], onOpenOrder, productsBy
             </div>
             <div className="flex justify-between border-t border-stone-200 pt-2">
               <dt className="font-bold text-stone-900">Estimated total</dt>
-              <dd className="font-bold tabular-nums text-stone-900">${total.toFixed(2)}</dd>
+              <dd className="font-bold tabular-nums text-stone-900">
+                {orderSym}
+                {total.toFixed(2)}
+              </dd>
             </div>
           </dl>
           <p className="mt-4 rounded-lg bg-[#f2efe9] px-3 py-2.5 text-[11px] leading-relaxed text-stone-600">
-            Indicative unit pricing in USD, pre-tax and pre-shipping, at the stated MOQ. Custom artwork
+            Indicative unit pricing, pre-tax and pre-shipping, at the stated MOQ. Custom artwork
             and decoration are quoted separately. Final pricing is confirmed once artwork is finalised.
           </p>
         </div>
