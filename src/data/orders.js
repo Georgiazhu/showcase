@@ -57,8 +57,12 @@ export async function listOrders() {
   return Array.isArray(data.orders) ? data.orders : []
 }
 
-/** Showcase order numbers look like SC-20260214-AB12CD. */
-const ORDER_NO_RE = /^SC-\d{8}-[A-Z0-9]{1,12}$/
+/**
+ * Showcase order numbers look like SHOWCASE-20260214-001 (daily sequence);
+ * legacy orders may still be SC-20260214-AB12CD. Mirrors SHOWCASE_ORDER_NO_RE
+ * in functions/_lib/orders.js.
+ */
+const ORDER_NO_RE = /^(SC-\d{8}-[A-Z0-9]{1,12}|SHOWCASE-\d{8}-\d{3,})$/
 
 /** Trim + uppercase; returns the normalised number, or null if the format is wrong. */
 export function normalizeOrderNo(input) {

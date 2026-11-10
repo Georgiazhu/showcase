@@ -16,7 +16,7 @@ contact details (name and email required) and posts only product / colour / size
 line from the product's tier pricing on the server and stores a real `SC-YYYYMMDD-XXXXXX` order in
 the shared `orders` table. The order page and "Previous orders" are loaded from
 `GET /api/showcase/orders`. The "Orders" button in the header lists the orders placed with your own
-account with their status, and "Find an order" looks one up by its `SC-` number; the
+account with their status, and "Find an order" looks one up by its `SHOWCASE-` (or legacy `SC-`) number; the
 order page shows a status progress bar (Pending → Processing → Shipped → In transit → Delivered, or
 Cancelled) and a Refresh action that picks up status changes made in the admin Orders module.
 
