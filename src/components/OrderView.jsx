@@ -1,4 +1,4 @@
-import { currencySymbol } from '../data/currency.js'
+import { currencySymbol, formatAmount } from '../data/currency.js'
 import { formatPlacedAt, safeImageUrl } from '../data/orders.js'
 import { StatusBadge, StatusProgress } from './OrderStatus.jsx'
 
@@ -176,7 +176,7 @@ export default function OrderView({
                     {formatPlacedAt(o.createdAt)} · {o.lineCount || 0} product
                     {o.lineCount === 1 ? '' : 's'} · {o.itemCount || 0} units ·{' '}
                     {currencySymbol(o.currency)}
-                    {(Number(o.total) || 0).toFixed(2)}
+                    {formatAmount(o.total)}
                   </p>
                 </div>
                 <button
@@ -299,7 +299,7 @@ export default function OrderView({
                           <td className="pr-6">Unit price</td>
                           <td className="tabular-nums">
                             {sym}
-                            {unit.toFixed(2)}
+                            {formatAmount(unit)}
                           </td>
                         </tr>
                         <tr>
@@ -310,7 +310,7 @@ export default function OrderView({
                           <td className="pr-6 font-bold">Line total</td>
                           <td className="font-bold tabular-nums">
                             {sym}
-                            {line.toFixed(2)}
+                            {formatAmount(line)}
                           </td>
                         </tr>
                       </tbody>
@@ -340,7 +340,7 @@ export default function OrderView({
               <dt className="font-bold text-stone-900">Estimated total</dt>
               <dd className="font-bold tabular-nums text-stone-900">
                 {orderSym}
-                {total.toFixed(2)}
+                {formatAmount(total)}
               </dd>
             </div>
           </dl>

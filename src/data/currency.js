@@ -17,8 +17,17 @@ export function currencySymbol(c) {
   return `${v.toUpperCase()} `
 }
 
+/** Grouped amount with exactly 2 decimals: 85451 -> '85,451.00'. */
+export function formatAmount(amount) {
+  const n = Number(amount)
+  if (!Number.isFinite(n)) return '0.00'
+  return n.toLocaleString('en-US', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  })
+}
+
 /** '$1,234.50' style amount; symbol from currencySymbol(). */
 export function formatMoney(amount, currency) {
-  const n = Number(amount) || 0
-  return `${currencySymbol(currency)}${n.toFixed(2)}`
+  return `${currencySymbol(currency)}${formatAmount(amount)}`
 }

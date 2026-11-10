@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { unitPrice } from '../data/cart.js'
-import { currencySymbol } from '../data/currency.js'
+import { currencySymbol, formatAmount } from '../data/currency.js'
 
 /**
  * Add to cart panel.
@@ -206,10 +206,10 @@ export default function AddToCartDialog({ product, onClose, onAdd }) {
             </div>
             <span className="text-[13px] tabular-nums text-stone-600">
               {symbol}
-              {(unit * quantity).toFixed(2)}
+              {formatAmount(unit * quantity)}
               <span className="ml-1 text-stone-400">
                 ({symbol}
-                {unit.toFixed(2)} each)
+                {formatAmount(unit)} each)
               </span>
             </span>
           </div>

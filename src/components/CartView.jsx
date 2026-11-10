@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { loadCheckoutDraft, saveCheckoutDraft, unitPrice } from '../data/cart.js'
-import { currencySymbol } from '../data/currency.js'
+import { currencySymbol, formatAmount } from '../data/currency.js'
 
 const FIELDS = [
   { name: 'name', label: 'Name', required: true, type: 'text', autoComplete: 'name', max: 120 },
@@ -243,11 +243,11 @@ export default function CartView({ items, meta, productsById, onQuantity, onRemo
                     <div className="text-right">
                       <p className="text-[14px] font-bold tabular-nums text-stone-900">
                         {sym}
-                        {(unit * it.quantity).toFixed(2)}
+                        {formatAmount(unit * it.quantity)}
                       </p>
                       <p className="text-[11px] tabular-nums text-stone-400">
                         {sym}
-                        {unit.toFixed(2)} each
+                        {formatAmount(unit)} each
                       </p>
                     </div>
                   </div>
@@ -276,7 +276,7 @@ export default function CartView({ items, meta, productsById, onQuantity, onRemo
                 <dt className="font-bold text-stone-900">Estimated total</dt>
                 <dd className="font-bold tabular-nums text-stone-900">
                   {symbol}
-                  {total.toFixed(2)}
+                  {formatAmount(total)}
                 </dd>
               </div>
             </dl>
