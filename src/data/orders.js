@@ -50,8 +50,8 @@ export async function listOrders() {
   return Array.isArray(data.orders) ? data.orders : []
 }
 
-/** Showcase order numbers look like SC-20260214-AB12CD. */
-const ORDER_NO_RE = /^SC-\d{8}-[A-Z0-9]{1,12}$/
+/** Showcase order numbers look like SHOWCASE-20261110-001. */
+const ORDER_NO_RE = /^SHOWCASE-\d{8}-\d{3,}$/
 
 /** Trim + uppercase; returns the normalised number, or null if the format is wrong. */
 export function normalizeOrderNo(input) {

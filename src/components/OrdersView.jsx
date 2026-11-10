@@ -5,7 +5,7 @@ import { StatusBadge } from './OrderStatus.jsx'
 
 /**
  * Orders view — every order placed under this Showcase login (the server
- * returns the 50 most recent SC- orders), plus a "Find an order" lookup by
+ * returns the 50 most recent SHOWCASE- orders), plus a "Find an order" lookup by
  * order number. Equivalent of the shop's "My orders" + "Track order".
  *
  * onShowOrder(order) opens the detail view with an already-loaded order.
@@ -74,7 +74,7 @@ export default function OrdersView({ onShowOrder, onAuthLost, onLoaded, onBack }
     e.preventDefault()
     const no = normalizeOrderNo(query)
     if (!no) {
-      setFindError('Enter a valid order number, e.g. SC-20260214-AB12CD.')
+      setFindError('Enter a valid order number, e.g. SHOWCASE-20261110-001.')
       return
     }
     setQuery(no)
@@ -118,7 +118,7 @@ export default function OrdersView({ onShowOrder, onAuthLost, onLoaded, onBack }
               setQuery(e.target.value)
               if (findError) setFindError('')
             }}
-            placeholder="e.g. SC-20260214-AB12CD"
+            placeholder="e.g. SHOWCASE-20261110-001"
             autoComplete="off"
             spellCheck={false}
             aria-invalid={findError ? 'true' : undefined}
