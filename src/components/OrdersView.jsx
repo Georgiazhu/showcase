@@ -74,7 +74,7 @@ export default function OrdersView({ onShowOrder, onAuthLost, onLoaded, onBack }
     e.preventDefault()
     const no = normalizeOrderNo(query)
     if (!no) {
-      setFindError('Enter a valid order number, e.g. SHOWCASE-20260214-001.')
+      setFindError('Enter a valid order number, e.g. SHOWCASE-20261110-001.')
       return
     }
     setQuery(no)
@@ -117,7 +117,7 @@ export default function OrdersView({ onShowOrder, onAuthLost, onLoaded, onBack }
               setQuery(e.target.value)
               if (findError) setFindError('')
             }}
-            placeholder="e.g. SHOWCASE-20260214-001"
+            placeholder="e.g. SHOWCASE-20261110-001"
             autoComplete="off"
             spellCheck={false}
             aria-invalid={findError ? 'true' : undefined}

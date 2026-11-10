@@ -142,12 +142,6 @@ export default function ShowcaseNav({
             >
               Edit
             </a>
-            <a
-              href="mailto:projects@cyndiglobal.com"
-              className="hidden rounded-full bg-[#e07a3a] px-4 py-2 text-sm font-medium text-white transition hover:bg-[#b7410e] sm:block"
-            >
-              Contact Us
-            </a>
             {currentView === 'catalogue' && (
             <button
               type="button"

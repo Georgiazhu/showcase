@@ -2,7 +2,7 @@ import { useState } from 'react'
 import AddToCartDialog from './AddToCartDialog.jsx'
 import ColorSwatches from './ColorSwatches.jsx'
 import ProductImage from './ProductImage.jsx'
-import { currencySymbol } from '../data/currency.js'
+import { currencySymbol, formatAmount } from '../data/currency.js'
 
 /**
  * Product card — mirrors the Kotis .quote-detail-wrapper structure:
@@ -169,7 +169,7 @@ export default function ProductCard({ product, onOpenGallery, onAddToCart }) {
                       <td>Price</td>
                       <td>
                         {symbol}
-                        {Number(pricing[0].price).toFixed(2)}
+                        {formatAmount(pricing[0].price)}
                       </td>
                     </tr>
                   </>
@@ -179,7 +179,7 @@ export default function ProductCard({ product, onOpenGallery, onAddToCart }) {
                       <td>Quantity</td>
                       <td>
                         {tier.quantity} — {symbol}
-                        {Number(tier.price).toFixed(2)}
+                        {formatAmount(tier.price)}
                       </td>
                     </tr>
                   ))
