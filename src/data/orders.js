@@ -82,6 +82,19 @@ export function safeImageUrl(url) {
   return v
 }
 
+/** Tracking links: only absolute http(s) URLs, else ''. */
+export function safeLinkUrl(url) {
+  if (typeof url !== 'string') return ''
+  const v = url.trim()
+  if (!/^https?:\/\//i.test(v)) return ''
+  try {
+    new URL(v)
+    return v
+  } catch {
+    return ''
+  }
+}
+
 /** Display time for an ISO timestamp, e.g. "09 Nov 2026, 14:05". */
 export function formatPlacedAt(iso) {
   const d = new Date(iso)

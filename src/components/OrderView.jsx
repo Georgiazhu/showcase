@@ -1,6 +1,7 @@
 import { currencySymbol, formatAmount } from '../data/currency.js'
 import { formatPlacedAt, safeImageUrl } from '../data/orders.js'
 import { StatusBadge, StatusProgress } from './OrderStatus.jsx'
+import ShipmentTracking from './ShipmentTracking.jsx'
 
 /**
  * Order view — the confirmed order.
@@ -100,6 +101,9 @@ export default function OrderView({
           </div>
           <div className="mt-4">
             <StatusProgress status={order.status} />
+          </div>
+          <div className="mt-5">
+            <ShipmentTracking shipments={order.shipments} />
           </div>
           {refreshError && (
             <p role="alert" className="mt-3 text-[12px] font-medium text-[#b7410e]">
