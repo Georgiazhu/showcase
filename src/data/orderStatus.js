@@ -1,16 +1,17 @@
 /**
  * Order status display — the one place the showcase knows about statuses.
  *
- * Values and labels mirror the main site's canonical enum
- * (functions/_lib/order-status.js). The progress steps and the alias mapping
- * mirror the shop's OrderConfirmation.jsx. Unknown / legacy values are shown
- * as their raw text in a neutral badge.
+ * Values mirror the main site's canonical enum (functions/_lib/order-status.js);
+ * only the LABELS here are customer-friendly wording for the Showcase (the
+ * status values and the backend enum are unchanged). The progress steps and the
+ * alias mapping mirror the shop's OrderConfirmation.jsx. Unknown / legacy values
+ * are shown as their raw text in a neutral badge.
  */
 export const STATUS_LABELS = {
-  pending: 'Pending',
-  processing: 'Processing',
-  shipped: 'Shipped',
-  in_transit: 'In transit',
+  pending: 'Order received',
+  processing: 'Preparing',
+  shipped: 'Dispatched',
+  in_transit: 'On the way',
   delivered: 'Delivered',
   cancelled: 'Cancelled',
 }

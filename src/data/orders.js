@@ -27,9 +27,32 @@ async function request(url, options = {}) {
   if (!res.ok) {
     const err = new Error(data.error || `HTTP ${res.status}`)
     err.status = res.status
+    // A 409 from cancel carries the order's current state so the view can re-render it.
+    if (data.order && typeof data.order === 'object') err.order = data.order
     throw err
   }
   return data
+}
+
+/** Statuses a customer may cancel from (before dispatch). Mirrors the server rule. */
+export const CANCELLABLE_STATUSES = ['pending', 'processing']
+
+export function canCancel(status) {
+  return CANCELLABLE_STATUSES.includes(String(status || '').trim().toLowerCase())
+}
+
+/**
+ * Cancel one of your own orders before it is dispatched.
+ * Resolves to { order, alreadyCancelled, message }. A 409 (already shipped / status
+ * just changed) throws with err.status = 409, the server message and err.order.
+ */
+export async function cancelOrder(orderNo) {
+  const data = await request('/api/showcase/orders', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ op: 'cancel', orderNo }),
+  })
+  return { order: data.order, alreadyCancelled: !!data.alreadyCancelled, message: data.message || '' }
 }
 
 export async function placeOrder(contact, cart) {

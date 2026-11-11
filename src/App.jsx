@@ -10,7 +10,7 @@ import OrdersView from './components/OrdersView.jsx'
 import { fetchShowcase } from './data/loadShowcase.js'
 import { checkSession, logout } from './data/session.js'
 import { addItem, loadCart, removeItem, saveCart, updateQuantity } from './data/cart.js'
-import { fetchOrder, listOrders, placeOrder } from './data/orders.js'
+import { cancelOrder, fetchOrder, listOrders, placeOrder } from './data/orders.js'
 
 export default function App() {
   const [gallery, setGallery] = useState({ images: [], index: null, title: '' })
@@ -207,6 +207,30 @@ export default function App() {
     }
   }, [order?.orderNo, handleAuthLost, refreshHistory])
 
+  // Customer cancels the order shown in the detail view (server allows it only before dispatch).
+  // Resolves to { message } on success; a 409 re-renders the order's current state and rethrows
+  // so the view shows the server message; a 401/403 returns to sign-in.
+  const handleCancelOrder = useCallback(async () => {
+    if (!order?.orderNo) return null
+    setRefreshError('')
+    try {
+      const r = await cancelOrder(order.orderNo)
+      if (r.order) setOrder(r.order)
+      refreshHistory()
+      return { message: r.alreadyCancelled ? r.message : 'Your order has been cancelled.' }
+    } catch (e) {
+      if (e?.authRequired) {
+        handleAuthLost(e)
+        return null
+      }
+      if (e?.order) {
+        setOrder(e.order)
+        refreshHistory()
+      }
+      throw e
+    }
+  }, [order?.orderNo, handleAuthLost, refreshHistory])
+
   const handleOpenOrder = useCallback(
     async (orderNo) => {
       try {
@@ -335,7 +359,9 @@ export default function App() {
         />
       ) : onOrder ? (
         <OrderView
+          key={order?.orderNo || 'none'}
           order={order}
+          onCancel={handleCancelOrder}
           history={history}
           onOpenOrder={handleOpenOrder}
           onOpenOrders={handleOpenOrders}

@@ -1,7 +1,11 @@
+import { useEffect, useRef, useState } from 'react'
 import { currencySymbol, formatAmount } from '../data/currency.js'
-import { formatPlacedAt, safeImageUrl } from '../data/orders.js'
+import { canCancel, formatPlacedAt, safeImageUrl } from '../data/orders.js'
+import { statusKey } from '../data/orderStatus.js'
 import { StatusBadge, StatusProgress } from './OrderStatus.jsx'
 import ShipmentTracking from './ShipmentTracking.jsx'
+
+const DISPATCHED = ['shipped', 'in_transit', 'delivered']
 
 /**
  * Order view — the confirmed order.
@@ -14,6 +18,9 @@ import ShipmentTracking from './ShipmentTracking.jsx'
  * and the total were computed on the server and are shown as is.
  * `justPlaced` is true right after checkout; `onRefresh` re-fetches the order
  * so status changes made by staff appear.
+ * `onCancel` cancels the order (only offered while it is pending/processing, i.e.
+ * before dispatch); it resolves to { message } or throws with the server message.
+ * The server enforces the same rule; the button is only a convenience.
  */
 export default function OrderView({
   order,
@@ -25,8 +32,46 @@ export default function OrderView({
   refreshError = '',
   justPlaced = false,
   onOpenOrders,
+  onCancel,
 }) {
+  const [confirmingCancel, setConfirmingCancel] = useState(false)
+  const [cancelling, setCancelling] = useState(false)
+  const [cancelError, setCancelError] = useState('')
+  const [cancelNotice, setCancelNotice] = useState('')
+  const keepButtonRef = useRef(null)
+  const cancelButtonRef = useRef(null)
+
+  // Move focus into the inline confirmation when it opens.
+  useEffect(() => {
+    if (confirmingCancel) keepButtonRef.current?.focus()
+  }, [confirmingCancel])
+
   if (!order) return null
+
+  const cancellable = !!onCancel && canCancel(order.status)
+  const dispatched = DISPATCHED.includes(statusKey(order.status))
+
+  const closeConfirm = () => {
+    setConfirmingCancel(false)
+    // Return focus to the trigger if it is still on the page.
+    requestAnimationFrame(() => cancelButtonRef.current?.focus())
+  }
+
+  const handleConfirmCancel = async () => {
+    setCancelling(true)
+    setCancelError('')
+    setCancelNotice('')
+    try {
+      const result = await onCancel()
+      if (result) setCancelNotice(result.message || 'Your order has been cancelled.')
+      setConfirmingCancel(false)
+    } catch (e) {
+      setCancelError(e?.message || 'Could not cancel the order')
+      setConfirmingCancel(false)
+    } finally {
+      setCancelling(false)
+    }
+  }
 
   const items = Array.isArray(order.items) ? order.items : []
   const total = Number(order.total) || 0
@@ -61,6 +106,23 @@ export default function OrderView({
                 className="rounded-full border border-stone-300 px-4 py-2 text-[13px] font-medium text-stone-700 transition hover:border-stone-900 hover:text-stone-900 disabled:opacity-50"
               >
                 {refreshing ? 'Refreshing…' : 'Refresh'}
+              </button>
+            )}
+            {cancellable && (
+              <button
+                ref={cancelButtonRef}
+                type="button"
+                onClick={() => {
+                  setCancelError('')
+                  setCancelNotice('')
+                  setConfirmingCancel(true)
+                }}
+                disabled={cancelling || confirmingCancel}
+                aria-expanded={confirmingCancel}
+                aria-controls="cancel-order-confirm"
+                className="rounded-full border border-red-300 px-4 py-2 text-[13px] font-medium text-red-700 transition hover:border-red-600 hover:bg-red-50 disabled:opacity-50"
+              >
+                Cancel order
               </button>
             )}
             {onOpenOrders && (
@@ -99,9 +161,62 @@ export default function OrderView({
               {order.statusUpdatedAt ? `Last updated ${formatPlacedAt(order.statusUpdatedAt)}` : ''}
             </p>
           </div>
+          {confirmingCancel && cancellable && (
+            <div
+              id="cancel-order-confirm"
+              role="group"
+              aria-labelledby="cancel-order-confirm-title"
+              className="mt-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 print:hidden"
+              onKeyDown={(e) => {
+                if (e.key === 'Escape' && !cancelling) closeConfirm()
+              }}
+            >
+              <p id="cancel-order-confirm-title" className="text-[13px] font-bold text-red-800">
+                Cancel order {order.orderNo}?
+              </p>
+              <p className="mt-1 text-[12px] text-red-700">
+                The order has not been dispatched yet, so it can still be cancelled. This cannot be undone.
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2.5">
+                <button
+                  type="button"
+                  onClick={handleConfirmCancel}
+                  disabled={cancelling}
+                  className="rounded-full bg-red-700 px-4 py-2 text-[13px] font-medium text-white transition hover:bg-red-800 disabled:opacity-50"
+                >
+                  {cancelling ? 'Cancelling…' : 'Yes, cancel order'}
+                </button>
+                <button
+                  ref={keepButtonRef}
+                  type="button"
+                  onClick={closeConfirm}
+                  disabled={cancelling}
+                  className="rounded-full border border-stone-300 bg-white px-4 py-2 text-[13px] font-medium text-stone-700 transition hover:border-stone-900 hover:text-stone-900 disabled:opacity-50"
+                >
+                  Keep order
+                </button>
+              </div>
+            </div>
+          )}
+          {cancelNotice && (
+            <p role="status" className="mt-3 text-[12px] font-medium text-stone-700">
+              {cancelNotice}
+            </p>
+          )}
+          {cancelError && (
+            <p role="alert" className="mt-3 text-[12px] font-medium text-[#b7410e]">
+              {cancelError}
+            </p>
+          )}
           <div className="mt-4">
             <StatusProgress status={order.status} />
           </div>
+          {onCancel && dispatched && (
+            <p className="mt-3 text-[12px] text-stone-500 print:hidden">
+              This order has already been dispatched, so it can no longer be cancelled online. Please
+              contact us if you need help.
+            </p>
+          )}
           <div className="mt-5">
             <ShipmentTracking shipments={order.shipments} />
           </div>
