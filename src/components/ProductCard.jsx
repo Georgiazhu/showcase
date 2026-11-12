@@ -3,13 +3,14 @@ import AddToCartDialog from './AddToCartDialog.jsx'
 import ColorSwatches from './ColorSwatches.jsx'
 import ProductImage from './ProductImage.jsx'
 import { currencySymbol, formatAmount } from '../data/currency.js'
+import { productOutOfStock } from '../data/stock.js'
 
 /**
  * Product card — mirrors the Kotis .quote-detail-wrapper structure:
  * Thumbnail (Add to cart always visible) + name + sku + description + features
  * + Colors + Sizes + tiered pricing table + Price Includes
  */
-export default function ProductCard({ product, onOpenGallery, onAddToCart }) {
+export default function ProductCard({ product, onOpenGallery, onAddToCart, cartQtyFor }) {
   // Identify the selected swatch by index: names may be blank, and two
   // swatches can share a name.
   const [activeIndex, setActiveIndex] = useState(null)
@@ -21,6 +22,7 @@ export default function ProductCard({ product, onOpenGallery, onAddToCart }) {
 
   const symbol = currencySymbol(product.currency)
   const pricing = product.pricing || []
+  const outOfStock = productOutOfStock(product)
 
   return (
     <div className="quote-detail-wrapper mb-10">
@@ -40,6 +42,11 @@ export default function ProductCard({ product, onOpenGallery, onAddToCart }) {
                 onClick={() => onOpenGallery?.(gallery, 0)}
               />
             </button>
+            {outOfStock && (
+              <span className="pointer-events-none absolute left-2 top-2 rounded-full bg-white/90 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#b7410e] shadow-sm">
+                Out of stock
+              </span>
+            )}
             {gallery.length > 1 && (
               <span className="pointer-events-none absolute bottom-2 right-2 rounded-full bg-black/55 px-2 py-0.5 text-[10px] font-medium tabular-nums text-white backdrop-blur-sm">
                 {gallery.length} photos
@@ -205,9 +212,10 @@ export default function ProductCard({ product, onOpenGallery, onAddToCart }) {
       {adding && (
         <AddToCartDialog
           product={product}
+          cartQtyFor={cartQtyFor}
           onClose={() => setAdding(false)}
-          onAdd={(item) => {
-            onAddToCart?.(item)
+          onAdd={(item, available) => {
+            onAddToCart?.(item, available)
             setAdding(false)
           }}
         />

@@ -29,6 +29,9 @@ async function request(url, options = {}) {
     err.status = res.status
     // A 409 from cancel carries the order's current state so the view can re-render it.
     if (data.order && typeof data.order === 'object') err.order = data.order
+    // A 409 INSUFFICIENT_STOCK from placing an order lists the short lines.
+    if (typeof data.code === 'string') err.code = data.code
+    if (Array.isArray(data.shortages)) err.shortages = data.shortages
     throw err
   }
   return data

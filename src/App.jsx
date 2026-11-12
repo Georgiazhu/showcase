@@ -9,7 +9,7 @@ import OrderView from './components/OrderView.jsx'
 import OrdersView from './components/OrdersView.jsx'
 import { fetchShowcase } from './data/loadShowcase.js'
 import { checkSession, logout } from './data/session.js'
-import { addItem, loadCart, removeItem, saveCart, updateQuantity } from './data/cart.js'
+import { addItem, lineKey, loadCart, removeItem, saveCart, updateQuantity } from './data/cart.js'
 import { cancelOrder, fetchOrder, listOrders, placeOrder } from './data/orders.js'
 
 export default function App() {
@@ -132,10 +132,22 @@ export default function App() {
     saveCart(items)
   }, [])
 
+  // Quantity already in the cart for a given variant. The add-to-cart dialog uses
+  // this to cap how many more can be added (stock − already in cart), so an order
+  // can never exceed stock; see AddToCartDialog.
+  const cartQtyFor = useCallback(
+    (productId, colorIndex, size) => {
+      const k = lineKey(productId, colorIndex, size)
+      return cart.find((i) => lineKey(i.productId, i.colorIndex, i.size) === k)?.quantity ?? 0
+    },
+    [cart],
+  )
+
   const handleAddToCart = useCallback(
-    (item) => {
-      persist(addItem(cart, item))
-      setToast(`${item.name} added to cart`)
+    (item, available = null) => {
+      const res = addItem(cart, item, available)
+      persist(res.items)
+      setToast({ type: 'success', text: `${item.name} added to cart` })
     },
     [cart, persist],
   )
@@ -163,6 +175,8 @@ export default function App() {
         placed = await placeOrder(contact, cart)
       } catch (e) {
         if (e?.authRequired) handleAuthLost(e)
+        // Stock changed: reload the catalogue so the cart and dialog show what is left.
+        else if (e?.code === 'INSUFFICIENT_STOCK') await loadContent()
         throw e
       }
       setOrder(placed)
@@ -173,7 +187,7 @@ export default function App() {
       window.scrollTo({ top: 0, behavior: 'instant' })
       refreshHistory()
     },
-    [cart, persist, handleAuthLost, refreshHistory],
+    [cart, persist, handleAuthLost, refreshHistory, loadContent],
   )
 
   // Open the detail view with an order that is already loaded (Orders view).
@@ -242,7 +256,7 @@ export default function App() {
         window.scrollTo({ top: 0, behavior: 'instant' })
       } catch (e) {
         if (e?.authRequired) handleAuthLost(e)
-        else setToast(e?.message || 'Could not load the order')
+        else setToast({ type: 'error', text: e?.message || 'Could not load the order' })
       }
     },
     [handleAuthLost],
@@ -433,6 +447,7 @@ export default function App() {
                       product={{ ...product, categoryName: category.name }}
                       onOpenGallery={openGallery}
                       onAddToCart={handleAddToCart}
+                      cartQtyFor={cartQtyFor}
                     />
                   ))}
                 </div>
@@ -490,11 +505,11 @@ export default function App() {
         onNavigate={navigate}
       />
 
-      {/* Added-to-cart toast */}
+      {/* Added-to-cart toast (success only; stock limits are shown inside the add dialog) */}
       {toast && (
         <div className="pointer-events-none fixed bottom-6 left-1/2 z-[120] -translate-x-1/2">
-          <div className="rounded-full bg-stone-900 px-5 py-2.5 text-[13px] font-medium text-white shadow-xl">
-            {toast}
+          <div role="status" className="flex items-center gap-3 rounded-full bg-stone-900 px-5 py-2.5 text-[13px] font-medium text-white shadow-xl">
+            <span>{toast.text}</span>
             <button
               type="button"
               onClick={() => {
@@ -502,7 +517,7 @@ export default function App() {
                 setToast('')
                 window.scrollTo({ top: 0, behavior: 'instant' })
               }}
-              className="pointer-events-auto ml-3 text-[#f0b48a] underline underline-offset-2"
+              className="pointer-events-auto shrink-0 text-[#f0b48a] underline underline-offset-2"
             >
               View cart
             </button>

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { loadCheckoutDraft, saveCheckoutDraft, unitPrice } from '../data/cart.js'
 import { currencySymbol, formatAmount } from '../data/currency.js'
+import { variantStock } from '../data/stock.js'
 
 const FIELDS = [
   { name: 'name', label: 'Name', required: true, type: 'text', autoComplete: 'name', max: 120 },
@@ -132,6 +133,8 @@ export default function CartView({ items, meta, productsById, onQuantity, onRemo
             const step = moq > 1 ? moq : 1
             const unit = product ? unitPrice(product, it.quantity) : it.unitPrice
             const sym = currencySymbol(product?.currency)
+            // Tracked variants show what is left; the server re-checks when the order is placed.
+            const avail = product ? variantStock(product, it.colorIndex ?? null, it.size ?? null) : null
             return (
               <li
                 key={it.key}
@@ -229,7 +232,8 @@ export default function CartView({ items, meta, productsById, onQuantity, onRemo
                         <button
                           type="button"
                           onClick={() => onQuantity(it.key, it.quantity + step)}
-                          className="flex h-8 w-8 items-center justify-center rounded-r-full text-stone-700 transition hover:bg-stone-100"
+                          disabled={avail !== null && it.quantity + step > avail}
+                          className="flex h-8 w-8 items-center justify-center rounded-r-full text-stone-700 transition hover:bg-stone-100 disabled:opacity-30"
                           aria-label={`Increase quantity of ${it.name}`}
                         >
                           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -238,6 +242,9 @@ export default function CartView({ items, meta, productsById, onQuantity, onRemo
                         </button>
                       </div>
                       {moq > 1 && <span className="text-[11px] text-stone-400">MOQ {moq}</span>}
+                      {avail !== null && avail > 0 && (
+                        <span className="text-[11px] text-emerald-700">{avail} in stock</span>
+                      )}
                     </div>
 
                     <div className="text-right">
@@ -251,6 +258,11 @@ export default function CartView({ items, meta, productsById, onQuantity, onRemo
                       </p>
                     </div>
                   </div>
+                  {avail !== null && it.quantity > avail && (
+                    <p className="mt-2 text-[12px] font-medium text-[#b7410e]">
+                      {avail === 0 ? 'Out of stock; remove this line.' : `Only ${avail} left; reduce the quantity.`}
+                    </p>
+                  )}
                 </div>
               </li>
             )

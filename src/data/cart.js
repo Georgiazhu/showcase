@@ -59,18 +59,24 @@ export function lineKey(productId, colorIndex, size) {
 /**
  * Add a line to the cart. Adding the same product in the same colour and
  * size increases the quantity instead of creating a duplicate line.
+ *
+ * `available` is the variant's stock for tracked variants (null = untracked, unlimited).
+ * The merged quantity is capped at it, but an existing line is never reduced here
+ * (CartView warns when a line is above what is left; the server re-checks on order).
  */
-export function addItem(items, item) {
+export function addItem(items, item, available = null) {
   const key = lineKey(item.productId, item.colorIndex, item.size)
   const existing = items.find((i) => lineKey(i.productId, i.colorIndex, i.size) === key)
-  if (existing) {
-    return items.map((i) =>
-      lineKey(i.productId, i.colorIndex, i.size) === key
-        ? { ...i, quantity: i.quantity + item.quantity }
-        : i,
-    )
-  }
-  return [...items, { ...item, key }]
+  const prevQty = existing ? existing.quantity : 0
+  const wanted = item.quantity
+  let finalQty = prevQty + wanted
+  if (available !== null) finalQty = Math.min(finalQty, Math.max(prevQty, available))
+  const addedQty = finalQty - prevQty           // how many actually went in (0 = nothing added)
+  const capped = available !== null && finalQty < prevQty + wanted
+  const nextItems = existing
+    ? items.map((i) => (lineKey(i.productId, i.colorIndex, i.size) === key ? { ...i, quantity: finalQty } : i))
+    : [...items, { ...item, key, quantity: finalQty }]
+  return { items: nextItems, addedQty, wanted, finalQty, prevQty, available, capped }
 }
 
 /** Set a line's quantity, never below the line's MOQ (the server enforces this too). */

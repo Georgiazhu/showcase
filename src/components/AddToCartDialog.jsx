@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { unitPrice } from '../data/cart.js'
 import { currencySymbol, formatAmount } from '../data/currency.js'
+import { colourOutOfStock, isTracked, variantStock } from '../data/stock.js'
 
 /**
  * Add to cart panel.
@@ -8,17 +9,42 @@ import { currencySymbol, formatAmount } from '../data/currency.js'
  * Opens over the product card and lets the buyer pick a colour, a size and a
  * quantity before the line is added. The quantity starts at the product's
  * MOQ, because that is the smallest order the price is quoted for.
+ *
+ * Tracked products (the server sent `stock`) show "N in stock" for the chosen
+ * variant, cap the quantity at what is available and require colour + size.
+ * Untracked products behave as before (made to order, no stock text).
  */
-export default function AddToCartDialog({ product, onClose, onAdd }) {
+export default function AddToCartDialog({ product, onClose, onAdd, cartQtyFor }) {
   const colors = product.colors || []
-  const [colorIndex, setColorIndex] = useState(colors.length ? 0 : null)
-  const [size, setSize] = useState(null)
+  const sizes = product.sizes || []
+  const tracked = isTracked(product)
+  const [colorIndex, setColorIndex] = useState(() => {
+    if (!colors.length) return null
+    if (!tracked) return 0
+    const firstInStock = colors.findIndex((_, i) => !colourOutOfStock(product, i))
+    return firstInStock >= 0 ? firstInStock : 0
+  })
+  // One-size tracked products preselect the size; otherwise the buyer picks it.
+  const [size, setSize] = useState(() => (tracked && sizes.length === 1 ? sizes[0] : null))
   const [quantity, setQuantity] = useState(product.moq || 1)
   const panelRef = useRef(null)
   const closeRef = useRef(null)
 
   const moq = product.moq || 1
-  const sizes = product.sizes || []
+  const step = moq > 1 ? moq : 1
+  const avail = variantStock(product, colorIndex, size)
+  // How many are already in the cart for this exact variant, and therefore how many
+  // more can still be added. Untracked variants (avail === null) have no cap.
+  const inCart = cartQtyFor ? cartQtyFor(product.id, colorIndex, size) : 0
+  const remaining = avail === null ? null : Math.max(0, avail - inCart)
+
+  // Never let the shown quantity exceed what can still be added (covers the first add
+  // too, e.g. stock is below the MOQ default). Only clamps down, never below MOQ.
+  useEffect(() => {
+    if (remaining !== null && remaining >= moq && quantity > remaining) {
+      setQuantity(remaining)
+    }
+  }, [remaining, moq, quantity])
 
   useEffect(() => {
     const onKey = (e) => {
@@ -54,10 +80,38 @@ export default function AddToCartDialog({ product, onClose, onAdd }) {
   const unit = useMemo(() => unitPrice(product, quantity), [product, quantity])
   const symbol = currencySymbol(product.currency)
 
+  // "How many more can be added" for a variant = stock − already in cart (null = untracked).
+  const remainingFor = (ci, s) => {
+    const a = variantStock(product, ci, s)
+    if (a === null) return null
+    const already = cartQtyFor ? cartQtyFor(product.id, ci, s) : 0
+    return Math.max(0, a - already)
+  }
+
+  // Quantity stays at or above the MOQ; for a tracked variant it is also capped at what
+  // can still be added (only when remaining >= MOQ — otherwise Add is disabled with a reason).
+  const clampQty = (n, r) => (r !== null && r >= moq ? Math.min(n, r) : n)
   const setQty = (v) => {
     const n = Math.max(moq, Math.floor(Number(v) || moq))
-    setQuantity(n)
+    setQuantity(clampQty(n, remaining))
   }
+  const chooseColour = (i) => {
+    setColorIndex(i)
+    setQuantity((q) => clampQty(q, remainingFor(i, size)))
+  }
+  const chooseSize = (s) => {
+    setSize(s)
+    setQuantity((q) => clampQty(q, remainingFor(colorIndex, s)))
+  }
+
+  let blockedReason = null
+  if (tracked && colors.length && colorIndex == null) blockedReason = 'Choose a colour'
+  else if (tracked && sizes.length && size == null) blockedReason = 'Choose a size'
+  else if (avail === 0) blockedReason = 'Out of stock'
+  else if (remaining !== null && remaining <= 0) blockedReason = `All ${avail} in stock are already in your cart`
+  else if (remaining !== null && remaining < moq) blockedReason = inCart > 0
+    ? `Only ${remaining} more can be added (${inCart} already in your cart, ${avail} in stock) — below the minimum order of ${moq}`
+    : `Only ${avail} in stock — below the minimum order of ${moq}`
 
   const submit = () => {
     const color = colorIndex != null ? colors[colorIndex] : null
@@ -78,7 +132,7 @@ export default function AddToCartDialog({ product, onClose, onAdd }) {
       spec: product.spec || '',
       materials: product.materials || '',
       priceIncludes: product.priceIncludes || '',
-    })
+    }, avail) // stock cap for merging into an existing cart line (null = untracked)
   }
 
   return (
@@ -123,22 +177,26 @@ export default function AddToCartDialog({ product, onClose, onAdd }) {
               </span>
             </p>
             <div className="mt-2 flex flex-wrap gap-2">
-              {colors.map((c, i) => (
-                <button
-                  key={`${c.name || c.hex}-${i}`}
-                  type="button"
-                  onClick={() => setColorIndex(i)}
-                  aria-label={c.name || 'Unnamed'}
-                  aria-pressed={colorIndex === i}
-                  title={c.name || 'Unnamed'}
-                  className={`block h-7 w-7 rounded-full transition ${
-                    colorIndex === i
-                      ? 'ring-2 ring-stone-900 ring-offset-2 ring-offset-white'
-                      : 'ring-1 ring-black/15 hover:ring-2 hover:ring-stone-500'
-                  }`}
-                  style={{ backgroundColor: c.hex || '#d6d3d1' }}
-                />
-              ))}
+              {colors.map((c, i) => {
+                const out = colourOutOfStock(product, i)
+                const label = `${c.name || 'Unnamed'}${out ? ' (out of stock)' : ''}`
+                return (
+                  <button
+                    key={`${c.name || c.hex}-${i}`}
+                    type="button"
+                    onClick={() => chooseColour(i)}
+                    aria-label={label}
+                    aria-pressed={colorIndex === i}
+                    title={label}
+                    className={`block h-7 w-7 rounded-full transition ${out ? 'opacity-35' : ''} ${
+                      colorIndex === i
+                        ? 'ring-2 ring-stone-900 ring-offset-2 ring-offset-white'
+                        : 'ring-1 ring-black/15 hover:ring-2 hover:ring-stone-500'
+                    }`}
+                    style={{ backgroundColor: c.hex || '#d6d3d1' }}
+                  />
+                )
+              })}
             </div>
           </div>
         )}
@@ -147,21 +205,27 @@ export default function AddToCartDialog({ product, onClose, onAdd }) {
           <div className="mt-4">
             <p className="text-[12px] font-semibold text-stone-700">Size</p>
             <div className="mt-2 flex flex-wrap gap-1.5">
-              {sizes.map((s) => (
-                <button
-                  key={s}
-                  type="button"
-                  onClick={() => setSize(s)}
-                  aria-pressed={size === s}
-                  className={`rounded-full border px-3 py-1 text-[12px] transition ${
-                    size === s
-                      ? 'border-stone-900 bg-stone-900 text-white'
-                      : 'border-stone-300 text-stone-600 hover:border-stone-500'
-                  }`}
-                >
-                  {s}
-                </button>
-              ))}
+              {sizes.map((s) => {
+                const sizeAvail = variantStock(product, colorIndex, s)
+                const out = sizeAvail !== null && sizeAvail <= 0
+                return (
+                  <button
+                    key={s}
+                    type="button"
+                    onClick={() => chooseSize(s)}
+                    disabled={out}
+                    aria-pressed={size === s}
+                    aria-label={out ? `${s} (out of stock)` : undefined}
+                    className={`rounded-full border px-3 py-1 text-[12px] transition disabled:cursor-not-allowed disabled:line-through disabled:opacity-40 ${
+                      size === s
+                        ? 'border-stone-900 bg-stone-900 text-white'
+                        : 'border-stone-300 text-stone-600 hover:border-stone-500'
+                    }`}
+                  >
+                    {s}
+                  </button>
+                )
+              })}
             </div>
           </div>
         )}
@@ -175,7 +239,7 @@ export default function AddToCartDialog({ product, onClose, onAdd }) {
             <div className="flex items-center rounded-full border border-stone-300">
               <button
                 type="button"
-                onClick={() => setQty(quantity - (moq > 1 ? moq : 1))}
+                onClick={() => setQty(quantity - step)}
                 disabled={quantity <= moq}
                 className="flex h-9 w-9 items-center justify-center rounded-l-full text-stone-700 transition hover:bg-stone-100 disabled:opacity-30"
                 aria-label="Decrease quantity"
@@ -188,15 +252,17 @@ export default function AddToCartDialog({ product, onClose, onAdd }) {
                 type="number"
                 value={quantity}
                 min={moq}
-                step={moq > 1 ? moq : 1}
+                max={remaining !== null && remaining >= moq ? remaining : undefined}
+                step={step}
                 onChange={(e) => setQty(e.target.value)}
                 className="w-16 border-0 bg-transparent text-center text-[13px] font-medium tabular-nums text-stone-900 outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                 aria-label="Quantity"
               />
               <button
                 type="button"
-                onClick={() => setQty(quantity + (moq > 1 ? moq : 1))}
-                className="flex h-9 w-9 items-center justify-center rounded-r-full text-stone-700 transition hover:bg-stone-100"
+                onClick={() => setQty(quantity + step)}
+                disabled={remaining !== null && quantity + step > remaining}
+                className="flex h-9 w-9 items-center justify-center rounded-r-full text-stone-700 transition hover:bg-stone-100 disabled:opacity-30"
                 aria-label="Increase quantity"
               >
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -213,6 +279,19 @@ export default function AddToCartDialog({ product, onClose, onAdd }) {
               </span>
             </span>
           </div>
+          <p className="mt-2 min-h-[1em] text-[12px]" aria-live="polite">
+            {avail === null ? null : avail <= 0 ? (
+              <span className="text-[#b7410e]">Out of stock</span>
+            ) : remaining <= 0 ? (
+              <span className="text-[#b7410e]">All {avail} in stock are already in your cart</span>
+            ) : inCart > 0 ? (
+              <span className="text-emerald-700">
+                {avail} in stock · {inCart} in your cart · {remaining} more can be added
+              </span>
+            ) : (
+              <span className="text-emerald-700">{avail} in stock</span>
+            )}
+          </p>
         </div>
 
         {product.leadTime ? (
@@ -233,11 +312,18 @@ export default function AddToCartDialog({ product, onClose, onAdd }) {
           <button
             type="button"
             onClick={submit}
-            className="flex-1 rounded-full bg-[#e07a3a] px-4 py-2.5 text-[13px] font-medium text-white transition hover:bg-[#b7410e]"
+            disabled={!!blockedReason}
+            aria-describedby={blockedReason ? 'add-to-cart-blocked' : undefined}
+            className="flex-1 rounded-full bg-[#e07a3a] px-4 py-2.5 text-[13px] font-medium text-white transition hover:bg-[#b7410e] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-[#e07a3a]"
           >
             Add to cart
           </button>
         </div>
+        {blockedReason && (
+          <p id="add-to-cart-blocked" className="mt-2 text-right text-[12px] text-stone-600">
+            {blockedReason}
+          </p>
+        )}
       </div>
     </div>
   )
