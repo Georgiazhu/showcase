@@ -67,7 +67,12 @@ export default function ShowcaseNav({
         }`}
       >
         <nav className="mx-auto flex h-16 max-w-[1400px] items-center justify-between gap-3 px-5 sm:gap-6 lg:px-10">
-          <a href="/showcase/" className="flex shrink-0 items-center gap-3" aria-label="Cyndi showcase home">
+          <a
+            href="/"
+            className="flex shrink-0 items-center gap-3"
+            aria-label="Back to Cyndi Global home"
+            title="Back to Cyndi Global home"
+          >
             <span className="flex h-9 w-9 items-center justify-center rounded-full bg-stone-900 text-sm font-bold text-white">
               C
             </span>

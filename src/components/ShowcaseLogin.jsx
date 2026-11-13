@@ -42,9 +42,15 @@ export default function ShowcaseLogin({ onSuccess, onError, notice = '' }) {
       <div className="w-full max-w-[420px]">
         {/* Brand mark */}
         <div className="mb-8 flex flex-col items-center text-center">
-          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-stone-900 text-lg font-bold text-white">
+          {/* Brand mark doubles as a link back to the main site. */}
+          <a
+            href="/"
+            aria-label="Back to Cyndi Global home"
+            title="Back to Cyndi Global home"
+            className="flex h-12 w-12 items-center justify-center rounded-full bg-stone-900 text-lg font-bold text-white transition hover:bg-[#b7410e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e07a3a] focus-visible:ring-offset-2"
+          >
             C
-          </span>
+          </a>
           <p className="mt-4 text-sm uppercase tracking-[0.24em] text-stone-400">Showcase</p>
           <h1 className="mt-2 text-[26px] font-bold tracking-tight text-stone-900">Cyndi Global</h1>
           <p className="mt-1 text-[13px] text-stone-500">Sign in to view the product showcase</p>
