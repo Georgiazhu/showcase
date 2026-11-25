@@ -5,10 +5,11 @@ The **product proposal showcase** for Cyndi Global, built on the Kotis Design sh
 
 Live URL: <https://www.cyndiglobal.com/showcase/>
 
-> **Sign-in required.** The showcase is gated — visitors must sign in before any product content loads.
-> It uses the main site's customer accounts (email or username + password); an account needs
-> "Showcase access", which admins grant in `/admin/customers.html` on the main site. The server
-> validates the session too, so the data cannot be fetched by hitting the API directly.
+> **One Portal sign-in only.** The showcase is gated, but it uses exactly the same
+> `customer_session` as the Portal dashboard. Visitors without a session are sent to
+> `/portal/login/?next=/showcase/`; after signing in they return here automatically. There is no
+> separate Showcase registration or second login form. Any valid Portal session can view the
+> showcase, and the server validates the session on every API request.
 
 **Ordering.** The cart lives in `localStorage` until the buyer confirms. "Confirm order" asks for
 contact details (name and email required) and posts only product / colour / size / quantity to
@@ -47,17 +48,16 @@ showcase/
 │       └── drinkware/
 └── src/
     ├── main.jsx
-    ├── App.jsx                page assembly + sign-in gate
+    ├── App.jsx                page assembly + Portal session gate
     ├── index.css              brand tokens + Kotis-flavoured component styles
     ├── data/
     │   ├── showcase.json       ← content source (seed data)
     │   ├── schema.json        field reference
     │   ├── loadShowcase.js    API loader (falls back to the local JSON)
-    │   └── session.js         sign-in / sign-out / session check
+    │   └── session.js         Portal redirect / sign-out / session check
     └── components/
         ├── ShowcaseNav.jsx     top navigation + category anchors
         ├── ShowcaseHeader.jsx  SHOWCASE header + project intro
-        ├── ShowcaseLogin.jsx   sign-in page
         ├── ProductCard.jsx     product card (Kotis quote-detail-wrapper)
         ├── ProductImage.jsx    image with placeholder fallback
         ├── ColorSwatches.jsx   colour swatches + "show more"

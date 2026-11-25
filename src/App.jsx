@@ -1,14 +1,13 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import ShowcaseNav from './components/ShowcaseNav.jsx'
 import ShowcaseHeader from './components/ShowcaseHeader.jsx'
-import ShowcaseLogin from './components/ShowcaseLogin.jsx'
 import ProductCard from './components/ProductCard.jsx'
 import GalleryModal from './components/GalleryModal.jsx'
 import CartView from './components/CartView.jsx'
 import OrderView from './components/OrderView.jsx'
 import OrdersView from './components/OrdersView.jsx'
 import { fetchShowcase } from './data/loadShowcase.js'
-import { checkSession, logout } from './data/session.js'
+import { checkSession, logout, portalLoginUrl, redirectToPortalLogin } from './data/session.js'
 import { addItem, lineKey, loadCart, removeItem, saveCart, updateQuantity } from './data/cart.js'
 import { cancelOrder, fetchOrder, listOrders, placeOrder } from './data/orders.js'
 import {
@@ -19,11 +18,11 @@ export default function App() {
   const [gallery, setGallery] = useState({ images: [], index: null, title: '' })
   const [data, setData] = useState(null)
   const [loadError, setLoadError] = useState(null)
-  // 'checking' | 'anon' | 'authed'
+  // 'checking' | 'error' | 'anon' | 'authed'
   const [authState, setAuthState] = useState('checking')
   const [user, setUser] = useState(null)
-  // Message shown on the sign-in page (e.g. signed in to the shop without Showcase access)
-  const [loginNotice, setLoginNotice] = useState('')
+  // Server-side session configuration problem (fail closed; do not redirect in a loop).
+  const [serviceError, setServiceError] = useState('')
 
   const [cart, setCart] = useState([])
   // 'catalogue' | 'cart' | 'order' | 'orders'
@@ -43,16 +42,10 @@ export default function App() {
   const [newProjectBrief, setNewProjectBrief] = useState('')
   const [creatingProject, setCreatingProject] = useState(false)
 
-  // Session expired mid-flow: drop back to the sign-in form (the cart stays in localStorage).
-  const handleAuthLost = useCallback((e) => {
-    setLoginNotice(e?.noAccess ? e.message : '')
-    setData(null)
-    setUser(null)
-    setAuthState('anon')
-    setView('catalogue')
-    setOrder(null)
-    setHistory([])
-    setProjects([])
+  // Session expired mid-flow: use the same Portal login page as a fresh visit.
+  // The cart stays in localStorage, so returning after signing in keeps it.
+  const handleAuthLost = useCallback(() => {
+    redirectToPortalLogin()
   }, [])
 
   const loadProjects = useCallback(async () => {
@@ -86,64 +79,43 @@ export default function App() {
       setLoadError(null)
     } catch (e) {
       if (e?.authRequired) {
-        if (e.noAccess) setLoginNotice(e.message)
-        setAuthState('anon')
-        setData(null)
+        handleAuthLost()
         return
       }
       setLoadError(e?.message || 'Failed to load content')
     }
-  }, [])
+  }, [handleAuthLost])
 
-  // Check session on startup
+  // Any valid Portal session is enough. No second Showcase sign-in and no
+  // showcase_access flag are checked here.
   useEffect(() => {
     let alive = true
     checkSession().then(async (s) => {
       if (!alive) return
-      if (s.authenticated && s.showcaseAccess) {
-        setUser(s.user)
-        setAuthState('authed')
-        setCart(loadCart())
-        await loadContent()
-        await loadProjects()
-      } else {
-        if (s.authenticated) {
-          // Signed in to the shop with an account that has no Showcase access
-          setLoginNotice(
-            'You are signed in with an account that does not have Showcase access. Sign in with a Showcase account.',
-          )
-        }
-        setAuthState('anon')
+      if (s.configured === false) {
+        setServiceError(s.error || 'Customer sessions are not configured')
+        setAuthState('error')
+        return
       }
+      if (!s.authenticated) {
+        setAuthState('anon')
+        redirectToPortalLogin()
+        return
+      }
+      setUser(s.user)
+      setAuthState('authed')
+      setCart(loadCart())
+      await loadContent()
+      await loadProjects()
     })
     return () => {
       alive = false
     }
   }, [loadContent, loadProjects])
 
-  const handleLogin = useCallback(
-    async (user) => {
-      setLoginNotice('')
-      setUser(user || null)
-      setAuthState('authed')
-      setCart(loadCart())
-      await loadContent()
-      await loadProjects()
-    },
-    [loadContent, loadProjects],
-  )
-
   const handleLogout = useCallback(async () => {
     await logout()
-    setData(null)
-    setUser(null)
-    setAuthState('anon')
-    setCart([])
-    setView('catalogue')
-    setOrder(null)
-    setHistory([])
-    setProjects([])
-    setSelectedProject('')
+    redirectToPortalLogin()
   }, [])
 
   const refreshHistory = useCallback(() => {
@@ -383,9 +355,41 @@ export default function App() {
     )
   }
 
-  // Not signed in — show only the login form, no showcase content
+  if (authState === 'error') {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-[#faf9f6] px-6 text-center">
+        <div>
+          <p className="text-sm uppercase tracking-[0.2em] text-stone-400">Showcase</p>
+          <h1 className="mt-3 text-2xl font-semibold text-stone-900">Sign-in service unavailable</h1>
+          <p className="mt-2 text-sm text-stone-500">{serviceError}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="mt-5 rounded-full bg-stone-900 px-5 py-2 text-[13px] font-medium text-white transition hover:bg-stone-700"
+          >
+            Retry
+          </button>
+        </div>
+      </div>
+    )
+  }
+
+  // No Portal session — use the Portal login page, never a second sign-in form.
   if (authState === 'anon') {
-    return <ShowcaseLogin onSuccess={handleLogin} notice={loginNotice} />
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-[#faf9f6] px-6 text-center">
+        <div>
+          <p className="text-sm uppercase tracking-[0.2em] text-stone-400">Showcase</p>
+          <h1 className="mt-3 text-2xl font-semibold text-stone-900">Portal sign-in required</h1>
+          <p className="mt-2 text-sm text-stone-500">Redirecting to Portal sign-in…</p>
+          <a
+            href={portalLoginUrl()}
+            className="mt-5 inline-block rounded-full bg-[#e07a3a] px-5 py-2 text-[13px] font-medium text-white transition hover:bg-[#b7410e]"
+          >
+            Go to Portal sign-in
+          </a>
+        </div>
+      </div>
+    )
   }
 
   if (loadError) {

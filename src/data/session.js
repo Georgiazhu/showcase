@@ -1,37 +1,60 @@
 /**
  * Showcase session management.
  *
- * The Showcase uses the shop's customer accounts: the session is the shop's HttpOnly
- * customer_session cookie (set by /api/showcase/auth or /api/login). The client only:
- *  1. asks once on startup whether it is signed in (GET /api/showcase/auth)
- *  2. signs in (POST /api/showcase/auth)
- *  3. signs out (DELETE /api/showcase/auth — clears the customer cookie, i.e. also signs out of the shop)
- *
- * A customer can be signed in without Showcase access (e.g. a shop-only account):
- * checkSession then reports authenticated: true, showcaseAccess: false.
- *
- * The cookie is HttpOnly, so JS cannot read or alter it — only these endpoints can.
+ * The Showcase shares the Portal's customer_session cookie. There is no
+ * Showcase-only sign-in form: when there is no valid Portal session the page
+ * sends the visitor to /portal/login/ with `next` set back to the current
+ * Showcase URL. The server still validates every API request.
  */
 
+const PORTAL_LOGIN = '/portal/login/';
+
+/** Portal sign-in URL that returns to the current Showcase page. */
+export function portalLoginUrl() {
+  const current = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+  const next = current && current !== '/' ? current : '/showcase/';
+  return `${PORTAL_LOGIN}?next=${encodeURIComponent(next)}`;
+}
+
+export function redirectToPortalLogin() {
+  window.location.replace(portalLoginUrl());
+}
+
+/**
+ * Asks the server whether the shared Portal session is valid.
+ * `configured: false` means customer sessions are not configured on the server
+ * (503); the caller must show a real error instead of bouncing to login in a
+ * loop.
+ */
 export async function checkSession() {
   try {
     const res = await fetch('/api/showcase/auth', {
       headers: { Accept: 'application/json' },
       credentials: 'same-origin',
     })
-    if (!res.ok) return { authenticated: false }
     const data = await res.json().catch(() => ({}))
+    if (res.status === 503) {
+      return {
+        authenticated: false,
+        configured: false,
+        error: data.error || 'Customer sessions are not configured',
+      }
+    }
+    if (!res.ok) return { authenticated: false, configured: true }
     return {
       authenticated: !!data.authenticated,
-      showcaseAccess: !!data.showcaseAccess,
+      configured: true,
       user: data.user || null,
     }
   } catch {
-    return { authenticated: false }
+    return { authenticated: false, configured: true, error: 'Network error' }
   }
 }
 
-/** `identifier` is an email address or a username. */
+/**
+ * Legacy helper kept for callers that still sign in from an API client.
+ * The Showcase UI itself always uses the Portal login page.
+ */
 export async function login(identifier, password) {
   const res = await fetch('/api/showcase/auth', {
     method: 'POST',

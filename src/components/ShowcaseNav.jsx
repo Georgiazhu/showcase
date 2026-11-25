@@ -75,7 +75,7 @@ export default function ShowcaseNav({
             <span className="text-[10px] leading-[1.25] text-[#4A443E]">
               {user?.displayName || user?.username || 'Client'}
               <small className="block text-[9px] text-[#8C7B66]">{user?.email || ''}</small>
-              <button type="button" onClick={async () => { await onLogout?.(); window.location.href = '/portal/login/'; }}
+              <button type="button" onClick={() => onLogout?.()}
                 className="text-[9px] text-[#0f1f3a] underline underline-offset-2">
                 Logout
               </button>
