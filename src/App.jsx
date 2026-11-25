@@ -11,6 +11,9 @@ import { fetchShowcase } from './data/loadShowcase.js'
 import { checkSession, logout } from './data/session.js'
 import { addItem, lineKey, loadCart, removeItem, saveCart, updateQuantity } from './data/cart.js'
 import { cancelOrder, fetchOrder, listOrders, placeOrder } from './data/orders.js'
+import {
+  addToShortlist, createProject, fetchProjects, loadSelectedProject, saveSelectedProject,
+} from './data/projects.js'
 
 export default function App() {
   const [gallery, setGallery] = useState({ images: [], index: null, title: '' })
@@ -31,6 +34,36 @@ export default function App() {
   const [refreshError, setRefreshError] = useState('')
   const [history, setHistory] = useState([])
   const [toast, setToast] = useState('')
+
+  // A Showcase selection must belong to a project — these are the client's
+  // active projects, and the one currently being selected into.
+  const [projects, setProjects] = useState([])
+  const [selectedProject, setSelectedProject] = useState(() => loadSelectedProject())
+  const [newProjectTitle, setNewProjectTitle] = useState('')
+  const [creatingProject, setCreatingProject] = useState(false)
+
+  // Session expired mid-flow: drop back to the sign-in form (the cart stays in localStorage).
+  const handleAuthLost = useCallback((e) => {
+    setLoginNotice(e?.noAccess ? e.message : '')
+    setData(null)
+    setUser(null)
+    setAuthState('anon')
+    setView('catalogue')
+    setOrder(null)
+    setHistory([])
+    setProjects([])
+  }, [])
+
+  const loadProjects = useCallback(async () => {
+    try {
+      const list = await fetchProjects()
+      setProjects(list)
+      setSelectedProject((cur) => (cur && list.some((p) => p.id === cur) ? cur : list[0]?.id || ''))
+    } catch (e) {
+      if (e?.authRequired) handleAuthLost()
+      else setProjects([])
+    }
+  }, [handleAuthLost])
 
   const loadContent = useCallback(async () => {
     try {
@@ -58,6 +91,7 @@ export default function App() {
         setAuthState('authed')
         setCart(loadCart())
         await loadContent()
+        await loadProjects()
       } else {
         if (s.authenticated) {
           // Signed in to the shop with an account that has no Showcase access
@@ -71,7 +105,7 @@ export default function App() {
     return () => {
       alive = false
     }
-  }, [loadContent])
+  }, [loadContent, loadProjects])
 
   const handleLogin = useCallback(
     async (user) => {
@@ -80,8 +114,9 @@ export default function App() {
       setAuthState('authed')
       setCart(loadCart())
       await loadContent()
+      await loadProjects()
     },
-    [loadContent],
+    [loadContent, loadProjects],
   )
 
   const handleLogout = useCallback(async () => {
@@ -93,17 +128,8 @@ export default function App() {
     setView('catalogue')
     setOrder(null)
     setHistory([])
-  }, [])
-
-  // Session expired mid-flow: drop back to the sign-in form (the cart stays in localStorage).
-  const handleAuthLost = useCallback((e) => {
-    setLoginNotice(e?.noAccess ? e.message : '')
-    setData(null)
-    setUser(null)
-    setAuthState('anon')
-    setView('catalogue')
-    setOrder(null)
-    setHistory([])
+    setProjects([])
+    setSelectedProject('')
   }, [])
 
   const refreshHistory = useCallback(() => {
@@ -150,6 +176,55 @@ export default function App() {
       setToast({ type: 'success', text: `${item.name} added to cart` })
     },
     [cart, persist],
+  )
+
+  // ---- Project-linked selections ---------------------------------------
+  const handleSelectProject = useCallback((no) => {
+    setSelectedProject(no)
+    saveSelectedProject(no)
+  }, [])
+
+  const handleCreateProject = useCallback(async () => {
+    const title = newProjectTitle.trim()
+    if (!title) {
+      setToast({ type: 'error', text: 'Enter a project name first' })
+      return
+    }
+    setCreatingProject(true)
+    try {
+      const no = await createProject(title)
+      setNewProjectTitle('')
+      await loadProjects()
+      handleSelectProject(no)
+      setToast({ type: 'success', text: `${no} created — now pick products for it` })
+    } catch (e) {
+      if (e?.authRequired) handleAuthLost(e)
+      else setToast({ type: 'error', text: e?.message || 'Could not create project' })
+    } finally {
+      setCreatingProject(false)
+    }
+  }, [newProjectTitle, loadProjects, handleSelectProject, handleAuthLost])
+
+  const handleAddToProject = useCallback(
+    async (product) => {
+      if (!selectedProject) {
+        setToast({ type: 'error', text: 'Choose a project above first' })
+        return
+      }
+      try {
+        const r = await addToShortlist(selectedProject, product.id)
+        setToast({
+          type: 'success',
+          text: r.added
+            ? `${product.name} added to ${selectedProject} Shortlist`
+            : `${product.name} is already in this project's Shortlist`,
+        })
+      } catch (e) {
+        if (e?.authRequired) handleAuthLost(e)
+        else setToast({ type: 'error', text: e?.message || 'Could not add to project' })
+      }
+    },
+    [selectedProject, handleAuthLost],
   )
 
   const handleQuantity = useCallback(
@@ -361,6 +436,59 @@ export default function App() {
         currentView={view}
       />
 
+      {/* Every pick from this page is linked to a project's Shortlist. */}
+      <div className="border-b border-stone-200 bg-white">
+        <div className="mx-auto flex max-w-[1400px] flex-wrap items-center gap-x-3 gap-y-2 px-5 py-3 lg:px-10">
+          <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-stone-500">
+            Selecting for project
+          </span>
+          {projects.length ? (
+            <select
+              value={selectedProject}
+              onChange={(e) => handleSelectProject(e.target.value)}
+              aria-label="Project for showcase selections"
+              className="rounded-full border border-stone-300 bg-white px-3 py-1.5 text-[12px] font-medium text-stone-900 outline-none transition focus:border-[#e07a3a]"
+            >
+              {projects.map((p) => (
+                <option key={p.id} value={p.id}>
+                  {p.name} · {p.id}
+                </option>
+              ))}
+            </select>
+          ) : (
+            <span className="text-[12px] font-medium text-[#b7410e]">
+              No active project — create one to link your picks.
+            </span>
+          )}
+          <a
+            href="/portal/dashboard/"
+            target="_blank"
+            rel="noreferrer"
+            className="text-[12px] font-medium text-stone-500 underline underline-offset-4 transition hover:text-stone-900"
+          >
+            My projects ↗
+          </a>
+          <div className="ml-auto flex items-center gap-2">
+            <input
+              value={newProjectTitle}
+              onChange={(e) => setNewProjectTitle(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && handleCreateProject()}
+              placeholder="New project name"
+              aria-label="New project name"
+              className="w-44 rounded-full border border-stone-300 px-3 py-1.5 text-[12px] text-stone-900 outline-none transition focus:border-[#e07a3a]"
+            />
+            <button
+              type="button"
+              onClick={handleCreateProject}
+              disabled={creatingProject}
+              className="rounded-full border border-[#e07a3a] px-3 py-1.5 text-[12px] font-medium text-[#b7410e] transition hover:bg-[#e07a3a] hover:text-white disabled:opacity-50"
+            >
+              {creatingProject ? 'Creating…' : 'Create'}
+            </button>
+          </div>
+        </div>
+      </div>
+
       {onOrders ? (
         <OrdersView
           onShowOrder={handleShowOrder}
@@ -447,6 +575,8 @@ export default function App() {
                       product={{ ...product, categoryName: category.name }}
                       onOpenGallery={openGallery}
                       onAddToCart={handleAddToCart}
+                      onAddToProject={handleAddToProject}
+                      selectedProject={projects.find((p) => p.id === selectedProject)}
                       cartQtyFor={cartQtyFor}
                     />
                   ))}
@@ -508,19 +638,26 @@ export default function App() {
       {/* Added-to-cart toast (success only; stock limits are shown inside the add dialog) */}
       {toast && (
         <div className="pointer-events-none fixed bottom-6 left-1/2 z-[120] -translate-x-1/2">
-          <div role="status" className="flex items-center gap-3 rounded-full bg-stone-900 px-5 py-2.5 text-[13px] font-medium text-white shadow-xl">
+          <div
+            role="status"
+            className={`flex items-center gap-3 rounded-full px-5 py-2.5 text-[13px] font-medium text-white shadow-xl ${
+              toast.type === 'error' ? 'bg-[#b7410e]' : 'bg-stone-900'
+            }`}
+          >
             <span>{toast.text}</span>
-            <button
-              type="button"
-              onClick={() => {
-                setView('cart')
-                setToast('')
-                window.scrollTo({ top: 0, behavior: 'instant' })
-              }}
-              className="pointer-events-auto shrink-0 text-[#f0b48a] underline underline-offset-2"
-            >
-              View cart
-            </button>
+            {toast.type === 'error' ? null : (
+              <button
+                type="button"
+                onClick={() => {
+                  setView('cart')
+                  setToast('')
+                  window.scrollTo({ top: 0, behavior: 'instant' })
+                }}
+                className="pointer-events-auto shrink-0 text-[#f0b48a] underline underline-offset-2"
+              >
+                View cart
+              </button>
+            )}
           </div>
         </div>
       )}

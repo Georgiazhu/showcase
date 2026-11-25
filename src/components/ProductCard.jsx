@@ -10,7 +10,7 @@ import { productOutOfStock } from '../data/stock.js'
  * Thumbnail (Add to cart always visible) + name + sku + description + features
  * + Colors + Sizes + tiered pricing table + Price Includes
  */
-export default function ProductCard({ product, onOpenGallery, onAddToCart, cartQtyFor }) {
+export default function ProductCard({ product, onOpenGallery, onAddToCart, onAddToProject, selectedProject, cartQtyFor }) {
   // Identify the selected swatch by index: names may be blank, and two
   // swatches can share a name.
   const [activeIndex, setActiveIndex] = useState(null)
@@ -55,7 +55,7 @@ export default function ProductCard({ product, onOpenGallery, onAddToCart, cartQ
           </div>
 
           <div className="cart-action pt-2.5">
-            <div className="flex justify-center">
+            <div className="flex flex-col items-center gap-1.5">
               <button
                 type="button"
                 onClick={() => setAdding(true)}
@@ -68,6 +68,20 @@ export default function ProductCard({ product, onOpenGallery, onAddToCart, cartQ
                 </svg>
                 Add to cart
               </button>
+              <button
+                type="button"
+                onClick={() => onAddToProject?.(product)}
+                title={selectedProject ? `Add to ${selectedProject.name} Shortlist` : 'Choose a project above first'}
+                className="inline-flex items-center gap-1 rounded-full border border-[#e07a3a] px-3 py-1 text-[10.5px] font-medium text-[#b7410e] transition hover:bg-[#e07a3a] hover:text-white"
+              >
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 5v14M5 12h14" />
+                </svg>
+                Add to Shortlist
+              </button>
+              <span className="max-w-full truncate text-[10px] text-stone-500" title={selectedProject?.name || ''}>
+                {selectedProject ? `for ${selectedProject.name}` : 'Select a project above'}
+              </span>
             </div>
           </div>
         </div>
