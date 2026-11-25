@@ -40,6 +40,7 @@ export default function App() {
   const [selectedProject, setSelectedProject] = useState(() => loadSelectedProject())
   const [newProjectTitle, setNewProjectTitle] = useState('')
   const [newProjectBrief, setNewProjectBrief] = useState('')
+  const [newProjectCity, setNewProjectCity] = useState('')
   const [creatingProject, setCreatingProject] = useState(false)
 
   // Session expired mid-flow: use the same Portal login page as a fresh visit.
@@ -178,9 +179,10 @@ export default function App() {
     }
     setCreatingProject(true)
     try {
-      const no = await createProject(title, newProjectBrief.trim())
+      const no = await createProject(title, newProjectBrief.trim(), newProjectCity.trim())
       setNewProjectTitle('')
       setNewProjectBrief('')
+      setNewProjectCity('')
       await loadProjects()
       handleSelectProject(no)
       setToast({ type: 'success', text: `${no} created — now pick products for it` })
@@ -190,7 +192,7 @@ export default function App() {
     } finally {
       setCreatingProject(false)
     }
-  }, [newProjectTitle, newProjectBrief, loadProjects, handleSelectProject, handleAuthLost])
+  }, [newProjectTitle, newProjectBrief, newProjectCity, loadProjects, handleSelectProject, handleAuthLost])
 
   const handleAddToProject = useCallback(
     async (product) => {
@@ -502,6 +504,14 @@ export default function App() {
               placeholder="Brief (optional)"
               aria-label="Project brief"
               className="w-52 rounded-full border border-stone-300 px-3 py-1.5 text-[12px] text-stone-900 outline-none transition focus:border-[#e07a3a]"
+            />
+            <input
+              value={newProjectCity}
+              onChange={(e) => setNewProjectCity(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && handleCreateProject()}
+              placeholder="Delivery City"
+              aria-label="Delivery City"
+              className="w-36 rounded-full border border-stone-300 px-3 py-1.5 text-[12px] text-stone-900 outline-none transition focus:border-[#e07a3a]"
             />
             <button
               type="button"

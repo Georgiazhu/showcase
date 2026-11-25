@@ -39,11 +39,11 @@ export async function fetchProjects() {
 }
 
 /** Start a new project from the Showcase page. */
-export async function createProject(title, brief = '') {
+export async function createProject(title, brief = '', deliveryCity = '') {
   const data = await request({
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ action: 'createProject', title, brief }),
+    body: JSON.stringify({ action: 'createProject', title, brief, deliveryCity }),
   })
   return data.projectNo
 }
