@@ -40,6 +40,7 @@ export default function App() {
   const [projects, setProjects] = useState([])
   const [selectedProject, setSelectedProject] = useState(() => loadSelectedProject())
   const [newProjectTitle, setNewProjectTitle] = useState('')
+  const [newProjectBrief, setNewProjectBrief] = useState('')
   const [creatingProject, setCreatingProject] = useState(false)
 
   // Session expired mid-flow: drop back to the sign-in form (the cart stays in localStorage).
@@ -64,6 +65,19 @@ export default function App() {
       else setProjects([])
     }
   }, [handleAuthLost])
+
+  // A push made in the admin console should show up when the client returns to
+  // this tab. Refresh on tab focus and at a low-frequency interval.
+  useEffect(() => {
+    if (authState !== 'authed') return undefined
+    const refresh = () => { if (!document.hidden) loadProjects() }
+    document.addEventListener('visibilitychange', refresh)
+    const timer = window.setInterval(refresh, 30000)
+    return () => {
+      document.removeEventListener('visibilitychange', refresh)
+      window.clearInterval(timer)
+    }
+  }, [authState, loadProjects])
 
   const loadContent = useCallback(async () => {
     try {
@@ -192,8 +206,9 @@ export default function App() {
     }
     setCreatingProject(true)
     try {
-      const no = await createProject(title)
+      const no = await createProject(title, newProjectBrief.trim())
       setNewProjectTitle('')
+      setNewProjectBrief('')
       await loadProjects()
       handleSelectProject(no)
       setToast({ type: 'success', text: `${no} created — now pick products for it` })
@@ -203,7 +218,7 @@ export default function App() {
     } finally {
       setCreatingProject(false)
     }
-  }, [newProjectTitle, loadProjects, handleSelectProject, handleAuthLost])
+  }, [newProjectTitle, newProjectBrief, loadProjects, handleSelectProject, handleAuthLost])
 
   const handleAddToProject = useCallback(
     async (product) => {
@@ -472,10 +487,17 @@ export default function App() {
             <input
               value={newProjectTitle}
               onChange={(e) => setNewProjectTitle(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter' && handleCreateProject()}
               placeholder="New project name"
               aria-label="New project name"
-              className="w-44 rounded-full border border-stone-300 px-3 py-1.5 text-[12px] text-stone-900 outline-none transition focus:border-[#e07a3a]"
+              className="w-40 rounded-full border border-stone-300 px-3 py-1.5 text-[12px] text-stone-900 outline-none transition focus:border-[#e07a3a]"
+            />
+            <input
+              value={newProjectBrief}
+              onChange={(e) => setNewProjectBrief(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && handleCreateProject()}
+              placeholder="Brief (optional)"
+              aria-label="Project brief"
+              className="w-52 rounded-full border border-stone-300 px-3 py-1.5 text-[12px] text-stone-900 outline-none transition focus:border-[#e07a3a]"
             />
             <button
               type="button"

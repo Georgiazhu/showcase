@@ -71,8 +71,9 @@ export default function ProductCard({ product, onOpenGallery, onAddToCart, onAdd
               <button
                 type="button"
                 onClick={() => onAddToProject?.(product)}
+                disabled={!selectedProject}
                 title={selectedProject ? `Add to ${selectedProject.name} Shortlist` : 'Choose a project above first'}
-                className="inline-flex items-center gap-1 rounded-full border border-[#e07a3a] px-3 py-1 text-[10.5px] font-medium text-[#b7410e] transition hover:bg-[#e07a3a] hover:text-white"
+                className="inline-flex items-center gap-1 rounded-full border border-[#e07a3a] px-3 py-1 text-[10.5px] font-medium text-[#b7410e] transition hover:bg-[#e07a3a] hover:text-white disabled:cursor-not-allowed disabled:border-stone-300 disabled:text-stone-400 disabled:hover:bg-transparent"
               >
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 5v14M5 12h14" />
