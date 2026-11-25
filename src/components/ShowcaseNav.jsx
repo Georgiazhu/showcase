@@ -19,16 +19,9 @@ export default function ShowcaseNav({
   onOpenOrders,
   currentView = 'catalogue',
 }) {
-  const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const [activeId, setActiveId] = useState(categories[0]?.id ?? null)
   const railRef = useRef(null)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   // Highlight the category currently in view.
   useEffect(() => {
@@ -60,108 +53,35 @@ export default function ShowcaseNav({
 
   return (
     <header className="sticky top-0 z-50">
-      {/* Row 1 — brand + account controls */}
-      <div
-        className={`border-b transition-all duration-300 ${
-          scrolled ? 'border-stone-200/80 bg-white/85 backdrop-blur-md' : 'border-stone-200 bg-white'
-        }`}
-      >
-        <nav className="mx-auto flex h-16 max-w-[1400px] items-center justify-between gap-3 px-5 sm:gap-6 lg:px-10">
-          <a
-            href="/"
-            className="flex shrink-0 items-center gap-3"
-            aria-label="Back to Cyndi Global home"
-            title="Back to Cyndi Global home"
-          >
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-stone-900 text-sm font-bold text-white">
-              C
-            </span>
-            {/* Wordmark hidden on narrow phones so the account controls fit. */}
-            <span className="hidden text-lg font-bold tracking-tight text-stone-900 min-[420px]:inline">Cyndi</span>
+      {/* Row 1 — the same portal header used by the client dashboard. */}
+      <div className="border-b border-[#E7E3DC] bg-white">
+        <div className="mx-auto flex h-[60px] max-w-[1400px] items-center gap-10 px-8">
+          <a href="/portal/dashboard/" className="flex shrink-0 items-center gap-[7px]" aria-label="Cyndi Global portal">
+            <img src="/cyndi-logo-mark-v5.png" alt="Cyndi" className="block h-7 w-auto" />
+            <img src="/cyndi-logo-word-v5.png" alt="Cyndiglobal" className="block h-7 w-auto" />
           </a>
-
-          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
-            {user && (
-              <div className="flex items-center gap-2 sm:gap-2.5">
-                <span className="flex items-center gap-2 rounded-full border border-stone-300 py-1.5 pl-1.5 pr-1.5 text-[13px] sm:pr-3.5 font-medium text-stone-700">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-stone-900 text-[10px] font-bold text-white">
-                    {(user.displayName || user.username || '?').slice(0, 2).toUpperCase()}
-                  </span>
-                  <span className="hidden sm:inline">{user.displayName || user.username}</span>
-                </span>
-                <button
-                  type="button"
-                  onClick={onLogout}
-                  className="rounded-full border border-stone-300 px-3 py-2 text-sm font-medium text-stone-700 transition hover:border-stone-900 hover:text-stone-900 sm:px-4"
-                >
-                  Sign out
-                </button>
-              </div>
-            )}
-            <button
-              type="button"
-              onClick={onOpenOrders}
-              aria-label="Orders"
-              aria-current={currentView === 'orders' || currentView === 'order' ? 'page' : undefined}
-              className={`flex items-center gap-2 rounded-full border px-3 py-2 text-sm sm:px-4 font-medium transition ${
-                currentView === 'orders' || currentView === 'order'
-                  ? 'border-stone-900 bg-stone-900 text-white'
-                  : 'border-stone-300 text-stone-700 hover:border-stone-900 hover:text-stone-900'
-              }`}
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1z" />
-                <path d="M8 5H6a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-2" />
-                <path d="M9 11h6M9 15h4" />
-              </svg>
-              <span className="hidden sm:inline">Orders</span>
-            </button>
-            <button
-              type="button"
-              onClick={onOpenCart}
-              className={`relative flex items-center gap-2 rounded-full border px-3 py-2 sm:px-4 text-sm font-medium transition ${
-                currentView === 'cart'
-                  ? 'border-[#b7410e] bg-[#b7410e] text-white'
-                  : 'border-[#e07a3a] bg-[#e07a3a] text-white hover:bg-[#b7410e] hover:border-[#b7410e]'
-              }`}
-              aria-label={`Open cart, ${cartCount} line${cartCount === 1 ? '' : 's'}, ${cartUnits} unit${cartUnits === 1 ? '' : 's'}`}
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="9" cy="21" r="1" />
-                <circle cx="20" cy="21" r="1" />
-                <path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6" />
-              </svg>
-              <span className="hidden sm:inline">Cart</span>
-              {cartCount > 0 && (
-                <span
-                  className={`absolute -right-1.5 -top-1.5 flex h-5 min-w-[20px] items-center justify-center rounded-full border border-[#e07a3a] bg-white px-1 text-[10px] font-bold tabular-nums text-[#b7410e]`}
-                  title={`${cartUnits} unit${cartUnits === 1 ? '' : 's'}`}
-                >
-                  {cartCount}
-                </span>
-              )}
-            </button>
-            <a
-              href="/admin/showcase.html"
-              className="hidden rounded-full border border-stone-300 px-4 py-2 text-sm font-medium text-stone-700 transition hover:border-stone-900 hover:text-stone-900 sm:block"
-            >
-              Edit
-            </a>
-            {currentView === 'catalogue' && (
-            <button
-              type="button"
-              onClick={() => setOpen((v) => !v)}
-              className="flex h-9 w-9 items-center justify-center rounded-md text-stone-700 lg:hidden"
-              aria-label="Toggle menu"
-              aria-expanded={open}
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
-                {open ? <path d="M18 6 6 18M6 6l12 12" /> : <path d="M3 12h18M3 6h18M3 18h18" />}
-              </svg>
-            </button>
-            )}
+          <nav className="flex h-full items-center gap-[26px] overflow-x-auto whitespace-nowrap">
+            {[['Projects', '/portal/dashboard/'], ['Orders', '/portal/dashboard/?view=orders'], ['Showcase', '/showcase/'], ['Portals', '/portal/dashboard/?view=portals'], ['Inventory', '/portal/dashboard/?view=inventory']].map(([label, href]) => (
+              <a key={label} href={href}
+                className={`flex h-full items-center border-b-2 text-[13px] font-medium text-[#0f1f3a] transition-colors ${label === 'Showcase' ? 'border-[#C4763B]' : 'border-transparent hover:border-[#C4763B]'}`}>
+                {label}
+              </a>
+            ))}
+          </nav>
+          <div className="ml-auto flex shrink-0 items-center gap-2">
+            <span className="grid h-7 w-7 place-items-center rounded-full bg-[#8C7B66] text-[10px] font-bold text-white">
+              {((user?.displayName || user?.email || 'C').trim().split(/\s+/).slice(0, 2).map((w) => w.charAt(0).toUpperCase()).join('')) || 'C'}
+            </span>
+            <span className="text-[10px] leading-[1.25] text-[#4A443E]">
+              {user?.displayName || user?.username || 'Client'}
+              <small className="block text-[9px] text-[#8C7B66]">{user?.email || ''}</small>
+              <button type="button" onClick={async () => { await onLogout?.(); window.location.href = '/portal/login/'; }}
+                className="text-[9px] text-[#0f1f3a] underline underline-offset-2">
+                Logout
+              </button>
+            </span>
           </div>
-        </nav>
+        </div>
       </div>
 
       {/* Row 2 — category directory, full width, scrolls sideways.
@@ -192,6 +112,17 @@ export default function ShowcaseNav({
                 </li>
               )
             })}
+            <li className="ml-auto flex shrink-0 items-center gap-2 pl-4">
+              <button type="button" onClick={onOpenOrders}
+                className="rounded-full border border-stone-300 px-3 py-1.5 text-[12px] font-medium text-stone-700 hover:border-stone-900">
+                Orders
+              </button>
+              <button type="button" onClick={onOpenCart}
+                title={`${cartUnits} unit${cartUnits === 1 ? '' : 's'} in cart`}
+                className="rounded-full bg-[#C4763B] px-3 py-1.5 text-[12px] font-medium text-white hover:bg-[#A85E2C]">
+                Cart{cartCount > 0 ? ` (${cartCount})` : ''}
+              </button>
+            </li>
           </ul>
         </nav>
       </div>
