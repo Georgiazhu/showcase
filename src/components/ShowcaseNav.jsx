@@ -61,7 +61,7 @@ export default function ShowcaseNav({
             <img src="/cyndi-logo-word-v5.png" alt="Cyndiglobal" className="block h-7 w-auto" />
           </a>
           <nav className="flex h-full items-center gap-[26px] overflow-x-auto whitespace-nowrap">
-            {[['Projects', '/portal/dashboard/'], ['Orders', '/portal/dashboard/?view=orders'], ['Showcase', '/showcase/'], ['Portals', '/portal/dashboard/?view=portals'], ['Inventory', '/portal/dashboard/?view=inventory']].map(([label, href]) => (
+            {[['Projects', '/portal/dashboard/'], ['Purchase Orders', '/portal/dashboard/?view=purchase-orders'], ['Showcase', '/showcase/'], ['Requisitions', '/portal/dashboard/?view=requisitions'], ['Inventory', '/portal/dashboard/?view=inventory']].map(([label, href]) => (
               <a key={label} href={href}
                 className={`flex h-full items-center border-b-2 text-[13px] font-medium text-[#0f1f3a] transition-colors ${label === 'Showcase' ? 'border-[#C4763B]' : 'border-transparent hover:border-[#C4763B]'}`}>
                 {label}
